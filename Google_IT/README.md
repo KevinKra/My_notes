@@ -24,7 +24,7 @@ _What is a compiler?_
 
 #### Key Technologies:
 
-- Acabus
+- Abacus
 - Punch cards
 - the difference engine
 - the analytical engine
@@ -60,6 +60,8 @@ A computer only communicates in **binary**, **binary system**, or **base-2 numer
 
 **Character encoding** is used to assign our binary values to human-readable characters. Think of character encoding as a dictionary, it's a means for a computer to look up which human characters should be represented by a given binary value. The oldest encoding standard is **ASCII**, it represents the English alphabet punctuation, letters, digits, and all. ASCII was great because it only needed to use 127 of the 256 potential variations. However, eventually that was not enough. Other encoding standards were used to represent other languages, different character amounts, etc, eventually resulting in the need for more than 256 total options. **UTF-8** solved this problem, not only did it have the same ASCII table, but it also also let engineers use a variable number of bytes. In essence, the UTF-8 encoding standard allows us to store a character in _more than_ one byte, which allowed for tremendously more character assignments. UTF-8 is built off the Unicode Standard. How do we represent colors? Well, one method is to use the RGB model in which each character represents a shade of a color and then changes the color of a pixel on the screen. With nothing but combinations of zeros and ones organized in bytes, everything interacted with in modern machines is represented predictably and reliably.
 
+How does a computer even get the ones and zeros represented in the binary system? By utilizing the two states of on and off, a series of signals can be sent to the machine via electrical signals passed through transistors. It's an interesting evolution from the punch cards used in the 19th century looms to what we currently have with modern machines, same technique just with different means of accomplishment. An electric signal is denoted as a one (on), while no signal is denoted as a zero (off). **Logic gates** allow transistors do more complex tasks than simply turn things on or off, they decide where to send electrical signals depending on logical conditions. More in depth, a logic gate is an electronic component that conducts electricity based on a rule. The **output gate** is the result of applying this rule to one or more **inputs**. Inputs may be two wires or the output of other logic gates. There are three types of logic gates: AND, OR, NOT.
+
 _What values can a byte hold?_
 
 - Zeros and Ones.
@@ -71,3 +73,15 @@ _How many potential values can a byte have?_
 _How many bits are in a byte?_
 
 - There are 8-bits in a byte.
+
+_What is the UTF encoding standard?_
+
+- A predictable model to determine the appropriate representations of base-2 numeral system or binary system in human readable characters.
+
+_What are the three types of logic gates and what unique characteristics do they each have?_
+
+- **AND** gates have two inputs and only releases an "on" input if both inputs are on. **OR** gates have two inputs, only one input needs to be "on" for the signal to pass. **NOT** logic gates have only one input, if the input is "on" the output is "off" and vice-versa.
+
+_What is the highest decimal value we can represent with a byte?_
+
+- 255. 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 255. Total would be 255 including 0, or 256 total potential variables.

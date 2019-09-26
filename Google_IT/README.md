@@ -85,3 +85,18 @@ _What are the three types of logic gates and what unique characteristics do they
 _What is the highest decimal value we can represent with a byte?_
 
 - 255. 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 255. Total would be 255 including 0, or 256 total potential variables.
+
+#### Key technologies:
+
+- binary, binary system, base-2 numeral system
+- base-10 numeral system
+- byte
+- bit, binary digit
+- ASCII
+- UTF-8
+- character encoding
+- logic gates
+- inputs
+- output gate
+- AND, OR, NOT logic gates
+- decimal values

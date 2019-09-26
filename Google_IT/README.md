@@ -1,4 +1,8 @@
-## GOOGLE IT COURSE
+# GOOGLE IT COURSE
+
+# Fundamentals
+
+## Introduction to IT
 
 **What does an IT specialist do?**
 
@@ -86,6 +90,10 @@ _What is the highest decimal value we can represent with a byte?_
 
 - 255. 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 255. Total would be 255 including 0, or 256 total potential variables.
 
+_What is the binary solution to the numbers 248, 71, 4, 54?_
+
+- 11111000 01000111 00000100 00110110
+
 #### Key technologies:
 
 - binary, binary system, base-2 numeral system
@@ -100,3 +108,24 @@ _What is the highest decimal value we can represent with a byte?_
 - output gate
 - AND, OR, NOT logic gates
 - decimal values
+
+### Computer Abstraction Layer
+
+**Abstraction** is the process of tucking away the complexities of an topic and making make it more accessible for use. In computing, we use abstraction make computing processes simple by extracting isolated concepts and then stacking them in layers for a more comprehensive understanding.
+
+A computer can be cut into four main layers: hardware, operating system, software, and users.
+
+_What is an abstraction?_
+
+- To take a relatively complex system and simplify it for our use.
+
+_What is an example of a common abstraction?_
+
+- Error messages are a great example of a regularly occurring abstraction. The error message itself, may say `"Error: File not found"`, this helpful message informs us in a simple and approachable manner where or what the issue with our current executing code may be. Imagine troubleshooting without errors simplifying the process for us.
+
+#### Key Technologies:
+
+- Hardware layer
+- Operating system layer
+- Software layer
+- User layer

@@ -53,3 +53,21 @@ _What is a compiler?_
 - Bill Gates
 - Richard Stallman
 - Linus Torvalds
+
+### Digital Logic
+
+A computer only communicates in **binary**, **binary system**, or **base-2 numeral system**. In computing terms, we group binary into 8 numbers (a **byte**), or bits with each bit being a **binary digit**. Each byte can store one character. Historically, we used 8 bits because in the early days of computing, hardware used the base-2 numeral system to move bits around. 2^8 numbers provided a large enough range of values to all the computing needed by a machine. Initially, 8-bit computing was not the de-facto standard, but as the technology developed it became an industry standard.
+
+**Character encoding** is used to assign our binary values to human-readable characters. Think of character encoding as a dictionary, it's a means for a computer to look up which human characters should be represented by a given binary value. The oldest encoding standard is **ASCII**, it represents the English alphabet punctuation, letters, digits, and all. ASCII was great because it only needed to use 127 of the 256 potential variations. However, eventually that was not enough. Other encoding standards were used to represent other languages, different character amounts, etc, eventually resulting in the need for more than 256 total options. **UTF-8** solved this problem, not only did it have the same ASCII table, but it also also let engineers use a variable number of bytes. In essence, the UTF-8 encoding standard allows us to store a character in _more than_ one byte, which allowed for tremendously more character assignments. UTF-8 is built off the Unicode Standard. How do we represent colors? Well, one method is to use the RGB model in which each character represents a shade of a color and then changes the color of a pixel on the screen. With nothing but combinations of zeros and ones organized in bytes, everything interacted with in modern machines is represented predictably and reliably.
+
+_What values can a byte hold?_
+
+- Zeros and Ones.
+
+_How many potential values can a byte have?_
+
+- A byte can have up to 256 potential values.
+
+_How many bits are in a byte?_
+
+- There are 8-bits in a byte.

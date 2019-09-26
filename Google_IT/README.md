@@ -144,6 +144,10 @@ _CPU_
 
 - The Central Processing Unit reads the instructions from our program and processes them. It interprets the instructions (at this point compiled into binary) stored in our RAM because it can access those instructions significantly faster than it would need to if it were stored in the hard drive.
 
+_Heat Sink_
+
+- Dissipates the heat from the CPU.
+
 _RAM_
 
 - The Random Access Memory of a machine is where we can store our short-term memory to rapidly relay it to the CPU where it gets processed. Because it's "Random Access" the CPU can access any memory addresses in the RAM just as fast as any other parts. We _don't_ actually send data from the RAM to the CPU over the EDB.
@@ -171,3 +175,22 @@ _Cache_
 _Clock wire_
 
 - An internal clock that CPU uses to know when one operation ends and the next one starts, this keeps the operations in sync. When a voltage is send over the clock wire, the CPU knows it can start doing calculations. Think of the clock wire as a clock, for every "tick" the CPU does one cycle of operations. A **Clock Cycle** is what occurs when a voltage is sent to the clock wire. The `clock speed` of a CPU (for example 3.4GHz) represents the total number of clock cycles a CPU can handle in a set period. 3.4Ghz is 3.4 billion cycles per second, pretty fast. Though, if a CPU has a clock speed of 3.4GHz, that does not mean it will run at that speed, rather it's the ceiling speed. **Overclocking** is the process of increasing the clock cycle rate of your CPU to increase operations and performance.
+
+### Components
+
+CPU - The **instruction set** are hard-coded into the CPU and represent a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPU Because instruction sets are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses. Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
+
+RAM - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, or programs need to be copied into RAM so our CPU can process it. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random-Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
+
+_DRAM_
+
+- When a one or zero is sent to DRAM, it stores each bit in a **microscopic capacitor**, this charge or discharge represents the one/zero
+  binary value. These semiconductors are stored on the RAM and represent out data. There are also different types of memory sticks that DRAM can be put on. Common modern **DIMM sticks** or **Dual Inline Memory Modules**, have different sized of pins on them.
+
+_SDRAM_
+
+- Synchronous DRAM, this type of RAM is synchronized to the systems CPU clock speed which results in faster processing speed.
+
+_DDR SDRAM_
+
+- Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is the currently the fastest form of short-term memory currently available for computers.

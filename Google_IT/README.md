@@ -129,3 +129,45 @@ _What is an example of a common abstraction?_
 - Operating system layer
 - Software layer
 - User layer
+
+## Hardware
+
+### The Modern Computer
+
+- Modern computers consist of many different pieces of hardware including but not limited to: the mouse, monitor, keyboard, desktop, webcam, and printer. **Ports** are connection points in which we can connect devices to a machine to extend its functionality. Computers are made up of several components. The **CPU, or Central Processing Unit** serves as the brains of the computer, it handles all of the calculations and ata processing. **RAM, or Random Access Memory** holds the short-term memory of the computer. The **Hard Drive** is where we store data for the long-term. The **Motherboard** holds everything in place that allows all the separate components to communicate with one another, it essentially serves as the nexus of the computer.
+
+_What is a good succinct summary of a Program?_
+
+- A program is a series of instructions that tells a computer what to do.
+
+_CPU_
+
+- The Central Processing Unit reads the instructions from our program and processes them. It interprets the instructions (at this point compiled into binary) stored in our RAM because it can access those instructions significantly faster than it would need to if it were stored in the hard drive.
+
+_RAM_
+
+- The Random Access Memory of a machine is where we can store our short-term memory to rapidly relay it to the CPU where it gets processed. Because it's "Random Access" the CPU can access any memory addresses in the RAM just as fast as any other parts. We _don't_ actually send data from the RAM to the CPU over the EDB.
+
+_EDB_
+
+- External Data Bus it's a row of wires that interconnect the parts of our computer. When a voltage is sent to one of the wires, the is changed to 1, or on. If there is no voltage, it is 0, or off. This is how our bits physically travel around the computer, they come in many different sizes: 8-bit, 16-bit, 32-bit, 64-bit, the larger the bit-size the more data can be moved around at any given time. An 8-bit EDB sends 1 byte of data, or one line of data, around at a time.
+
+_Registers_
+
+- Components inside the CPU the store the data that our CPU needs to work with. If the CPU needed to add two numbers, one number would be stored in register "a", the other would be stored in register "b", and the result would be stored in register "c".
+
+_MCC_
+
+- Memory Controller Chip is a bridge between the CPU and the RAM. CPU requests data, MCC locates the relevant data, MCC sends the data through the EDB.
+
+_Address Bus_
+
+- Connects the CPU to the MCC. The CPU sends the location of the data (but not the data itself) to the MCC, then the MCC uses that memory location address to look up the data in the RAM, then the MCC forwards the correct data over the EDB to the CPU.
+
+_Cache_
+
+- An even faster means of getting data than RAM that exists on the CPU. It's utilized for data that was recently used and/or frequently used. There are three different cache levels in a CPU: **L1, L2, L3**. L1 is the smallest and fastest cache.
+
+_Clock wire_
+
+- An internal clock that CPU uses to know when one operation ends and the next one starts, this keeps the operations in sync. When a voltage is send over the clock wire, the CPU knows it can start doing calculations. Think of the clock wire as a clock, for every "tick" the CPU does one cycle of operations. A **Clock Cycle** is what occurs when a voltage is sent to the clock wire. The `clock speed` of a CPU (for example 3.4GHz) represents the total number of clock cycles a CPU can handle in a set period. 3.4Ghz is 3.4 billion cycles per second, pretty fast. Though, if a CPU has a clock speed of 3.4GHz, that does not mean it will run at that speed, rather it's the ceiling speed. **Overclocking** is the process of increasing the clock cycle rate of your CPU to increase operations and performance.

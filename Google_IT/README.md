@@ -166,7 +166,7 @@ _Address Bus_
 
 _Cache_
 
-- An even faster means of getting data than RAM that exists on the CPU. It's utilized for data that was recently used and/or frequently used. There are three different cache levels in a CPU: **L1, L2, L3**. L1 is the smallest and fastest cache.
+- An even faster means of getting data than RAM that exists on the CPU. It's utilized for data that was recently used and/or frequently used. There are three different cache levels in a CPU: **L1, L2, L3**. L1 is the smallest and fastest cache. They store data that is otherwise being frequently used from the main memory location, this results in a reduction in the cost of time and energy. All modern (fast) CPUs have different levels of caches, most of which split their L1 cache. Every core of a multi-core processor has dedicated L2 cache that is not shared amongst the cores. L3 and higher level caches are usually split, but like L2 caches L3 caches are not share between cores. L4 caches are uncommon and is usually on DRAM and not SRAM like other caches.
 
 _Clock wire_
 

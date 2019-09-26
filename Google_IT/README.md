@@ -42,3 +42,14 @@ _What is a compiler?_
 - PDAs
 - compilers
 - cryptography
+
+#### Key figures
+
+- Joseph Jacquard
+- Charles Babbage
+- Ada Lovelace
+- Grace Hopper
+- Steve Wozniak
+- Bill Gates
+- Richard Stallman
+- Linus Torvalds

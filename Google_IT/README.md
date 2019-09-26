@@ -194,3 +194,28 @@ _SDRAM_
 _DDR SDRAM_
 
 - Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is the currently the fastest form of short-term memory currently available for computers.
+
+#### Key Technologies:
+
+- CPU
+- Heat Sink
+- RAM
+- DRAM
+- SDRAM
+- DDR SDRAM, DDR
+- EDB
+- Registers
+- MCC
+- Address bus
+- Cache, L1, L2, L3, L4
+- Clock wire
+- Hard Drive
+- Motherboard
+- Clock cycles
+- Clock wire
+- Overclocking
+- LGA / PGA
+- 32-bit / 64-bit architecture
+- Volatile data
+- Instruction set
+- DIMM sticks

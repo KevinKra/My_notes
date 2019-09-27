@@ -10,11 +10,11 @@
 
 ### History of Computing
 
-A computer is a device that stores and processes data by performing calculations. Abacus is often considered the first "computer", it calculated numbers for a user, over the centuries computers continued to developed. By the 19th century, Joseph Jacquard developed punch cards for looms that determined how looms would handle the process for manufacturing textiles. Charles Babbage, a gifted engineer, built the first modern computer. The machine he built, called a **difference engine** was a mechanical calculator that could perform complicated mathematical calculations. Babbage's follow-up invention was called an **analytical engine**. Inspired by Jacquard, he allowed users to predefine a series of calculations they wanted to perform. Despite how advanced Babbage's machine was, it was still none-the-less a mechanical calculator. Mathematician Ada Lovelace took the analytical calculator to the next level. She realized that the analytical calculator could be developed to accomplish far more than just pure calculations. Ada Lovelace developed the first algorithm for the engine (the first example of computer programming), transforming the analytical engine from being a complex mechanical calculator to become the first general purpose computing machine in history.
+A computer is a device that stores and processes data by performing calculations. The Abacus is often considered the first "computer", in so much that it calculated numbers for the user. Over the centuries computers continued to developed. By the 19th century, Joseph Jacquard developed punch cards for looms that determined how looms would handle the process for manufacturing textiles. Charles Babbage, a gifted engineer, built the first modern computer. The machine he built, called a **difference engine** was a mechanical calculator that could perform complicated mathematical calculations. Babbage's follow-up invention was called an **analytical engine**. Inspired by Jacquard, he allowed users to predefine a series of calculations they wanted to perform. Despite how advanced Babbage's machine was, it was still none-the-less a mechanical calculator. Mathematician Ada Lovelace took the analytical calculator to the next level. She realized that the analytical calculator could be developed to accomplish far more than just pure calculations. Ada Lovelace developed the first algorithm for the engine (the first example of computer programming), transforming the analytical engine from being a complex mechanical calculator to become the first general purpose computing machine in history.
 
-Until the 1950s, punch cards will still the mainstay in providing algorithms to a computer. Innovations like **magnetic tape** worked by magnetizing data onto a tape, and solved several issues surrounding the traditional punch card approach. **Vacuum Tubes** controlled the controlled the electricity voltages of equipment but were bulky and constantly broke. The phrase **debugging** originated from renowned computer scientist Admiral Grace Hopper when she discovered a literal bug, a moth, to be the source of the problem with their computer relays. The wall-to-wall convolution of electronics and wires, the **ENIAC**, was one of the earliest forms of general purpose computers. Eventually, the industry moved away from vacuum tubes and started using transistors for the role of managing electricity voltages. **Transistors** are more compact and efficient than vacuum tubes and are still used today, albeit so small and efficient that they exist in the billions on modern machines.
+Until the 1950s, punch cards were the mainstay in providing algorithms to a computer. Innovations like **magnetic tape** worked by magnetizing data onto a tape and solved several issues surrounding the traditional punch card approach. **Vacuum Tubes** controlled the electrical voltages of equipment but were bulky and constantly broke. The phrase **debugging** originated from renowned computer scientist Admiral Grace Hopper when she discovered a literal bug, a moth, to be the source of the problem with their computer relays. The wall-to-wall convolution of electronics and wires, the **ENIAC**, was one of the earliest forms of general purpose computers. Eventually, the industry moved away from vacuum tubes and started using transistors for the role of managing electricity voltages. **Transistors** are more compact and efficient than vacuum tubes and are still used today, albeit so small and efficient that they exist in the billions on modern machines.
 
-The Xerox Alto was the first modern computer, it also was the first computer to use a GUI. In the 1970s Steve Wozniak, along with Steve Jobs, invented the Apple I, a single-board computer for hobbyists. Their follow-up the Apple II, was ready for commercial use and became a massive success. In the 1980s IBM introduced the personal computer along with a primitive OS called **MS DOS** or **Microsoft Disk Operating System**. Eventually Microsoft went on to create their own OS called **Microsoft Windows** which dominated the market because it could run on any compatible hardware. With Apple and Microsoft taking over the operating system space, an engineer named Richard Stallman started developing a free Unix-like operating system, Stallman created an OS that he called **GNU**, it was meant to be free to use and accessible to everyone with similar functionality to Unix. It was intended to evolve into a fully open-source OS that was not owned by Apple or Microsoft. It set the foundation for one of the largest modern operating systems, **Linux**, that was developed by Linus Torvalds.
+The Xerox Alto was the first modern computer, it also was the first computer to use a GUI. In the 1970s Steve Wozniak, along with Steve Jobs, invented the Apple I, a single-board computer for hobbyists. Their follow-up the Apple II, was ready for commercial use and became a massive success. In the 1980s IBM introduced the personal computer along with a primitive OS called **MS DOS** or **Microsoft Disk Operating System**. Eventually, Microsoft went on to create their own OS called **Microsoft Windows** which dominated the market because it could run on any compatible hardware. With Apple and Microsoft taking over the operating system space, an engineer named Richard Stallman started developing a free Unix-like operating system, Stallman created an OS that he called **GNU**, it was meant to be free to use and accessible to everyone with similar functionality to Unix. It was intended to evolve into a fully open-source OS that was not owned by Apple or Microsoft. It set the foundation for one of the largest modern operating systems, **Linux**, that was developed by Linus Torvalds.
 
 In the 1990s as computers became even smaller a new game changer hit the scene: **PDAs** or **Personal Digital assistants**. PDAs allowed computing to go mobile and eventually led to the portable media devices we have today: smartphones.
 
@@ -60,15 +60,15 @@ _What is a compiler?_
 
 ### Digital Logic
 
-A computer only communicates in **binary**, **binary system**, or **base-2 numeral system**. In computing terms, we group binary into 8 numbers (a **byte**), or bits with each bit being a **binary digit**. Each byte can store one character. Historically, we used 8 bits because in the early days of computing, hardware used the base-2 numeral system to move bits around. 2^8 numbers provided a large enough range of values to all the computing needed by a machine. Initially, 8-bit computing was not the de-facto standard, but as the technology developed it became an industry standard.
+A computer only communicates in **binary**, in the **binary system**, or aka **base-2 numeral system**. In computing terms, we group binary into 8 numbers (a **byte**), or bits with each bit being a **binary digit**. Each byte can store one character. Historically, we used 8 bits because in the early days of computing, hardware used the base-2 numeral system to move bits around. 2^8 provided a large enough range of values to satisfy all the computing needed by a machine. Initially, 8-bit computing was not the de-facto standard, but as the technology developed it became an industry standard.
 
-**Character encoding** is used to assign our binary values to human-readable characters. Think of character encoding as a dictionary, it's a means for a computer to look up which human characters should be represented by a given binary value. The oldest encoding standard is **ASCII**, it represents the English alphabet punctuation, letters, digits, and all. ASCII was great because it only needed to use 127 of the 256 potential variations. However, eventually that was not enough. Other encoding standards were used to represent other languages, different character amounts, etc, eventually resulting in the need for more than 256 total options. **UTF-8** solved this problem, not only did it have the same ASCII table, but it also also let engineers use a variable number of bytes. In essence, the UTF-8 encoding standard allows us to store a character in _more than_ one byte, which allowed for tremendously more character assignments. UTF-8 is built off the Unicode Standard. How do we represent colors? Well, one method is to use the RGB model in which each character represents a shade of a color and then changes the color of a pixel on the screen. With nothing but combinations of zeros and ones organized in bytes, everything interacted with in modern machines is represented predictably and reliably.
+**Character encoding** is used to assign our binary values to human-readable characters. Think of character encoding as a dictionary, it's a means for a computer to look up which human characters should be represented by a given binary value. The oldest encoding standard is **ASCII**, it represents the English alphabet punctuation, letters, digits, and all. ASCII was great because it only needed to use 127 of the 256 potential variations. However, eventually that was not enough. Other encoding standards were used to represent other languages, different character amounts, etc, eventually resulting in the need for more than 256 total options. **UTF-8** solved this problem. Not only did it have the same ASCII table, but it also also let engineers use a variable number of bytes. In essence, the UTF-8 encoding standard allows us to store a character in _more than_ one byte, which allowed for tremendously more character assignments. UTF-8 is built off the Unicode Standard. How do we represent colors? Well, one method is to use the RGB model in which each character represents a shade of a color and then changes the color of a pixel on the screen. With nothing but combinations of zeros and ones organized in bytes, everything interacted with in modern machines is represented predictably and reliably.
 
-How does a computer even get the ones and zeros represented in the binary system? By utilizing the two states of on and off, a series of signals can be sent to the machine via electrical signals passed through transistors. It's an interesting evolution from the punch cards used in the 19th century looms to what we currently have with modern machines, same technique just with different means of accomplishment. An electric signal is denoted as a one (on), while no signal is denoted as a zero (off). **Logic gates** allow transistors do more complex tasks than simply turn things on or off, they decide where to send electrical signals depending on logical conditions. More in depth, a logic gate is an electronic component that conducts electricity based on a rule. The **output gate** is the result of applying this rule to one or more **inputs**. Inputs may be two wires or the output of other logic gates. There are three types of logic gates: AND, OR, NOT.
+How does a computer even create and handle the ones and zeros represented in the binary system? By utilizing the two states of "on" and "off", a series of signals can be sent to the machine via electrical voltages passed through transistors. It's an interesting evolution from the punch cards used in the 19th century looms to what we currently have with modern machines, it's truly the same technique just with different means of accomplishment. An electric signal is denoted as a one (on), while no signal is denoted as a zero (off). **Logic gates** allow transistors do more complex tasks than simply turning things on or off, they decide where to send electrical signals depending on logical conditions. More in depth, a logic gate is an electronic component that conducts electricity based on a rule. The **output gate** is the result of applying this rule to one or more **inputs**. Inputs may be two wires or the output of other logic gates. There are three types of logic gates: AND, OR, NOT.
 
 _What values can a byte hold?_
 
-- Zeros and Ones.
+- A combination of eight zeros and ones.
 
 _How many potential values can a byte have?_
 
@@ -80,7 +80,7 @@ _How many bits are in a byte?_
 
 _What is the UTF encoding standard?_
 
-- A predictable model to determine the appropriate representations of base-2 numeral system or binary system in human readable characters.
+- A predictable model to determine the appropriate representations of the base-2 numeral system or binary system in human readable characters.
 
 _What are the three types of logic gates and what unique characteristics do they each have?_
 
@@ -111,13 +111,15 @@ _What is the binary solution to the numbers 248, 71, 4, 54?_
 
 ### Computer Abstraction Layer
 
-**Abstraction** is the process of tucking away the complexities of an topic and making make it more accessible for use. In computing, we use abstraction make computing processes simple by extracting isolated concepts and then stacking them in layers for a more comprehensive understanding.
-
-A computer can be cut into four main layers: hardware, operating system, software, and users.
+**Abstraction** is the process of tucking away the complexities of a topic and making it more accessible for use. In computing, we use abstraction make computing processes more simple by extracting isolated concepts and then stacking them in layers for a more comprehensive understanding.
 
 _What is an abstraction?_
 
 - To take a relatively complex system and simplify it for our use.
+
+_What is an example of abstraction regarding computers?_
+
+- An abstraction of a computer can be cut into four main layers: hardware, operating system, software, and users.
 
 _What is an example of a common abstraction?_
 
@@ -134,7 +136,7 @@ _What is an example of a common abstraction?_
 
 ### The Modern Computer
 
-- Modern computers consist of many different pieces of hardware including but not limited to: the mouse, monitor, keyboard, desktop, webcam, and printer. **Ports** are connection points in which we can connect devices to a machine to extend its functionality. Computers are made up of several components. The **CPU, or Central Processing Unit** serves as the brains of the computer, it handles all of the calculations and ata processing. **RAM, or Random Access Memory** holds the short-term memory of the computer. The **Hard Drive** is where we store data for the long-term. The **Motherboard** holds everything in place that allows all the separate components to communicate with one another, it essentially serves as the nexus of the computer.
+- Modern computers consist of many different pieces of hardware including but not limited to: the mouse, monitor, keyboard, desktop, webcam, and printer. **Ports** are connection points in which we can connect devices to a machine to extend its functionality. Computers are made up of several components. The **CPU, or Central Processing Unit** serves as the brains of the computer, it handles all of the calculations and processes. **RAM, or Random Access Memory** holds the short-term memory of the computer. The **Hard Drive** is where we store data for the long-term. The **Motherboard** holds everything in place that allows all the separate components to communicate with one another, it essentially serves as the nexus of the computer.
 
 _What is a good succinct summary of a Program?_
 
@@ -150,19 +152,19 @@ _Heat Sink_
 
 _RAM_
 
-- The Random Access Memory of a machine is where we can store our short-term memory to rapidly relay it to the CPU where it gets processed. Because it's "Random Access" the CPU can access any memory addresses in the RAM just as fast as any other parts. We _don't_ actually send data from the RAM to the CPU over the EDB.
+- The Random Access Memory of a machine is where we can store our short-term memory to rapidly relay it to the CPU where it gets processed. Because it's "Random Access" the CPU can access any memory addresses in the RAM just as fast as any other parts. We _don't_ actually send data directly from the RAM to the CPU, rather it travels over the EDB.
 
 _EDB_
 
-- External Data Bus it's a row of wires that interconnect the parts of our computer. When a voltage is sent to one of the wires, the is changed to 1, or on. If there is no voltage, it is 0, or off. This is how our bits physically travel around the computer, they come in many different sizes: 8-bit, 16-bit, 32-bit, 64-bit, the larger the bit-size the more data can be moved around at any given time. An 8-bit EDB sends 1 byte of data, or one line of data, around at a time.
+- The External Data Bus is a row of wires that interconnect the parts of our computer. When a voltage is sent to one of the wires, the respective transistor is changed to 1, or on. If there is no voltage, it is 0, or off. This is how our bits physically travel around the computer. EDBs come in many different sizes: 8-bit, 16-bit, 32-bit, 64-bit, the larger the bit-size the more data can be moved around at any given time. An 8-bit EDB sends 1 byte of data, or one line of data, around at a time.
 
 _Registers_
 
-- Components inside the CPU the store the data that our CPU needs to work with. If the CPU needed to add two numbers, one number would be stored in register "a", the other would be stored in register "b", and the result would be stored in register "c".
+- Components inside the CPU that store the data our CPU needs to work with. If the CPU needed to add two numbers together, one number would be stored in register "a", the other would be stored in register "b", and the result would be stored in register "c".
 
 _MCC_
 
-- Memory Controller Chip is a bridge between the CPU and the RAM. CPU requests data, MCC locates the relevant data, MCC sends the data through the EDB.
+- Memory Controller Chip is a bridge between the CPU and the RAM. CPU requests data, MCC locates the relevant data, then the MCC sends the data through the EDB to the CPU.
 
 _Address Bus_
 
@@ -170,22 +172,24 @@ _Address Bus_
 
 _Cache_
 
-- An even faster means of getting data than RAM that exists on the CPU. It's utilized for data that was recently used and/or frequently used. There are three different cache levels in a CPU: **L1, L2, L3**. L1 is the smallest and fastest cache. They store data that is otherwise being frequently used from the main memory location, this results in a reduction in the cost of time and energy. All modern (fast) CPUs have different levels of caches, most of which split their L1 cache. Every core of a multi-core processor has dedicated L2 cache that is not shared amongst the cores. L3 and higher level caches are usually split, but like L2 caches L3 caches are not share between cores. L4 caches are uncommon and is usually on DRAM and not SRAM like other caches.
+- An even faster means of getting data than RAM that exists on the CPU. It's utilized for data that was recently used and/or frequently used. There are three different cache levels in a CPU: **L1, L2, L3**. L1 is the smallest and fastest cache. They store data that is otherwise being frequently used from the main memory location, this results in a reduction in the cost of time and energy. All modern (fast) CPUs have different levels of caches, most of which split their L1 cache. Every core of a multi-core processor has dedicated L2 cache that is not shared amongst the cores. L3 and higher level caches are usually split, but like L2 caches L3 caches do not share data between cores. L4 caches are uncommon and is usually on DRAM and not SRAM like other caches.
 
 _Clock wire_
 
-- An internal clock that CPU uses to know when one operation ends and the next one starts, this keeps the operations in sync. When a voltage is send over the clock wire, the CPU knows it can start doing calculations. Think of the clock wire as a clock, for every "tick" the CPU does one cycle of operations. A **Clock Cycle** is what occurs when a voltage is sent to the clock wire. The `clock speed` of a CPU (for example 3.4GHz) represents the total number of clock cycles a CPU can handle in a set period. 3.4Ghz is 3.4 billion cycles per second, pretty fast. Though, if a CPU has a clock speed of 3.4GHz, that does not mean it will run at that speed, rather it's the ceiling speed. **Overclocking** is the process of increasing the clock cycle rate of your CPU to increase operations and performance.
+- An internal clock that CPU uses to know when one operation ends and the next one starts, this keeps the operations in sync. When a voltage is sent over the clock wire, the CPU knows it can start doing calculations. Think of the clock wire as a clock, for every _tick_ the CPU does one cycle of operations. A **Clock Cycle** is what occurs when a voltage is sent to the clock wire. The `clock speed` of a CPU (for example 3.4GHz) represents the total number of clock cycles a CPU can handle in a set period. 3.4Ghz is 3.4 billion cycles per second, pretty fast. Though, if a CPU has a clock speed of 3.4GHz, that does not mean it will run at that speed, rather it's the ceiling speed. **Overclocking** is the process of increasing the clock cycle rate of your CPU to increase operations and performance.
 
 ### Components
 
-CPU - The **instruction set** are hard-coded into the CPU and represent a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPU Because instruction sets are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses. Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
+CPU - The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
 
-RAM - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, or programs need to be copied into RAM so our CPU can process it. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random-Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
+Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
+
+RAM - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
 
 _DRAM_
 
 - When a one or zero is sent to DRAM, it stores each bit in a **microscopic capacitor**, this charge or discharge represents the one/zero
-  binary value. These semiconductors are stored on the RAM and represent out data. There are also different types of memory sticks that DRAM can be put on. Common modern **DIMM sticks** or **Dual Inline Memory Modules**, have different sized of pins on them.
+  binary value. These semiconductors are stored on the RAM and represent our data. There are also different types of memory sticks that DRAM can be put on. Common modern **DIMM sticks** or **Dual Inline Memory Modules**, have different sized of pins on them.
 
 _SDRAM_
 
@@ -193,10 +197,11 @@ _SDRAM_
 
 _DDR SDRAM_
 
-- Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is the currently the fastest form of short-term memory currently available for computers.
+- Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is currently the fastest form of short-term memory that is available for computers.
 
 #### Key Technologies:
 
+- Ports
 - CPU
 - Heat Sink
 - RAM
@@ -212,7 +217,6 @@ _DDR SDRAM_
 - Hard Drive
 - Motherboard
 - Clock cycles
-- Clock wire
 - Overclocking
 - LGA / PGA
 - 32-bit / 64-bit architecture

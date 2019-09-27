@@ -2,7 +2,9 @@
 
 #### History of Ruby
 
-Ruby was released in 1994 by a developer known as Matz. Matz aimed to create a language that had the power and flexibility of Perl, but was more readable. Ruby's popularity kicked off in Japan and until the year 2000 nearly all of the documentation was written in Japanese. Dave Thomas, a pioneer of agile programming, created the first major form of Ruby documentation. In the early 2000s, the Ruby community (mostly system admins) leveraged the language to work as a "glue", much like Perl had been used as previously. The first major push towards being adopted towards being a mainstream language occurred when the Danish engineer DHH extracted a web framework out of an application he had built, the focus was on convention over configuration with the aim of making problems easy to solve.
+Ruby was released in 1994 by a developer known as Matz. Matz aimed to create a language that had the power and flexibility of Perl, but was more readable. Ruby's popularity kicked off in Japan and until the year 2000 nearly all of the documentation was written in Japanese. Dave Thomas, a pioneer of agile programming, created the first major form of Ruby documentation.
+
+In the early 2000s, the Ruby community (mostly system admins) leveraged the language to work as a "glue", much like Perl had been used as previously. The first major push towards being adopted towards being a mainstream language occurred when the Danish engineer DHH extracted a web framework out of an application he had built, the focus was on convention over configuration with the aim of making problems easy to solve.
 
 ## Instructions & Interpreters
 
@@ -57,15 +59,70 @@ _Summarize the history of Ruby_
 
 _What is the relationship between an interpreted language, the VM, and the machine?_
 
-- Ruby (also like Javascript), are high-level interpreted languages. That means they need to be compiled into lower level languages, like C++ (in some cases), machine code, and then into binary before it can be interpreted by the CPU. The VM, or virtual machine, handles the compiling of Ruby and makes the as a consequence makes the language more-or-less platform independent.
+- Ruby (also like Javascript), is a high-level interpreted language. That means it needs to be compiled into lower level languages, like C++ (NodeJS and Chrome's V8 engine compile Javascript into C++), machine code, and then into binary before it can be interpreted by the CPU. The VM, or virtual machine, handles the compiling of Ruby and makes the as a consequence makes the language more-or-less platform independent.
 
 #### Key Technologies:
 
 - Interpreted Language
 - VM or Virtual Machine
 - IRB (REPL)
+- compiling
 
 ## Variables
+
+Variables are an abstraction of data, or in other words they abstract away the complexities of remembering the data itself and instead storing that information in a predefined container. In some languages (like Java or C), engineers need to strictly define the type of data held in a variable.
+
+For example, `int a = 5` translates to: "variable `a` must be assigned to an `integer` and must always be an `integer` type" otherwise you will receive an error during the compile phase. In contrast, Ruby is loosely typed (or dynamically typed) which means the type assignment to a variable can be changed at any given time. There are strengths and weaknesses to both paradigms.
+
+Strictly typed:
+
+```
+int a = 5;
+a = "dog"
+// ERROR
+```
+
+Loosely typed:
+
+```
+Ruby
+a = 5
+a = "cat"
+a
+"cat"
+```
+
+```
+// Javascript (handles both)
+let a = 12;
+a = "taco"
+a
+// "taco"
+
+const a = 12;
+a = "taco"
+// ERROR
+```
+
+In some languages (like Javascript, at least if you're using `"use strict"`) you need to _declare_ a variable before assigning a value to it. Ruby does not require you, the developer, to write out your variable declarations. Rather, Ruby automatically creates variables when you assign a value to it.
+
+```
+// Javascript:
+let a = 12;
+a
+// 12
+
+// Ruby:
+a = 24
+a
+// 24
+```
+
+In both Ruby and Javascript (and probably all other languages for that matter), code is interpreted from right to left. For instance `a = 5 + 2`, would be interpreted as "the sum of 5 + 2 is _assigned_ to a".
+
+In regards to naming variables in the Ruby environment, the VM requires that they must always started with a lowercase letter (or undercase), have no space, and must not contain special characters like `$`, `@`, and `&`. Additionally, Rubyists have a few style conventions: using_snake_case and named after the meaning of their content.
+
+ex: `count`, `dogs_in_park`, `first_purchase`
 
 ## Strings
 

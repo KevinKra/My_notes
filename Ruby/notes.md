@@ -126,7 +126,7 @@ ex: `count`, `dogs_in_park`, `first_purchase`
 
 ## Strings
 
-"These are examples of strings:", "Hello", "", "Even an empty string is a still a string type".
+"These are examples of strings:", `"Hello"`, `""`, `"Even an empty string is a still a string type"`.
 
 **Substrings** allow you to copy parts of a string.
 
@@ -146,8 +146,8 @@ Useful string methods:
 
 The two ways to combine strings in Ruby: concatenation and interpolation.
 
-- Concating strings: "Hello" + " World";
-- String Interpolation: puts "Good morning, #{a_variable_you_previously_declared}"
+- Concating strings: `"Hello" + " World"`
+- String Interpolation: puts `"Good morning, #{a_variable_you_previously_declared}"`
 
 ## Symbols
 
@@ -175,11 +175,39 @@ end
 
 ## Blocks
 
+#### Starting & Ending Blocks
+
+Blocks are used in Ruby to contain and bundling up a set of instructions for use. An example of blocks is what exists between the `do` and `end` keywords in the below example.
+
+```
+5.times do
+  puts "Hello, World!"
+end
+```
+
+#### Bracket Blocks
+
+When a block contains a single instruction the bracket markers `{` and `}` can be used to close the block.
+
+```
+5.times {puts "Hello, World!"}
+```
+
 ## Arrays
+
+Arrays represent data in an ordered manner, starting at index 0 until the end of the array. Their addresses can be accessed in constant time or `O(1)` and the value will be returned. Though, an issue with arrays is that they require you, the developer, to know exactly what the `key` of the array is in order to leverage the constant time lookup. Otherwise, if you don't know the `key` for the value you are looking for, you will need to iterate through the array.
 
 ## Hashes
 
+Hashes, or Hash Tables (dictionary in Python), are a variation on the Array. Instead of looking for key by a numeric key value, a hash table allows you to lookup the key by the value itself. For instance, if you had a produce list and you wanted to see the amount of apples you bought. You would look up `apples` or more accurately `myHashTable["apples"]` and the value of the lookup would be 3, 4, or how ever many apples you purchased.
+
 ## Conditionals
+
+- `=` vs `==`. A Single equals sign represents an assignment operation, whereas two equals signs represent a conditional check.
+
+- `&&` logical AND
+
+- `||` logical OR
 
 ## Nil & Nothingness
 

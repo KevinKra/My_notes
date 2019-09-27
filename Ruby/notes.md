@@ -126,9 +126,52 @@ ex: `count`, `dogs_in_park`, `first_purchase`
 
 ## Strings
 
+"These are examples of strings:", "Hello", "", "Even an empty string is a still a string type".
+
+**Substrings** allow you to copy parts of a string.
+
+For instance:
+
+```
+a = "Dogs run"
+a[0...3] --> "Dog"
+a[0...-3] --> "Dogs "
+```
+
+Useful string methods:
+
+- length
+- split
+- sub / gsub (find and replace a word, local and global)
+
+The two ways to combine strings in Ruby: concatenation and interpolation.
+
+- Concating strings: "Hello" + " World";
+- String Interpolation: puts "Good morning, #{a_variable_you_previously_declared}"
+
 ## Symbols
 
+Symbols are essentially "named integers"
+
 ## Numbers
+
+There are two kinds of numbers: integers (whole numbers) and floats (numbers with a decimal point)
+
+Javascript:
+
+```
+for(var i = 0; i < 5; i++){
+  console.log("Hello, World");
+}
+```
+
+Ruby:
+
+```
+5.times do
+  puts "Hello, World!"
+end
+```
 
 ## Blocks
 

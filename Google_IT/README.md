@@ -1,5 +1,9 @@
 # GOOGLE IT COURSE
 
+- Q: Why am I working through Google's IT certification?
+
+- A: Because having a stronger understanding of how computers, systems, and networks work, makes me a better team member and engineer.
+
 # Fundamentals
 
 ## Introduction to IT
@@ -180,11 +184,11 @@ _Clock wire_
 
 ### Components
 
-CPU - The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
+**CPU** - The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
 
 Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
 
-RAM - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
+**RAM** - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
 
 _DRAM_
 

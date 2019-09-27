@@ -197,11 +197,29 @@ When a block contains a single instruction the bracket markers `{` and `}` can b
 
 Arrays represent data in an ordered manner, starting at index 0 until the end of the array. Their addresses can be accessed in constant time or `O(1)` and the value will be returned. Though, an issue with arrays is that they require you, the developer, to know exactly what the `key` of the array is in order to leverage the constant time lookup. Otherwise, if you don't know the `key` for the value you are looking for, you will need to iterate through the array.
 
+Example:
+
+```
+a = ["a","bee","ccc"]
+a.shuffle
+["bee", "a", "ccc"]
+```
+
+#### Useful Array Methods:
+
+- `each`
+- `collect`
+- `first`
+- `last`
+- `shuffle`
+
 ## Hashes
 
 Hashes, or Hash Tables (dictionary in Python), are a variation on the Array. Instead of looking for key by a numeric key value, a hash table allows you to lookup the key by the value itself. For instance, if you had a produce list and you wanted to see the amount of apples you bought. You would look up `apples` or more accurately `myHashTable["apples"]` and the value of the lookup would be 3, 4, or how ever many apples you purchased.
 
 ## Conditionals
+
+- `if`/`elseif`/`else` conditional statements handle a specific conditional logic behavior.
 
 - `=` vs `==`. A Single equals sign represents an assignment operation, whereas two equals signs represent a conditional check.
 
@@ -211,4 +229,42 @@ Hashes, or Hash Tables (dictionary in Python), are a variation on the Array. Ins
 
 ## Nil & Nothingness
 
+Nil (or `null` in Javascript) is the explicit representation of nothing. An empty string `""`, a `0`, an empty array `[]`, etc, is still something. Nil is nothing, or nothingness.
+
 ## Objects, Attributes, and Methods
+
+**Ruby is an Object Oriented language**, all things we interact with in the VM are objects. Each piece of data is an object and those objects have attributes (properties in JS) and methods. **Classes** are an abstract descriptions of a category or type of thing. It defines what the instances, or copies, of a specific Class Object will have. Lets look at the example below.
+
+> attr_accessor defines the attributes that exist on a class
+
+```
+class Cat
+  attr_accessor :name, :age, :owner, :home_address
+
+  def meow
+    puts "Meow"
+  end
+
+  def call
+    puts "Meow, please feed me #{owner}!"
+  end
+
+  def imLost(home)
+    puts "Meow, I'm lost. I live at #{home}. Where is that?"
+  end
+end
+```
+
+> initialize method is a better way of adding data to instances of a class
+
+```
+class Dog
+  def initialize(name, age, owner, home_address)
+
+  def bark
+    puts "Bark Bark"
+  end
+end
+```
+
+`rufio = Dog.new("Rufio", 6, "Steven", 123 Crestwood Dr.)`

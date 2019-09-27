@@ -51,6 +51,20 @@ Ruby was among the first languages to popularize the REPL, which stands for "Rea
 
 > IRB can be opened by typing irb in the terminal.
 
+_Summarize the history of Ruby_
+
+- Ruby was initially popularized in Japan during the mid 90s, in the early 2000s the documentation for the language was written in english and it slowly gained popularity in the west. DHH extracted the web-framework format of the language and continued to develop the usability of the language. Ruby is designed to be readable and easy to comprehend.
+
+_What is the relationship between an interpreted language, the VM, and the machine?_
+
+- Ruby (also like Javascript), are high-level interpreted languages. That means they need to be compiled into lower level languages, like C++ (in some cases), machine code, and then into binary before it can be interpreted by the CPU. The VM, or virtual machine, handles the compiling of Ruby and makes the as a consequence makes the language more-or-less platform independent.
+
+#### Key Technologies:
+
+- Interpreted Language
+- VM or Virtual Machine
+- IRB (REPL)
+
 ## Variables
 
 ## Strings

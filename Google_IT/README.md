@@ -186,11 +186,15 @@ _What is a good succinct summary of a Program?_
 
 > A deeper dive into each machine component
 
-**CPU** - The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
+#### CPU
+
+The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
 
 Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
 
-**RAM** - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
+#### RAM
+
+RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
 
 **DRAM**
 
@@ -204,6 +208,16 @@ Not all components can necessarily fit together, for instance a CPU may not be c
 **DDR SDRAM**
 
 - Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is currently the fastest form of short-term memory that is available for computers.
+
+#### Motherboard
+
+The motherboard is the central hub of the computer. It connects different parts of the computer together and allows the expansion of our computer's functionality by adding **expansion cards**. All motherboards have a few key characteristics:
+
+- the **chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards, and the other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hardd rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
+
+- **Expansion Slots**: allow us to expand on the functionality of our computer. For instance, if you wanted to install a GPU you would install it onto the expansion slot. The standard for expansion slots today is called the **PCIe**, or **Peripheral Component Interconnect Express**. The PCIe looks like an expansion slot on the motherboard.
+
+- **Form Factor**: The size of a motherboard. ATX, Advanced Technology Extended, is the most common Form Factor. ITX, Information Technology Extended is a smaller form factor than the ATX. The form factor of a motherboard is important in determining the amount of functionality and computational power you eventually want in your machine.
 
 #### Key Technologies:
 

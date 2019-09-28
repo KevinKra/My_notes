@@ -67,12 +67,35 @@ _What is the relationship between an interpreted language, the VM, and the machi
 - VM or Virtual Machine
 - IRB (REPL)
 - compiling
+- environment
+- control flow
+- expression
+
+## Keywords and methods
+
+- `puts` - returns a blank string
+
+- `print` - prints value to the screen
+
+- `gets` - captures the input from the user
+
+- `gets.chomp` - captures the input from the user and removes (chomps) the following extra line
+
+- `String.include("s")`
+
+- `String.gsub!(/s/, 'th')` - **g**lobal **sub**stitution
+
+- `!` mutates source, without !, a copy would be created
+
+- `?` evaluates to true or false
 
 ## Variables
 
 Variables are an abstraction of data, or in other words they abstract away the complexities of remembering the data itself and instead storing that information in a predefined container. In some languages (like Java or C), engineers need to strictly define the type of data held in a variable.
 
 For example, `int a = 5` translates to: "variable `a` must be assigned to an `integer` and must always be an `integer` type" otherwise you will receive an error during the compile phase. In contrast, Ruby is loosely typed (or dynamically typed) which means the type assignment to a variable can be changed at any given time. There are strengths and weaknesses to both paradigms.
+
+types of variables: **local variables**,
 
 Strictly typed:
 
@@ -153,7 +176,7 @@ The two ways to combine strings in Ruby: concatenation and interpolation.
 
 Symbols are essentially "named integers"
 
-## Numbers
+## Numbers / Numeric
 
 There are two kinds of numbers: integers (whole numbers) and floats (numbers with a decimal point)
 
@@ -217,9 +240,13 @@ a.shuffle
 
 Hashes, or Hash Tables (dictionary in Python), are a variation on the Array. Instead of looking for key by a numeric key value, a hash table allows you to lookup the key by the value itself. For instance, if you had a produce list and you wanted to see the amount of apples you bought. You would look up `apples` or more accurately `myHashTable["apples"]` and the value of the lookup would be 3, 4, or how ever many apples you purchased.
 
-## Conditionals
+## Conditionals and Control Flow
 
 - `if`/`elseif`/`else` conditional statements handle a specific conditional logic behavior.
+
+- `unless` checks whether something is false instead of true.
+
+- `!true` / `!false` - not
 
 - `=` vs `==`. A Single equals sign represents an assignment operation, whereas two equals signs represent a conditional check.
 
@@ -233,7 +260,11 @@ Nil (or `null` in Javascript) is the explicit representation of nothing. An empt
 
 ## Objects, Attributes, and Methods
 
-**Ruby is an Object Oriented language**, all things we interact with in the VM are objects. Each piece of data is an object and those objects have attributes (properties in JS) and methods. **Classes** are an abstract descriptions of a category or type of thing. It defines what the instances, or copies, of a specific Class Object will have. Lets look at the example below.
+**Ruby is a pure Object Oriented language**, all things we interact with in the VM are objects. Each piece of data is an object and those objects have attributes (properties in JS) and methods. **Classes** are an abstract descriptions of a category or type of thing. It defines what the instances, or copies, of a specific Class Object will have. Lets look at the example below.
+
+_What is everything in Ruby?_
+
+- Everything in Ruby is an object.
 
 > attr_accessor defines the attributes that exist on a class
 

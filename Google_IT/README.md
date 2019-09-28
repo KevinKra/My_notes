@@ -242,6 +242,14 @@ The motherboard is the central hub of the computer. It connects different parts 
 
 - The most common interface for connecting a hard drive. The most common of the ATA interfaces is SATA, which uses one cable for data transfers. SATA drives are **hot swappable** and don't require the computer to be shut down to plug one in. They are move data faster and are more efficient than their precursors. Despite the speed of the **SATA cable** it was not fast enough to keep up with the demands of SSDs. So another interface standard was created called **NVM express** or **NVMe**, instead of using another cable an NVMe was added as an expansion slot allow for greater throughput and efficiency.
 
+**Power Supply**
+
+- Two types of electricity: **DC, direct current / AC, alternating current**.
+
+_Computers use DC voltage_ so we need to convert it from _AC_ that flows in. The power supply does exactly that, it converts AC power to low voltage DC power.
+
+- The _flow_ or _pressure_ of power is regarded as to as **voltage**. **AMPS, or Amperage** is the pulling of electricity, as opposed to the "pushing" analogy for voltage. Voltage gives you every, per the flow, AMPs is the pulling of just enough that is needed. The more amperage a charger pulls, the faster it will charge a device. **Wattage** is the amount of voltage and amperage a system needs. It's better to have more **power supply** than less, since having too little will fail to start the machine.
+
 #### Key Technologies:
 
 - Ports

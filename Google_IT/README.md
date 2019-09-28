@@ -213,7 +213,7 @@ RAM is constantly being updated and changed, it is also **volatile data** meanin
 
 The motherboard is the central hub of the computer. It connects different parts of the computer together and allows the expansion of our computer's functionality by adding **expansion cards**. All motherboards have a few key characteristics:
 
-- the **chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards, and the other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hardd rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
+- **The Chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards, and the other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hardd rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
 
 - **Expansion Slots**: allow us to expand on the functionality of our computer. For instance, if you wanted to install a GPU you would install it onto the expansion slot. The standard for expansion slots today is called the **PCIe**, or **Peripheral Component Interconnect Express**. The PCIe looks like an expansion slot on the motherboard.
 
@@ -249,6 +249,12 @@ The motherboard is the central hub of the computer. It connects different parts 
 _Computers use DC voltage_ so we need to convert it from _AC_ that flows in. The power supply does exactly that, it converts AC power to low voltage DC power.
 
 - The _flow_ or _pressure_ of power is regarded as to as **voltage**. **AMPS, or Amperage** is the pulling of electricity, as opposed to the "pushing" analogy for voltage. Voltage gives you every, per the flow, AMPs is the pulling of just enough that is needed. The more amperage a charger pulls, the faster it will charge a device. **Wattage** is the amount of voltage and amperage a system needs. It's better to have more **power supply** than less, since having too little will fail to start the machine.
+
+#### Peripherals
+
+- Anything that can be added to a computer, externally, is considered a **peripheral**. **USBs or Universal Serial Bus**'s are one of the most popular peripherals. There are 3 modern versions of the USB: USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s). There is an important distinction to make between _MB_ and _Mb/s_. MB or megabyte is a unit of storage, while **Mb/s or megabit per second, is a unit of data transfer rate.** Port sizes matter, if you plug a USB 2.0 into a 3.1 port, you will not get the 3.1's transfer speed, but it still is backward compatible. Generally, USB 2.0 ports are black, USB 3.0 ports are blue, and USB 3.1 ports are teal.
+
+There are many types of USB connectors, the most popular and recent one is the **type-C** connector, used for many types of connections including display and data transfer. **DVI cables** are a bit older than type-c connectors, generally just output video. Two standards that output both audio and display are the **HDMI** cable and the **Display Port**. Type-C connectors do more than just video and audio output, they can also transfer data and power.
 
 #### Key Technologies:
 

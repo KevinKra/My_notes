@@ -147,6 +147,12 @@ In regards to naming variables in the Ruby environment, the VM requires that the
 
 ex: `count`, `dogs_in_park`, `first_purchase`
 
+## Loops
+
+- `while`
+
+- `until`
+
 ## Strings
 
 "These are examples of strings:", `"Hello"`, `""`, `"Even an empty string is a still a string type"`.

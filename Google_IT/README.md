@@ -219,6 +219,29 @@ The motherboard is the central hub of the computer. It connects different parts 
 
 - **Form Factor**: The size of a motherboard. ATX, Advanced Technology Extended, is the most common Form Factor. ITX, Information Technology Extended is a smaller form factor than the ATX. The form factor of a motherboard is important in determining the amount of functionality and computational power you eventually want in your machine.
 
+#### Storage
+
+**Data Sizes**
+
+- 1 bit
+- 1 byte (8 bits)
+- 1 kilobyte (1024 bytes)
+- 1 megabyte (1024 kilobytes)
+- 1 gigabyte (1024 megabytes)
+- 1 terabyte (1024 gigabytes)
+
+**Hard Drive**
+
+- HHD, **Hard Disk Drives**, use a mechanical arm and spinning platform to read and write information. The speed of the platform/platter determines how quickly data can be written and read, commonly referred to as **RPM**. Because of the moving parts, HDDs are more prone to damage than SSDs.
+
+**Solid State Drive**
+
+- SSDs have no moving parts. Information is stored on microchips so data is able to travel much quicker when compared to an HDD. Additionally, their form factor is much more compact than that of an HDD.
+
+**ATA**
+
+- The most common interface for connecting a hard drive. The most common of the ATA interfaces is SATA, which uses one cable for data transfers. SATA drives are **hot swappable** and don't require the computer to be shut down to plug one in. They are move data faster and are more efficient than their precursors. Despite the speed of the **SATA cable** it was not fast enough to keep up with the demands of SSDs. So another interface standard was created called **NVM express** or **NVMe**, instead of using another cable an NVMe was added as an expansion slot allow for greater throughput and efficiency.
+
 #### Key Technologies:
 
 - Ports

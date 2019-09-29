@@ -213,11 +213,19 @@ RAM is constantly being updated and changed, it is also **volatile data** meanin
 
 The motherboard is the central hub of the computer. It connects different parts of the computer together and allows the expansion of our computer's functionality by adding **expansion cards**. All motherboards have a few key characteristics:
 
-- **The Chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards, and the other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hardd rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
+- **The Chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards. The other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hard rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
 
 - **Expansion Slots**: allow us to expand on the functionality of our computer. For instance, if you wanted to install a GPU you would install it onto the expansion slot. The standard for expansion slots today is called the **PCIe**, or **Peripheral Component Interconnect Express**. The PCIe looks like an expansion slot on the motherboard.
 
 - **Form Factor**: The size of a motherboard. ATX, Advanced Technology Extended, is the most common Form Factor. ITX, Information Technology Extended is a smaller form factor than the ATX. The form factor of a motherboard is important in determining the amount of functionality and computational power you eventually want in your machine.
+
+_What is the purpose of the Chipset?_
+
+- The chipset helps determine how components like the CPU, RAM, and peripherals work together.
+
+_What do the Southbridge and Northbridge handle?_
+
+- The Southbridge handles the I/O behaviors of the machine, whereas the Northbridge handles components like the RAM, GPU, etc. Some CPUs integrate the Northbridge functionality internally.
 
 #### Storage
 
@@ -242,7 +250,19 @@ The motherboard is the central hub of the computer. It connects different parts 
 
 - The most common interface for connecting a hard drive. The most common of the ATA interfaces is SATA, which uses one cable for data transfers. SATA drives are **hot swappable** and don't require the computer to be shut down to plug one in. They are move data faster and are more efficient than their precursors. Despite the speed of the **SATA cable** it was not fast enough to keep up with the demands of SSDs. So another interface standard was created called **NVM express** or **NVMe**, instead of using another cable an NVMe was added as an expansion slot allow for greater throughput and efficiency.
 
-**Power Supply**
+_What are the key differences between an HDD and SDD?_
+
+- HDD have more moving parts, including a mechanical arm and platter, and therefor are more prone to failure, however when compared to an SSD they are cheaper. SSDs have no moving parts, instead relying on internal microchips to read and write data. In addition to being much faster in transferring in data than their HDD cousins, they also have a more compact and efficient form factor.
+
+_What is an ATA / SATA drive?_
+
+- They are interfaces for connecting to the hard drive. SATA drives are hot swappable, use one cable for data transfers, and are more efficient than ATA drives.
+
+_Are SATA cables suitable for SSDs?_
+
+- No, they are unable to keep up with transfer speed of an SSD and therefor not suitable when compared to an NVMe (NVM express) which provides a faster throughput and greater efficiency.
+
+#### Power Supply
 
 - Two types of electricity: **DC, direct current / AC, alternating current**.
 
@@ -250,11 +270,27 @@ _Computers use DC voltage_ so we need to convert it from _AC_ that flows in. The
 
 - The _flow_ or _pressure_ of power is regarded as to as **voltage**. **AMPS, or Amperage** is the pulling of electricity, as opposed to the "pushing" analogy for voltage. Voltage gives you every, per the flow, AMPs is the pulling of just enough that is needed. The more amperage a charger pulls, the faster it will charge a device. **Wattage** is the amount of voltage and amperage a system needs. It's better to have more **power supply** than less, since having too little will fail to start the machine.
 
+_Explain the differences between AC / DC and what the computer uses_
+
+- AC (alternating current) is the power the is sent out on the grid, the computer needs to use DC (direct current) which flows unidirectionly.
+
+_Explain voltage, amperage, and wattage_
+
+- Voltage is the pressure of the electrical current, amperage is the power of the current coming into a machine, wattage is the amount of power needed by a machine.
+
 #### Peripherals
 
-- Anything that can be added to a computer, externally, is considered a **peripheral**. **USBs or Universal Serial Bus**'s are one of the most popular peripherals. There are 3 modern versions of the USB: USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s). There is an important distinction to make between _MB_ and _Mb/s_. MB or megabyte is a unit of storage, while **Mb/s or megabit per second, is a unit of data transfer rate.** Port sizes matter, if you plug a USB 2.0 into a 3.1 port, you will not get the 3.1's transfer speed, but it still is backward compatible. Generally, USB 2.0 ports are black, USB 3.0 ports are blue, and USB 3.1 ports are teal.
+- Anything that can be added to a computer, externally, is considered a **peripheral**. **USBs or Universal Serial Bus**'s are one of the most popular peripherals. There are 3 modern versions of the USB: _USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s)_. There is an important distinction to make between _MB_ and _Mb/s_. MB or megabyte is a unit of storage, while **Mb/s or megabit per second, is a unit of data transfer rate.** Port sizes matter, if you plug a USB 2.0 into a 3.1 port, you will not get the 3.1's transfer speed, but it still is backward compatible. Generally, USB 2.0 ports are black, USB 3.0 ports are blue, and USB 3.1 ports are teal.
 
 There are many types of USB connectors, the most popular and recent one is the **type-C** connector, used for many types of connections including display and data transfer. **DVI cables** are a bit older than type-c connectors, generally just output video. Two standards that output both audio and display are the **HDMI** cable and the **Display Port**. Type-C connectors do more than just video and audio output, they can also transfer data and power.
+
+_What is the transfer speed of a USB 2.0, 3.0, and 3.1_
+
+- USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s)
+
+_What is the difference between MB and Mb/s?_
+
+- MB is an expression of actual size, Megabit per second is the representation of data transferring per second.
 
 #### Key Technologies:
 
@@ -280,3 +316,12 @@ There are many types of USB connectors, the most popular and recent one is the *
 - Volatile data
 - Instruction set
 - DIMM sticks
+- Form Factor
+- Northbridge
+- Southbridge
+- PCIe
+- ATA / SATA / NVMe
+- hot swappable
+- voltage, amperage, wattage
+- USB
+- type-c, hdmi, div-cables, display port

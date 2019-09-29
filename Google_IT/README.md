@@ -325,3 +325,17 @@ _What is the difference between MB and Mb/s?_
 - voltage, amperage, wattage
 - USB
 - type-c, hdmi, div-cables, display port
+
+### Start up
+
+#### BIOS
+
+How do mouse clicks and keyboard presses reach the CPU? Clicking a key on a keyboard would only send a single byte to the cpu, and well, the cpu wouldnt know how to handle that information. Devices themselves have programs that tell the CPU how to process their inputs, these programs are called **services** or **drivers**. Drivers contain instructions that our CPU needs in order to understand external devices like keyboards, webcams, printers, etc.
+
+**BIOS**, or **Basic Input Output Services**, is what the CPU uses to communicate with device drivers. The BIOS is software that initializes the computer's hardware and gets our operating system up and running. The BIOS isnt stored on a hard drive, rather its stored on the motherboard itself in a chip called the **Read-Only Memory chip** or **ROM chip**. Unlike RAM, ROM is _non-volatile_, meaning it wont erase data on shutdown. Once the OS loads, we are able to run non-essential device drivers.
+
+**UEFI**, or **Unified Extensible Firmware Interface**, is a new technology that serves the same purpose as the BIOS, but it's newer and has better support for newer hardware. Most hardware now has UEFI integration. Eventually, UEFI will become the dominant variant of BIOS.
+
+One occasion, when turning on a computer you may here beeping. The beeping is the result of a **Power On Self Test** or **POST**. During this process the computer's BIOS tests that hardware is working correctly. BIOS will run the essential drivers first, if there is an issue (and your video driver has not yet been loaded), it will play a series of specific sounds to indicate what exactly is not working. For instance, two beeps could be a POST error.
+
+the **CMOS chip** on the motherboard stores basic data like the the date, time, and how you want to start up. It can be changed in the BIOS settings menu. The process of using the BIOS to **reimage** a computer is a common IT task, the term refers to a disk image, which is a copy of an operating system. So, in short reimaging is the process of wiping and reinstalling an operating system. The procedure is normally handled using a program stored on a USB, CD ROM, or even a network accessible server.

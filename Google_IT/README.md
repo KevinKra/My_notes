@@ -360,7 +360,7 @@ A **Network Stack** is what we would troubleshoot in the event of a networking i
 
 ### The Language of the Internet
 
-The networking protocols we use help get our packets from one place to the next. There are many different variants of network protocols but they all do the have the same objectives: route efficiently, aren't corrupted, secure, go to the right machine, and are named appropriately. The **IP** in **TCP/IP** or **Transmission Control Protocol / Internet Protocol**, makes sure we deliver the right packets of data to the correct computers, essentially it helps us route our traffic correctly. The TCP, is a protocol that handles the reliable delivery of information from one network to another. This protocol is important because it handles how we share information across networks.
+There are many different variants of networking protocols we use help get our packets from one place to the next, but they all have the same objectives: route efficiently, aren't corrupted, secure, go to the right machine, and are named appropriately. The **IP** in **TCP/IP** or **Transmission Control Protocol / Internet Protocol**, makes sure we deliver the right packets of data to the correct computers, essentially it helps us route our traffic correctly. The TCP, is a protocol that handles the reliable delivery of information from one network to another. This protocol is important because it handles how we share information across networks.
 
 ### The Web
 

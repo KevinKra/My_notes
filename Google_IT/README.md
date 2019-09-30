@@ -339,3 +339,29 @@ How do mouse clicks and keyboard presses reach the CPU? Clicking a key on a keyb
 One occasion, when turning on a computer you may here beeping. The beeping is the result of a **Power On Self Test** or **POST**. During this process the computer's BIOS tests that hardware is working correctly. BIOS will run the essential drivers first, if there is an issue (and your video driver has not yet been loaded), it will play a series of specific sounds to indicate what exactly is not working. For instance, two beeps could be a POST error.
 
 the **CMOS chip** on the motherboard stores basic data like the the date, time, and how you want to start up. It can be changed in the BIOS settings menu. The process of using the BIOS to **reimage** a computer is a common IT task, the term refers to a disk image, which is a copy of an operating system. So, in short reimaging is the process of wiping and reinstalling an operating system. The procedure is normally handled using a program stored on a USB, CD ROM, or even a network accessible server.
+
+## Networks
+
+A network is a connection between n computers. A network can be as simple two computers connected to one another or well into the millions and billions, eventually evolving into what is called the **internet**. The internet is the physical connection of computers and wires around the world, the **web** on the other hand is the information that is getting passed around the internet network. **Networking** is the process of managing, building, and designing networks.
+
+The internet is a massive network of cables, satellites, cellular networks, etc. We as users don't actually directly connect to the internet, rather we go through servers that connect to the internet. **Servers** store the websites that we use, they serve content. The machines we use, **clients**, request the content from servers. Clients don't directly connect to the internet, instead they connect to a network run by an **ISP**, or **Internet Service Provider**. ISPs set up the infrastructure used to connect to the internet, they connect to other networks and ISPs, and together they form a giant network called the internet.
+
+Computers are able to connect to servers through addresses called **IP addresses**. Computers on a network have identifiers called IP Addresses that directly connect clients to the resources they requested like a website. Websites IP addresses are composed of digits like `172.217.6.46` and when a client makes a request to a server, with the desired address, the network connected server responds with the appropriate resources per client request. Devices that can connect to a network have a unique (generally) permanent hard-coded identifier called a **MAC addresses**. When you send or receive data through a network you need to have both an IP and a MAC address. a MAC address is the address of the "recipient". Data is sent through a network using **packets**, while data is sent out over a network, it is broken down into smaller pieces of data (1s and 0s) and once the packet gets to its destination it gets rearranged back in order.
+
+### Networking Hardware
+
+Ethernet cables, WIFI, and fiber-optic cables allow us to connect to the internet. Fiber optic cables are the fastest means of connecting to the internet, the cables themselves are made of glass and send light signals, rather than an electrical current through a copper wire, to send data (1s and 0s) through the cables.
+
+**Router**
+
+Routers connects lots of different devices together and helps manage network traffic. If a user wanted to send data from one computer to another computer in the same network, a router would use **network protocol** rules to determine where to send the packet. If we wanted to send data to someone outside of the network, the router would direct the traffic to our ISP's network that would have it's own network protocols to leverage. During the process our packet would travel through many different routers, switches, and hubs.
+
+A **Network Stack** is what we would troubleshoot in the event of a networking issue. In short, a network stack is a set of hardware or software that provides infrastructure for a computer network.
+
+### The Language of the Internet
+
+There are many different variants of networking protocols we use help get our packets from one place to the next, but they all have the same objectives: route efficiently, aren't corrupted, secure, go to the right machine, and are named appropriately. The **IP** in **TCP/IP** or **Transmission Control Protocol / Internet Protocol**, makes sure we deliver the right packets of data to the correct computers, essentially it helps us route our traffic correctly. The TCP, is a protocol that handles the reliable delivery of information from one network to another. This protocol is important because it handles how we share information across networks.
+
+### The Web
+
+All websites can be accessed through the web. The **URL, or Uniform Resource Locator** consists of a `www` `domain-name` `com` . `DNS or Domain Name System` allows us to write human readable addresses like `www.google.com` to map to the relevant IP address. When you got on your browser and search for a website, you program does a DNS lookup to find the correct IP address for the name you entered.

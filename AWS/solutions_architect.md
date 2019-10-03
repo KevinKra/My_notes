@@ -35,6 +35,8 @@
 - **Regions** - A geographical area that consists of 2 or more availability zones.
 - **Edge Location** - Edge locations are endpoints for AWS which are used for caching content. Caches files and content from distant regions and holds them in a closer edge location facility.
 
+- **Amazon VPC** - Amazon Virtual Private Cloud, which is _part of Networking services_ is a virtual network dedicated to a single AWS account. It is isolated from other virtual networks in the AWS cloud, providing compute resources with robust and secure networking functionality.
+
 ### Content to focus on for certification
 
 - Security, Identity, and Compliance
@@ -43,6 +45,15 @@
 - Storage
 - Databases
 
+### Keywords:
+
+- Amazon VPC - Amazon Virtual Private Cloud
+- Amazon AZ - Availability Zone
+
 ### Questions:
 
 _What is a region, an availability zone, and edge location?_
+
+_Where is CloudFront data cached?_
+
+- in Edge locations.

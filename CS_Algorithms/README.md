@@ -8,9 +8,24 @@
 
 > Simplified analysis of an algorithm's efficiency in time and space.
 
-- Determining the time and space (memory cost) complexity of a given algorithm independent of computer or language factors. The type of measurements determined with big-O are: Worst-case, average-case, best-case scenarios. Asymptotic analysis ignores constants and certain terms **dominate** others.
+- Determining the time and space (memory cost) complexity of a given algorithm independent of computer or language factors. The type of measurements determined with big-O are: Worst-case, average-case, best-case scenarios. Asymptotic analysis ignores constants and certain terms **dominate** others. Again, the exact number of operations is not as important as determining the most dominant part of the `T(n)` function. The **order of magnitude** function describes the part of `T(n)` that increases the fastest as the value of _n_ increases. Order of Magnitude is often called **Big-O** notation (for "order") and is written as `O(f(n))`.
 
-- **Input Size** - running time depends on input size for instance, larger arrays will take longer to sort. We measure _time_efficiency_ as a function of input size.
+- an example of order of magnitude or big-O in action:
+
+  `T(n) = 5n^2 + 27n + 1005`
+
+```
+  1. if n equals 1 or 2, than it would appear that the constant 1005 would be the dominant part of the function.
+  2. however, as n gets larger 5n^2 becomes the most dominant part of the function.
+  3. the coefficient 5, in 5n^2, becomes irrelevant as n becomes larger. All we care about at this point is n^2
+  4. conclusion: this function T(n) has an order of magnitude of f(n) = n^2 or O(n^2)
+```
+
+- **Algorithm** - a generic set of instructions for solving a problem.
+
+- **Program** - an algorithm that has been encoded into some programming language.
+
+- **Input Size** - running time depends on input size. For sorting and other problems on arrays: the input size is the array size. For combinatorial problems: the input size is the number of objects. For Graphs, there are two parameters: number of vertices, number of edges. For numbers, it's not the size of the number, but how many digits in contains.
 
 - **Orders of Magnitude** - asymptotic analysis ignores constants and instead focuses on the most dominant terms. Logarithmic solutions are the most optimal. From most optimal to least: `log n`, `n`, `n log n`, `n^2`, `n^3`, `2^n`, `n!`
 
@@ -53,14 +68,39 @@ for (let i = 0; i < y; i++) {
 // // total time = o(1) + o(n^2) = o(n^2) or quadratic time.
 ```
 
+**Example comparing a linear solution against an superior algorithm.**
+
+```
+// Linear solution
+function sumValue1(number) {
+    let sum = 0
+    for (let i = 0; i <= number; i++) {
+        sum = sum + i
+    }
+    return sum;
+}
+sumValue1(50000000)
+// 60.534912109375ms
+
+// Using a more efficient algorithm
+function sumValue2(num) {
+	return (num*(num+1))/2
+}
+sumValue2(50000000)
+//  0.05712890625ms
+```
+
 #### Keywords:
 
 - Big-O measurements
-- input time
-- naive solution
+- Input size
+- Algorithm
+- Program
+- Naive solution
 - Constant time
 - Linear time
 - Quadratic time
+- Running time, execution time
 
 ---
 

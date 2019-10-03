@@ -68,7 +68,7 @@ _Where is CloudFront data cached?_
 - Shared access to your AWS account
 - Granular permissions
 - Identity federations, allows end-users to potentially log in using their Facebook account, LinkedIn, etc.
-- Multifactor Authentication
+- Multi-factor Authentication
 - Provide temporary access for users/devices and services
 - Allows password rotation policy
 - Integrates with many different AWS services
@@ -103,31 +103,44 @@ _Where is CloudFront data cached?_
 - root account - account created when we first setup AWS account. It has complete Admin access.
 - 2FA - two-factor authentication
 - MFA - multi-factor authentication
+- Billing Alarm - An billing limit you set that will trigger an alarm once its been reached.
 
 ### Questions:
 
-- _Is IAM limited to regions or is it universal?_
-- IAM is currently universal and does not apply to specific regions.
+- **Is IAM limited to regions or is it universal?**
 
-- _Do users have permissions when they're first created?_
-- No, new users start with _NO_ permissions.
+  _IAM is currently universal and does not apply to specific regions._
 
-- _What are new users assigned when they're first created?_
-- an Access Key ID, Secret Access Key.
+- **Do users have permissions when they're first created?**
 
-- _Can you use the Access Key ID and Secret Access Key to login to the console?_
-- No, it does allow access to AWS via APIs and the command line, or via programmatic access.
+  _No, new users start with NO permissions._
 
-- _Describe how to disable or deactivate an access key_
-- IAM > Users > Security Credentials Tab > Access Keys > Status > Make Inactive
+- **What are new users assigned when they're first created?**
 
-- _Can you continue looking at the user's keys after they're generated?_
-- No, if you lose them you need to regenerate them. Save the CSV file in a secure location.
+  _an Access Key ID, Secret Access Key._
 
-- _Should you have MFA on your root account?_
-- Yes.
+- **Can you use the Access Key ID and Secret Access Key to login to the console?**
 
-- _Can you create and customize your password and pw policy rules?_
-- Yes.
+  _No, it does allow access to AWS via APIs and the command line, or via programmatic access._
+
+- **Describe how to disable or deactivate an access key**
+
+  _IAM > Users > Security Credentials Tab > Access Keys > Status > Make Inactive_
+
+- **Can you continue looking at the user's keys after they're generated?**
+
+  _No, if you lose them you need to regenerate them. Save the CSV file in a secure location._
+
+- **Should you have MFA on your root account?**
+
+  _Yes._
+
+- **Can you create and customize your password and pw policy rules?**
+
+  _Yes._
+
+- **How would you alert users in the event their billing limit has been reached?**
+
+  _You can create a billing alarm in CloudWatch. Services > CloudWatch > Billing > Create Alarm_
 
 ### Scenarios:

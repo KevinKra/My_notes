@@ -159,6 +159,8 @@
 
 ## S3 101
 
+> Before taking the exam read the S3 FAQS
+
 - **Simple Storage Service**. One of the oldest services on AWS. It provides developers and IT teams with secure, durable, and highly-scalable object storage. S3 is easy to use with a simple web services interface that allows you to store and retrieve information from anywhere in the world.
 
 ### S3 Features
@@ -208,12 +210,33 @@
 - **Requests**
 - **Storage Management Pricing**
 - **Data Transfer Pricing**
-- **Transfer Acceleration** - Allows for fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. TA takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network.
+- **Transfer Acceleration** - Allows for fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. TA takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is then re-routed to Amazon S3 over an optimized network or Amazon's backbone network.
 - **Cross Region Replication** - Allows for data to be automatically replicated in another region. Allows for increased availability and provides disaster durability.
+
+### Keywords:
+
+- **RRS** - Reduced Redundancy Storage
 
 ### Questions:
 
-- **What is the reading ability for new file POSTs and existing file PUTs and DELETEs?**
+- **What is the consistency (reading) ability for new file POSTs and existing file PUTs and DELETEs?**
   _Newly posted files can immediately be read, however editing or deleting existing files will need a brief moment to update the resource and make it readable._
 
 - **What are the S3 Storage Classes / Tiers and what defines each tier?**
+
+- **What are the availability and durability markings for S3 standard?**
+
+- **What are the expenses involved with using S3 services**
+
+- **What are the features of S3?**
+
+- **What are the suitable types of data that can be stored on S3?**
+  _It is designed to store files, not serve as a database host or installing OS._
+
+- **What type of response does S3 send out?**
+
+- **Can MFA be used in relation to S3?**
+  _Yes, it can be used to protect from the deletion of files._
+
+- **What are the key fundamentals of S3 data?**
+  _There is a key, value, versionID, metadata, and sub-resources (Access Control Lists/permissions, Torrent)_

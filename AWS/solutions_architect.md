@@ -47,16 +47,16 @@
 
 ### Keywords:
 
-- Amazon VPC - Amazon Virtual Private Cloud
-- Amazon AZ - Availability Zone
+- **Amazon VPC** - Amazon Virtual Private Cloud
+- **Amazon AZ** - Availability Zone
 
 ### Questions:
 
-_What is a region, an availability zone, and edge location?_
+- **What is a region, an availability zone, and an edge location?**
 
-_Where is CloudFront data cached?_
+- **Where is CloudFront data cached?**
 
-- in Edge locations.
+  _in Edge locations._
 
 ## IAM 101
 
@@ -73,6 +73,8 @@ _Where is CloudFront data cached?_
 - Allows password rotation policy
 - Integrates with many different AWS services
 - Supports PCI DSS Compliance, a compliance required for handling user data and money.
+
+#### IAM Permissions
 
 - **Users** - End users such as employees
 - **Groups** - A collection of users, each user will inherit the permissions of the group.
@@ -99,11 +101,15 @@ _Where is CloudFront data cached?_
 
 ### Keywords:
 
-- IAM - Identity Access Management
-- root account - account created when we first setup AWS account. It has complete Admin access.
-- 2FA - two-factor authentication
-- MFA - multi-factor authentication
-- Billing Alarm - An billing limit you set that will trigger an alarm once its been reached.
+- **IAM** - Identity Access Management
+- **root account** - account created when we first setup AWS account. It has complete Admin access.
+- **2FA** - two-factor authentication
+- **MFA** - multi-factor authentication
+- **Billing Alarm** - An billing limit you set that will trigger an alarm once its been reached.
+- **Users**
+- **Groups**
+- **Policies**
+- **Roles**
 
 ### Questions:
 

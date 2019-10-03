@@ -58,6 +58,8 @@
 
   _in Edge locations._
 
+---
+
 ## IAM 101
 
 - **Identity Access Management**, IAM allows you to manage users and their level of access to the AWS console. It is important to know for administrating a company's AWS account. Allows you to create users, groups, roles, etc. on the platform and provide permissions.
@@ -150,3 +152,68 @@
   _You can create a billing alarm in CloudWatch. Services > CloudWatch > Billing > Create Alarm_
 
 ### Scenarios:
+
+- **You need to protect your account from being over-billed. How can you accomplish this?**
+
+---
+
+## S3 101
+
+- **Simple Storage Service**. One of the oldest services on AWS. It provides developers and IT teams with secure, durable, and highly-scalable object storage. S3 is easy to use with a simple web services interface that allows you to store and retrieve information from anywhere in the world.
+
+### S3 Features
+
+- S3 is **Object-based**, ie allows you to upload files.
+- Files can range between 0 Bytes to 5 terabytes.
+- There is unlimited storage.
+- Files are stored in Buckets (directory). Must have a unique name.
+- S3 is a universal name space. Names must be unique globally.
+- When you upload a file to S3 you will receive an HTTP 200 code.
+- Tiered Storage
+- Life-cycle Management. Allows files to be moved around.
+- Versioning
+- Encryption
+- MFA Delete
+- Secure data using **Access Control Lists** and **Bucket Policies**
+
+### Objects
+
+- **Key** - name of the object
+- **Value data** - in the form of bytes
+- **Version ID** - important for versioning
+- **Metadata** - Data about the data
+- **SubResources** - Access Control Lists, Torrent
+
+### How does data consistency work for S3?
+
+- Read after write for POSTs of new objects. As soon as you upload a file, you can read it.
+- Eventual consistency for overwrite PUTs and DELETEs, if you wait a few moments you will be able to read the latest version.
+
+### S3 Guarantees
+
+- 99.99% availability guaranteed by Amazon and 99.999999999% durability. (Remember 11 9s).
+
+### S3 Storage Classes / Tiers
+
+- **S3 Standard** - 99.99% availability and 99.999999999% durability. Data is stored redundantly across multiple devices in multiple facilities and is designed to sustain the loss of 2 facilities concurrently.
+- **S3 - IA** - Infrequently Accessed. For less frequently accessed data, but requires rapid access when needed. Lower fee than S3 standard, but you are charged a retrieval fee.
+- **S3 One Zone - IA** - Infrequently Accessed. A much cheaper IA option but lacks the multiple AZ data resilience.
+- **S3 Intelligent Tiering** - Leverages machine learning to automatically move data to most cost-effective access tier, without performance impact or operational overhead.
+- **S3 Glacier** - Secure, durable, low-cost storage class for data archiving. You can reliably store any amount of data at costs that are cheaper than on-premises solutions. Retrieval times are configurable, can range from minutes to hours.
+- **S3 Glacier Deep Archive** - Amazon S3's lowest-cost storage class. Retrieval time byte latency of 12 hours is acceptable.
+
+### S3 Charges for
+
+- **Storage**
+- **Requests**
+- **Storage Management Pricing**
+- **Data Transfer Pricing**
+- **Transfer Acceleration** - Allows for fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. TA takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network.
+- **Cross Region Replication** - Allows for data to be automatically replicated in another region. Allows for increased availability and provides disaster durability.
+
+### Questions:
+
+- **What is the reading ability for new file POSTs and existing file PUTs and DELETEs?**
+  _Newly posted files can immediately be read, however editing or deleting existing files will need a brief moment to update the resource and make it readable._
+
+- **What are the S3 Storage Classes / Tiers and what defines each tier?**

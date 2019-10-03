@@ -15,9 +15,9 @@
 
 ### The History of AWS
 
-- Why is AWS so powerful? Amazon allows companies to use amazons web servers(AWS) without risks associated with having to build home-grown servers. This allows for companies with tighter budgets to build into AWS and leverage all the integrated server scalability features that Amazon provides. Additionally, it reduces risks to the company because they no longer have to manage and maintain their own server farm.
+- Why is AWS so powerful? Amazon allows companies to use Amazon's Web Servers(AWS) without risks associated with having to build home-grown servers. This allows for companies with tighter budgets to build into AWS and leverage all the integrated server scalability features that Amazon provides. Additionally, it reduces risks to the company because they no longer have to manage and maintain their own server farm.
 
-- in 2003 Chris Pinkham and Benjamin Black presented a paper on what Amazons internal infrastructure should look like. They suggested selling it as a service and prepared a business case for it.
+- in 2003 Chris Pinkham and Benjamin Black presented a paper on what Amazons internal infrastructure could look like. They suggested selling it as a service and prepared a business case for it.
 
 - SQS was launched in 2004, the very first service released by AWS.
 - AWS as a business launched in 2006, targeting developers in Silicon Valley.
@@ -26,7 +26,7 @@
 - 2012 first re:Invent conference
 - 2013 certifications released
 - 2018 AWS launched Machine Learning certificates
-- 2019 Alexa Specialty Beta Cert launched.
+- 2019 Alexa Specialty Beta certification launched.
 
 ### AWS Platform
 
@@ -125,15 +125,15 @@
 
 - **What are new users assigned when they're first created?**
 
-  _an Access Key ID, Secret Access Key._
+  _an Access Key ID and a Secret Access Key._
 
 - **Can you use the Access Key ID and Secret Access Key to login to the console?**
 
-  _No, it does allow access to AWS via APIs and the command line, or via programmatic access._
+  _No, but it does allow access to AWS via APIs and the command line, or via programmatic access._
 
 - **Describe how to disable or deactivate an access key**
 
-  _IAM > Users > Security Credentials Tab > Access Keys > Status > Make Inactive_
+  _console > IAM > Users > Security Credentials Tab > Access Keys > Status > Make Inactive_
 
 - **Can you continue looking at the user's keys after they're generated?**
 
@@ -178,10 +178,10 @@
 - MFA Delete
 - Secure data using **Access Control Lists** and **Bucket Policies**
 
-### Objects
+### S3 Objects
 
 - **Key** - name of the object
-- **Value data** - in the form of bytes
+- **Value** - data in the form of bytes
 - **Version ID** - important for versioning
 - **Metadata** - Data about the data
 - **SubResources** - Access Control Lists, Torrent
@@ -210,7 +210,7 @@
 - **Requests**
 - **Storage Management Pricing**
 - **Data Transfer Pricing**
-- **Transfer Acceleration** - Allows for fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. TA takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is then re-routed to Amazon S3 over an optimized network or Amazon's backbone network.
+- **Transfer Acceleration** - Allows for fast, easy, and secure transfers of files over long distances between your end users and an S3 bucket. TA takes advantage of Amazon CloudFront's globally distributed edge locations. As the data arrives at an edge location, data is then re-routed to Amazon S3 over an optimized network / Amazon's backbone network.
 - **Cross Region Replication** - Allows for data to be automatically replicated in another region. Allows for increased availability and provides disaster durability.
 
 ### Keywords:
@@ -240,3 +240,11 @@
 
 - **What are the key fundamentals of S3 data?**
   _There is a key, value, versionID, metadata, and sub-resources (Access Control Lists/permissions, Torrent)_
+
+- **Explain the steps to make a file in a bucket public**
+
+- **What happens when you make a bucket / object public?**
+  _Everyone will have access to one or all of the following: read this object, read and write permissions._
+
+- **Can the storage class be changed on the object and also on a bucket level?**
+  _Yes, both buckets and individual objects can have their storage classes modified._

@@ -31,6 +31,18 @@
 ### AWS Platform
 
 - **AWS Global Infrastructure** - Amazon's global infrastructure and servers around the world. As of 2019 there are 24 regions and 72 availability zones.
-- **Availability Zone** - an AZ is a data center, or cluster of data centers, that are comprised of many servers that support the AWS cloud.
+- **Availability Zone** - an AZ is a data center, or cluster of data centers, that are comprised of many servers that support the AWS cloud. In many cases, there are several geographically isolated data centers that protect the network from issues that may knock any one specific center out.
 - **Regions** - A geographical area that consists of 2 or more availability zones.
 - **Edge Location** - Edge locations are endpoints for AWS which are used for caching content. Caches files and content from distant regions and holds them in a closer edge location facility.
+
+### Content to focus on for certification
+
+- Security, Identity, and Compliance
+- Network & Content Delivery
+- Compute
+- Storage
+- Databases
+
+### Questions:
+
+_What is a region, an availability zone, and edge location?_

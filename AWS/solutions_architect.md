@@ -289,3 +289,23 @@
 ### S3 Lifecycle Management and Glacier
 
 - Lifecycles allow you to set rules to manage your objects, they can be automated to transition to tiered storage, and eventually they can be automatically set to expire based on retention needs. In short, in lifecycles automate the moving of objects between different storage tiers and can be used in conjunction with versioning (can be applied to current and previous versions).
+
+---
+
+## Databases on AWS
+
+- Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.
+
+#### Six relational databases on AWS
+
+- SQL Server (Microsoft)
+- Oracle
+- MySQL
+- PostgreSQL
+- Amazon Aurora
+- MariaDB
+
+#### RDS has two key features (RDS - Relational Database Services)
+
+- **Multi-AZ** - for disaster recovery. If we lost access to one AZ amazon would detect that and update the DNS to point to the secondary address's IP address.
+- **Read Replicas** - For performance. Every time you do a write to a database, the write will be automatically copied to the other database. However, there is no automatic fail-over from one database to the other database holding the copies. You would need to create a new url and point your EC2 instance to point at replica. Replicas are useful for scaling your database, if your website becomes extremely popular you could point half of your instances to read from the replica. **You can have five copies of read-replicas.**

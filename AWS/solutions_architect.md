@@ -292,6 +292,56 @@
 
 ---
 
+## EC2 101
+
+- **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
+
+### Pricing Models Instances
+
+- **On demand** - No commitment model that allows you to pay by the hour or even second.
+- **Reserved** - Provides a capacity reservation and offers a significant discount on the hourly charge for an instance. **Contract terms are 1 or 3 year terms.**
+- **Spot** - Enables you to bid on excess EC2 capacity. Amazon will drop the price on EC2 instances to encourage people to use that surplus capacity. You would set price you're willing to bid at and when the prices for the EC2 instances lowers you will have access to those additional resources. As the on-demand demand goes up, the prices for those instances will go up and if they pass your price point you will lose access to them until the next occurrence of reduced prices. It's essentially a market for buying into extra resources when they're in supply.
+- **Dedicated Host** - Physical EC2 server dedicated for your use. Dedicated hosts can help you reduce costs by allowing you to use your existing server-bound software licenses.
+
+#### On Demand Pricing
+
+> Ideal for:
+
+- Users that want low cost and flexibility of EC2 without any up-front payment or long-term commitment.
+- Applications with short term, spiky, or unpredictable workloads that _cannot_ be interrupted.
+- Applications being developed or tested on Amazon EC2 for the first time.
+
+#### Reserved Pricing
+
+> Ideal for:
+
+- Applications with steady state or predictable usage.
+- Applications that require reserved capacity.
+- Users are able to make upfront payments to reduce their total computing cost even further.
+
+**3 Types:**
+
+- **Standard Reserved Instances** - Offer up to 75% off on-demand instances. The more you pay up front and the longer the contract the greater the discount.
+- **Convertible Reserved Instances** - Offer up to 54% off on-demand instances and allow you to change from one reserved **EC2 Instance type** to another.
+- **Scheduled Reserved Instances** - Available to launch within the time windows you reserve. This option allows you to match your capacity reservation along a predictable recurring schedule.
+
+#### Spot Pricing
+
+> Ideal for:
+
+- Applications that have flexible start and end times
+- Applications that are only feasible at very low compute prices
+- Users with urgent computing needs for large amounts of additional capacity.
+
+#### Dedicated Host Pricing
+
+- Useful for regulatory requirements that may not support multi-tenant virtualization.
+- Great for licensing which does not support multi-tenancy or cloud deployments (like Oracle licensing).
+- Can be purchased On-demand
+- Can be purchased as a Reservation for up to 70% off the on-demand price.
+
+---
+
 ## Databases on AWS
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.

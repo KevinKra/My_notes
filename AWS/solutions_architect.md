@@ -248,3 +248,19 @@
 
 - **Can the storage class be changed on the object and also on a bucket level?**
   _Yes, both buckets and individual objects can have their storage classes modified._
+
+### S3 Security and Encryption
+
+- By default, all newly created buckets are **private**. You can setup access control to your buckets using **Bucket Policies**, **Access Control Lists**. Additionally, S3 buckets can be configured to create access logs, which cause all requests to be logged and sent to an S3 Bucket on the same account or even on another account.
+
+#### Encryption
+
+- **Encryption in transit** - HTTPS is an example of encryption in transit. Achieved by **SSL/TLS**.
+- **Encryption at Rest** - Can be handled server-side (amazon helps here), or client-side, where you the developer encrypt the object yourself and upload it to S3.
+
+#### Server Side Encryption
+
+1. **S3 Managed Keys - SSE-S3**, amazon automatically manages the keys (encryption / decryption) for you.
+2. **AWS Key Management Service, Managed Keys - SSE-KMS**, developer and amazon manage the keys together.
+3. **Server Side Encryption with Customer provided keys - SSE-C**, Give amazon your own keys, that you manage, and you can use them to encrypt your S3 objects.
+4. Client side encryption. Encrypt client side and upload to S3.

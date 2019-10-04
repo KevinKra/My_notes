@@ -4,11 +4,15 @@
 
 ## Index
 
-1. [AWS Platform](#aws-platform)
-2. [IAM](#iam-101)
-3. [S3](#s3-101)
-4. [EC2](#ec2-101)
-5. [Databases](#databases-on-aws)
+a. [AWS Overview](#overview-of-aws)
+
+b. [IAM](#iam-101)
+
+c. [S3](#s3-101)
+
+d. [EC2](#ec2-101)
+
+e. [Databases](#databases-on-aws)
 
 #### Exam blueprint
 
@@ -19,7 +23,7 @@
 - Qualification is valid for 2 years
 - Scenario based questions
 
-## <a name="aws-platform"></a> [aws-platform] Overview of AWS
+## Overview of AWS <a name="overview-of-aws"></a>
 
 ### The History of AWS
 
@@ -68,7 +72,7 @@
 
 ---
 
-## IAM 101
+## IAM 101 <a name="iam-101"></a>
 
 - **Identity Access Management**, IAM allows you to manage users and their level of access to the AWS console. It is important to know for administrating a company's AWS account. Allows you to create users, groups, roles, etc. on the platform and provide permissions.
 
@@ -165,7 +169,7 @@
 
 ---
 
-## S3 101
+## S3 101 <a name="s3-101"></a>
 
 > Before taking the exam read the S3 FAQS
 
@@ -300,7 +304,7 @@
 
 ---
 
-## EC2 101
+## EC2 101 <a name="ec2-101"></a>
 
 - **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
 
@@ -427,7 +431,7 @@ U - Bare Metal
 
 ---
 
-## Databases on AWS
+## Databases on AWS <a name="databases-on-aws"></a>
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.
 

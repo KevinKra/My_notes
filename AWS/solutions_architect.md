@@ -264,3 +264,24 @@
 2. **AWS Key Management Service, Managed Keys - SSE-KMS**, developer and amazon manage the keys together.
 3. **Server Side Encryption with Customer provided keys - SSE-C**, Give amazon your own keys, that you manage, and you can use them to encrypt your S3 objects.
 4. Client side encryption. Encrypt client side and upload to S3.
+
+### S3 Version Control
+
+#### Features
+
+- Stores all versions of an object, including all writes even if you delete the object.
+- Great back-up tool
+- Once enabled, **versioning cannot be disabled**, only suspended.
+- Integrates with **Lifecycle** rules.
+- **Versioning comes with with MFA delete capability** which provides another layer of security.
+
+### Questions:
+
+- **What happens when you utilize versioning in S3?**
+  _New versions will be added with default public access set to off or private. The latest version and all previous versions will have a combined footprint in the database._
+
+- **What happens if you delete a versioned file?**
+  _A new version with a delete marker will appear. The bucket may look empty, but if you show all versions you will see previous versions (and the delete marker version) in your bucket_
+
+- **How would you restore an object with versioning if you've already deleted it?**
+  _Simple, delete the version with the delete marker and it will roll back to the latest (pre-delete) version._

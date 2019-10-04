@@ -1,4 +1,4 @@
-# AWS Solutions Architect
+# AWS Solutions Architect Associate
 
 > An Amazon certification
 
@@ -332,6 +332,7 @@
 - Applications that have flexible start and end times
 - Applications that are only feasible at very low compute prices
 - Users with urgent computing needs for large amounts of additional capacity.
+- If your spot instance is terminated by EC2, you will not be charged for partial hour usage. If you terminate the instance yourself, you will be charged for any hour which the instance ran.
 
 #### Dedicated Host Pricing
 
@@ -344,22 +345,67 @@
 
 > Required knowledge for Professional Cert
 
-**Family** - **Speciality** - **Use case**
+**Family & Gen#** - **Speciality** - **Use case**
 
 F1 - Field Programmable Gate Array - Genomics research, financial analytics, real-time video processing, big data, etc.
+
 I3 - High Speed Storage - NoSQL DBs, Data Warehousing, etc.
+
 G3 - Graphics Intensive - Video Encoding, 3D Application streaming
+
 H1 - High Disk Throughput - MapReduce-based workloads, distributed file systems such as HDFS and MapR-FS
+
 T3 - Lowest Cost, General Purpose - Web Servers, small DBs
+
 D2 - Dense Storage - Fileservers, Data Warehousing, Hadoop
+
 R5 - Memory Optimized - Memory Intensive Apps/DBs
+
 M5 - General Purpose - Application Servers
+
 C5 - Compute Optimized - CPU intensive Apps/DBs
+
 P3 - Graphics/General Purpose GPU - Machine Learning, Bit Coin Mining, etc.
+
 X1 - Memory Optimized - SAP HANA / Apache Spark, etc.
+
 Z1D - High compute capacity and a high memory footprint - Ideal for Electronic Design Automation (EDA) and certain relational databases with high per-core licensing costs.
+
 A1 - Arm-based workloads - Scale-out workloads such as web servers
+
 U-6tb1 - Bare Metal - Bare metal capabilities that eliminate virtualization overhead.
+
+**Mnemonic**
+
+> FIGHT DR MCPXZ AU
+
+F - for FPGA
+
+I - for IOPS
+
+G - Graphics
+
+H - High Disk Throughput
+
+T - Cheap general purpose
+
+D - for Density
+
+R - for RAM
+
+M - Main choice for general purpose apps
+
+C - for Compute
+
+P - Graphics
+
+X - Extreme Memory
+
+Z - Extreme Memory && CPU
+
+A - Arm-based workloads
+
+U - Bare Metal
 
 ---
 

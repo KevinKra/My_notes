@@ -2,6 +2,14 @@
 
 > An Amazon certification
 
+## Index
+
+1. [AWS Platform](#aws-platform)
+2. [IAM](#iam-101)
+3. [S3](#s3-101)
+4. [EC2](#ec2-101)
+5. [Databases](#databases-on-aws)
+
 #### Exam blueprint
 
 - 130 minutes in length
@@ -11,7 +19,7 @@
 - Qualification is valid for 2 years
 - Scenario based questions
 
-## Overview of AWS
+## <a name="aws-platform"></a> [aws-platform] Overview of AWS
 
 ### The History of AWS
 

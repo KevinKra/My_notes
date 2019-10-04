@@ -1,4 +1,4 @@
-# AWS Solutions Architect
+# AWS Solutions Architect Associate
 
 > An Amazon certification
 
@@ -248,3 +248,192 @@
 
 - **Can the storage class be changed on the object and also on a bucket level?**
   _Yes, both buckets and individual objects can have their storage classes modified._
+
+### S3 Security and Encryption
+
+- By default, all newly created buckets are **private**. You can setup access control to your buckets using **Bucket Policies**, **Access Control Lists**. Additionally, S3 buckets can be configured to create access logs, which cause all requests to be logged and sent to an S3 Bucket on the same account or even on another account.
+
+#### Encryption
+
+- **Encryption in transit** - HTTPS is an example of encryption in transit. Achieved by **SSL/TLS**.
+- **Encryption at Rest** - Can be handled server-side (amazon helps here), or client-side, where you the developer encrypt the object yourself and upload it to S3.
+
+#### Server Side Encryption
+
+1. **S3 Managed Keys - SSE-S3**, amazon automatically manages the keys (encryption / decryption) for you.
+2. **AWS Key Management Service, Managed Keys - SSE-KMS**, developer and amazon manage the keys together.
+3. **Server Side Encryption with Customer provided keys - SSE-C**, Give amazon your own keys, that you manage, and you can use them to encrypt your S3 objects.
+4. Client side encryption. Encrypt client side and upload to S3.
+
+### S3 Version Control
+
+#### Features
+
+- Stores all versions of an object, including all writes even if you delete the object.
+- Great back-up tool
+- Once enabled, **versioning cannot be disabled**, only suspended.
+- Integrates with **Lifecycle** rules.
+- **Versioning comes with with MFA delete capability** which provides another layer of security.
+
+### Questions:
+
+- **What happens when you utilize versioning in S3?**
+  _New versions will be added with default public access set to off or private. The latest version and all previous versions will have a combined footprint in the database._
+
+- **What happens if you delete a versioned file?**
+  _A new version with a delete marker will appear. The bucket may look empty, but if you show all versions you will see previous versions (and the delete marker version) in your bucket_
+
+- **How would you restore an object with versioning if you've already deleted it?**
+  _Simple, delete the version with the delete marker and it will roll back to the latest (pre-delete) version._
+
+### S3 Lifecycle Management and Glacier
+
+- Lifecycles allow you to set rules to manage your objects, they can be automated to transition to tiered storage, and eventually they can be automatically set to expire based on retention needs. In short, in lifecycles automate the moving of objects between different storage tiers and can be used in conjunction with versioning (can be applied to current and previous versions).
+
+---
+
+## EC2 101
+
+- **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
+
+### Pricing Models Instances
+
+- **On demand** - No commitment model that allows you to pay by the hour or even second.
+- **Reserved** - Provides a capacity reservation and offers a significant discount on the hourly charge for an instance. **Contract terms are 1 or 3 year terms.**
+- **Spot** - Enables you to bid on excess EC2 capacity. Amazon will drop the price on EC2 instances to encourage people to use that surplus capacity. You would set price you're willing to bid at and when the prices for the EC2 instances lowers you will have access to those additional resources. As the on-demand demand goes up, the prices for those instances will go up and if they pass your price point you will lose access to them until the next occurrence of reduced prices. It's essentially a market for buying into extra resources when they're in supply.
+- **Dedicated Host** - Physical EC2 server dedicated for your use. Dedicated hosts can help you reduce costs by allowing you to use your existing server-bound software licenses.
+
+#### On Demand Pricing
+
+> Ideal for:
+
+- Users that want low cost and flexibility of EC2 without any up-front payment or long-term commitment.
+- Applications with short term, spiky, or unpredictable workloads that _cannot_ be interrupted.
+- Applications being developed or tested on Amazon EC2 for the first time.
+
+#### Reserved Pricing
+
+> Ideal for:
+
+- Applications with steady state or predictable usage.
+- Applications that require reserved capacity.
+- Users are able to make upfront payments to reduce their total computing cost even further.
+
+**3 Types:**
+
+- **Standard Reserved Instances** - Offer up to 75% off on-demand instances. The more you pay up front and the longer the contract the greater the discount.
+- **Convertible Reserved Instances** - Offer up to 54% off on-demand instances and allow you to change from one reserved **EC2 Instance type** to another.
+- **Scheduled Reserved Instances** - Available to launch within the time windows you reserve. This option allows you to match your capacity reservation along a predictable recurring schedule.
+
+#### Spot Pricing
+
+> Ideal for:
+
+- Applications that have flexible start and end times
+- Applications that are only feasible at very low compute prices
+- Users with urgent computing needs for large amounts of additional capacity.
+- If your spot instance is terminated by EC2, you will not be charged for partial hour usage. If you terminate the instance yourself, you will be charged for any hour which the instance ran.
+
+#### Dedicated Host Pricing
+
+- Useful for regulatory requirements that may not support multi-tenant virtualization.
+- Great for licensing which does not support multi-tenancy or cloud deployments (like Oracle licensing).
+- Can be purchased On-demand
+- Can be purchased as a Reservation for up to 70% off the on-demand price.
+
+### EC2 Instance Types
+
+> Required knowledge for Professional Cert
+
+**Family & Gen#** - **Speciality** - **Use case**
+
+F1 - Field Programmable Gate Array - Genomics research, financial analytics, real-time video processing, big data, etc.
+
+I3 - High Speed Storage - NoSQL DBs, Data Warehousing, etc.
+
+G3 - Graphics Intensive - Video Encoding, 3D Application streaming
+
+H1 - High Disk Throughput - MapReduce-based workloads, distributed file systems such as HDFS and MapR-FS
+
+T3 - Lowest Cost, General Purpose - Web Servers, small DBs
+
+D2 - Dense Storage - Fileservers, Data Warehousing, Hadoop
+
+R5 - Memory Optimized - Memory Intensive Apps/DBs
+
+M5 - General Purpose - Application Servers
+
+C5 - Compute Optimized - CPU intensive Apps/DBs
+
+P3 - Graphics/General Purpose GPU - Machine Learning, Bit Coin Mining, etc.
+
+X1 - Memory Optimized - SAP HANA / Apache Spark, etc.
+
+Z1D - High compute capacity and a high memory footprint - Ideal for Electronic Design Automation (EDA) and certain relational databases with high per-core licensing costs.
+
+A1 - Arm-based workloads - Scale-out workloads such as web servers
+
+U-6tb1 - Bare Metal - Bare metal capabilities that eliminate virtualization overhead.
+
+**Mnemonic**
+
+> FIGHT DR MCPXZ AU
+
+F - for FPGA
+
+I - for IOPS
+
+G - Graphics
+
+H - High Disk Throughput
+
+T - Cheap general purpose
+
+D - for Density
+
+R - for RAM
+
+M - Main choice for general purpose apps
+
+C - for Compute
+
+P - Graphics
+
+X - Extreme Memory
+
+Z - Extreme Memory && CPU
+
+A - Arm-based workloads
+
+U - Bare Metal
+
+---
+
+## Databases on AWS
+
+- Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.
+
+#### Six relational databases on AWS
+
+- SQL Server (Microsoft)
+- Oracle
+- MySQL
+- PostgreSQL
+- Amazon Aurora
+- MariaDB
+
+#### RDS has two key features (RDS - Relational Database Services)
+
+- **Multi-AZ** - for disaster recovery. If we lost access to one AZ amazon would detect that and update the DNS to point to the secondary address's IP address.
+- **Read Replicas** - For performance. Every time you do a write to a database, the write will be automatically copied to the other database. However, there is no automatic fail-over from one database to the other database holding the copies. You would need to create a new url and point your EC2 instance to point at replica. Replicas are useful for scaling your database, if your website becomes extremely popular you could point half of your instances to read from the replica. **You can have five copies of read-replicas.**
+
+### DynamoDB
+
+- Amazon DynamoDB is a fast and flexible noSQL database service. It is designed for applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and **supports both document and key-value data models.** Its flexible data model and reliable performance make it a great fir for mobile, web, gaming, ad-tech, IoT, and many other applications.
+
+#### Features
+
+- Stored on SSD storage
+- Spread across 3 geographically distinct data centers
+- **Eventual Consistent Reads** (Default) - consistency is reached across all copies of data usually within 1 second. For applications that _don't_ need immediate write to read consistency.
+- **Strongly Consistent Reads** - When you write to DynamoDB table and you need to read that data within or less than 1 second. Essentially, will return a result that reflects all writes that received a successful response prior to the read. For applications that need immediate write to read consistency.

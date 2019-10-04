@@ -285,3 +285,7 @@
 
 - **How would you restore an object with versioning if you've already deleted it?**
   _Simple, delete the version with the delete marker and it will roll back to the latest (pre-delete) version._
+
+### S3 Lifecycle Management and Glacier
+
+- Lifecycles allow you to set rules to manage your objects, they can be automated to transition to tiered storage, and eventually they can be automatically set to expire based on retention needs. In short, in lifecycles automate the moving of objects between different storage tiers and can be used in conjunction with versioning (can be applied to current and previous versions).

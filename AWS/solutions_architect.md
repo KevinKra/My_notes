@@ -340,6 +340,27 @@
 - Can be purchased On-demand
 - Can be purchased as a Reservation for up to 70% off the on-demand price.
 
+### EC2 Instance Types
+
+> Required knowledge for Professional Cert
+
+**Family** - **Speciality** - **Use case**
+
+F1 - Field Programmable Gate Array - Genomics research, financial analytics, real-time video processing, big data, etc.
+I3 - High Speed Storage - NoSQL DBs, Data Warehousing, etc.
+G3 - Graphics Intensive - Video Encoding, 3D Application streaming
+H1 - High Disk Throughput - MapReduce-based workloads, distributed file systems such as HDFS and MapR-FS
+T3 - Lowest Cost, General Purpose - Web Servers, small DBs
+D2 - Dense Storage - Fileservers, Data Warehousing, Hadoop
+R5 - Memory Optimized - Memory Intensive Apps/DBs
+M5 - General Purpose - Application Servers
+C5 - Compute Optimized - CPU intensive Apps/DBs
+P3 - Graphics/General Purpose GPU - Machine Learning, Bit Coin Mining, etc.
+X1 - Memory Optimized - SAP HANA / Apache Spark, etc.
+Z1D - High compute capacity and a high memory footprint - Ideal for Electronic Design Automation (EDA) and certain relational databases with high per-core licensing costs.
+A1 - Arm-based workloads - Scale-out workloads such as web servers
+U-6tb1 - Bare Metal - Bare metal capabilities that eliminate virtualization overhead.
+
 ---
 
 ## Databases on AWS

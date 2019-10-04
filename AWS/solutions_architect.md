@@ -4,11 +4,17 @@
 
 ## Index
 
-1. [AWS Platform](#aws-platform)
-2. [IAM](#iam-101)
-3. [S3](#s3-101)
-4. [EC2](#ec2-101)
-5. [Databases](#databases-on-aws)
+a. [AWS Overview](#overview-of-aws)
+
+b. [IAM](#iam-101)
+
+c. [S3](#s3-101)
+
+d. [EC2](#ec2-101)
+
+e. [Databases](#databases-on-aws)
+
+f. [Review Section](#review-section)
 
 #### Exam blueprint
 
@@ -19,7 +25,7 @@
 - Qualification is valid for 2 years
 - Scenario based questions
 
-## <a name="aws-platform"></a> [aws-platform] Overview of AWS
+## Overview of AWS <a name="overview-of-aws"></a>
 
 ### The History of AWS
 
@@ -68,7 +74,7 @@
 
 ---
 
-## IAM 101
+## IAM 101 <a name="iam-101"></a>
 
 - **Identity Access Management**, IAM allows you to manage users and their level of access to the AWS console. It is important to know for administrating a company's AWS account. Allows you to create users, groups, roles, etc. on the platform and provide permissions.
 
@@ -165,7 +171,7 @@
 
 ---
 
-## S3 101
+## S3 101 <a name="s3-101"></a>
 
 > Before taking the exam read the S3 FAQS
 
@@ -300,7 +306,7 @@
 
 ---
 
-## EC2 101
+## EC2 101 <a name="ec2-101"></a>
 
 - **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
 
@@ -427,7 +433,7 @@ U - Bare Metal
 
 ---
 
-## Databases on AWS
+## Databases on AWS <a name="databases-on-aws"></a>
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.
 
@@ -455,3 +461,110 @@ U - Bare Metal
 - Spread across 3 geographically distinct data centers
 - **Eventual Consistent Reads** (Default) - consistency is reached across all copies of data usually within 1 second. For applications that _don't_ need immediate write to read consistency.
 - **Strongly Consistent Reads** - When you write to DynamoDB table and you need to read that data within or less than 1 second. Essentially, will return a result that reflects all writes that received a successful response prior to the read. For applications that need immediate write to read consistency.
+
+## Review Section
+
+> This section is designed to provide a comprehensive review of the entire lesson. Questions are written more as statements or keywords and designed to be talked about by yourself or with a partner. You should aim to speak confidently about the topics and review material when needed. Be honest with your results.
+
+- [ ] What risks does AWS mitigate for businesses?
+- [ ] Why is AWS suitable for both small start ups and large companies?
+- [ ] When was AWS launched?
+- [ ] What were AWS certificates released?
+- [ ] What is AWS Global infrastructure?
+- [ ] What is an Availability Zone?
+- [ ] What is an AWS Region?
+- [ ] What are Edge Locations?
+- [ ] Explain Amazon VPC.
+- [ ] Where is CloudFront data cached?
+- [ ] What does IAM stand for, what is its purpose?
+- [ ] What are identity federations?
+- [ ] What are the 4 IAM permission types?
+- [ ] Explain each IAM permission type.
+- [ ] What format are policy documents written in?
+- [ ] What does JSON stand for?
+- [ ] What is a billing alarm?
+- [ ] What is a root account, what permissions does it have?
+- [ ] Explain the steps to setup a billing alarm.
+- [ ] Is IAM limited to a region or is it universal, why?
+- [ ] Do users have permissions when they're first created?
+- [ ] What are users assigned when they're first created?
+- [ ] Can you use the Access Key ID and Secret Access Key to login into the console?
+- [ ] Explain the process to disable or deactivate an access key.
+- [ ] Can you continue to look at a user's keys after they're generated?
+- [ ] Should you have MFA on your root account?
+- [ ] Explain the process for creating and customizing password policy rules.
+- [ ] How would you protect your account from being over-billed?
+- [ ] What does S3 stand for?
+- [ ] Describe S3.
+- [ ] S3 is Object based. What does that mean?
+- [ ] What is the file size range for files uploaded to S3?
+- [ ] Does S3 allow unlimited storage?
+- [ ] What is the name used for directories in S3?
+- [ ] What is the name of data stored in S3 directories?
+- [ ] S3 is a universal name space, what does that mean?
+- [ ] What kind of response do you receive when you upload a file to S3?
+- [ ] Explain tiered storage.
+- [ ] Explain life-cycle management in S3.
+- [ ] Explain versioning in S3.
+- [ ] Explain encryption in S3.
+- [ ] What does MFA Delete mean and why is it important?
+- [ ] What are Access Control Lists and Bucket Policies, what are they for?
+- [ ] S3 Objects have several (5) values associated with them, what are they?
+- [ ] What is data consistency?
+- [ ] How does data consistency work in S3?
+- [ ] What is S3's guarantee?
+- [ ] What are the S3 Storage classes / S3 Storage tiers.
+- [ ] Explain S3 Standard, what it is suitable for?
+- [ ] Explain S3 - IA, what it is suitable for?
+- [ ] Explain S3 One Zone - IA, what it is suitable for?
+- [ ] Explain S3 Intelligent Tiering, what benefits does it provide?
+- [ ] Explain S3 Glacier, what it is suitable for?
+- [ ] Explain S3 Glacier Deep Archive, what it is suitable for?
+- [ ] What 5 things does S3 charge for?
+- [ ] What is transfer acceleration, how does it work?
+- [ ] What is cross region replication, how does it work?
+- [ ] What does RRS stand for?
+- [ ] Can MFA be used in S3, in what regard?
+- [ ] What is S3 designed for, is it suitable for databases?
+- [ ] What happens if you make a bucket / object public?
+- [ ] Can buckets and objects have their respective storage classes modified?
+- [ ] What is the default public setting for new buckets?
+- [ ] What can you use to control access to your bucket?
+- [ ] Can access logs be created for buckets? Where can the logs be stored?
+- [ ] What is encryption in transit, what is an example?
+- [ ] SSL/TLS are used for what type of encryption?
+- [ ] What is Encryption at Rest, what two environments can it be handled?
+- [ ] What are the four types of server-side encryption?
+- [ ] Explain SSE-S3.
+- [ ] Explain SSE-KMS.
+- [ ] Explain SSE-C.
+- [ ] Explain Client Side encryption.
+- [ ] What is S3 Version Control.
+- [ ] Can S3 versioning be disabled once initiated?
+- [ ] Can S3 versioning be suspended?
+- [ ] Can S3 versioning be integrated with lifecycles rules?
+- [ ] Can S3 versioning come with MFA delete capability?
+- [ ] What happens when you utilize versioning in S3?
+- [ ] What happens if you delete a versioned file?
+- [ ] How would you restore an object with versioning if you've already deleted it?
+- [ ] What do S3 Lifecycles accomplish, how would they interact with versioning?
+- [ ] What does EC2 stand for?
+- [ ] What does EC2 accomplish?
+- [ ] What were the challenges that EC2 solved?
+- [ ] What are the 4 pricing models for EC2?
+- [ ] Explain each EC2 pricing model in detail.
+- [ ] What is the On Demand model suitable for?
+- [ ] What is the Reserved model suitable for?
+- [ ] What are the 3 types of reserved instances?
+- [ ] What is the Sport Pricing model suitable for?
+- [ ] What is the Dedicated Host model suitable for?
+- [ ] What is the EC2 Instance Type mnemonic phrase?
+- [ ] What are the 14 EC2 Instance types, what are they suitable for?
+- [ ] Relational databases are comprised of what?
+- [ ] What 6 relation databases are supported by AWS?
+- [ ] What does RDS stand for?
+- [ ] What are the two key features that RDS provides?
+- [ ] Explain Multi-AZ.
+- [ ] Explain Read Replicas.
+- [ ] What is DynamoDB?
+- [ ] What are the 4 features of DynamoDB?

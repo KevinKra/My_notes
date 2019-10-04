@@ -309,3 +309,14 @@
 
 - **Multi-AZ** - for disaster recovery. If we lost access to one AZ amazon would detect that and update the DNS to point to the secondary address's IP address.
 - **Read Replicas** - For performance. Every time you do a write to a database, the write will be automatically copied to the other database. However, there is no automatic fail-over from one database to the other database holding the copies. You would need to create a new url and point your EC2 instance to point at replica. Replicas are useful for scaling your database, if your website becomes extremely popular you could point half of your instances to read from the replica. **You can have five copies of read-replicas.**
+
+### DynamoDB
+
+- Amazon DynamoDB is a fast and flexible noSQL database service. It is designed for applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed database and **supports both document and key-value data models.** Its flexible data model and reliable performance make it a great fir for mobile, web, gaming, ad-tech, IoT, and many other applications.
+
+#### Features
+
+- Stored on SSD storage
+- Spread across 3 geographically distinct data centers
+- **Eventual Consistent Reads** (Default) - consistency is reached across all copies of data usually within 1 second. For applications that _don't_ need immediate write to read consistency.
+- **Strongly Consistent Reads** - When you write to DynamoDB table and you need to read that data within or less than 1 second. Essentially, will return a result that reflects all writes that received a successful response prior to the read. For applications that need immediate write to read consistency.

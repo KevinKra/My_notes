@@ -421,6 +421,32 @@ A - Arm-based workloads
 
 U - Bare Metal
 
+### SSH into EC2 Instance and Setup Webserver
+
+#### Steps (Mac):
+
+1. `cd downloads`
+2. `mkdir SSH`
+3. `mv <KeyPair> SSH` - move .pem file to SSH directory
+4. `cd SSH`
+5. `CHMOD 400 <KeyPair>` - lockdown file
+6. `ssh ec2-user@<our-ip-address> -i <KeyPair>` - Gain access to ec2 user account.
+
+7. yes
+8. permanently adds your ip address to the list of known hosts for the EC2 Instance.
+
+9. `sudo su` - Elevates privileges from ec2-user to root
+10. `yum update -y` - looks for OS updates
+11. `yum install httpd -y` - installs Apache, turns EC2 instance into a webserver.
+12. `cd /var/www/html` - Anything put in here will essentially be a website.
+13. `nano index.html` - Create html doc in nano text editor
+14. `service httpd start` - launches the webserver so you can visit the website.
+15. `chkconfig on` - automatically starts the httpd service if your ec2 instance reboots.
+
+### Keywords:
+
+- **AMI** - Amazon Machine Image
+
 ### Questions:
 
 - **Explain EC2.**
@@ -430,6 +456,21 @@ U - Bare Metal
 - **How many types of reserved instances exist and what are their details?**
 
 - **What are the EC2 types and their respective use cases?**
+
+- **Is termination protection on or off by default?**
+  _By default EC2 termination protection is off_
+
+- **On an EBS-backed instance, is the default action to delete the root EBS volume when the instance is deleted?**
+  _Yes. If you terminate your EC2 instance you're also going to terminate your virtual HDD as well. Can be changed to not do this._
+
+- **Can the EBS Root Volumes of your DEFAULT AMI's be encrypted?**
+  _No, but third party tools (like bit locker) can be used to encrypt the root volume_
+
+- **Can additional EC2 instance volumes be encrypted?**
+  _Yes._
+
+- **Which EC2 volume is the device OS installed onto?**
+  _The root volume_
 
 ---
 
@@ -568,3 +609,7 @@ U - Bare Metal
 - Explain Read Replicas.
 - What is DynamoDB?
 - What are the 4 features of DynamoDB?
+- Is EC2 termination protection on or off by default?
+- On an EBS-backed instance, is the default action to delete the root EBS volume when the instance is deleted?
+- Can the EBS Root Volumes of your DEFAULT AMI's be encrypted?
+- Which EC2 volume is the device OS installed onto?

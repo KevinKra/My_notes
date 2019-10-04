@@ -407,6 +407,16 @@ A - Arm-based workloads
 
 U - Bare Metal
 
+### Questions:
+
+- **Explain EC2.**
+
+- **How many different instance price models are there and what are their details?**
+
+- **How many types of reserved instances exist and what are their details?**
+
+- **What are the EC2 types and their respective use cases?**
+
 ---
 
 ## Databases on AWS

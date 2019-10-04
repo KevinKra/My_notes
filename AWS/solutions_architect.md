@@ -443,6 +443,17 @@ U - Bare Metal
 14. `service httpd start` - launches the webserver so you can visit the website.
 15. `chkconfig on` - automatically starts the httpd service if your ec2 instance reboots.
 
+### Security Groups Basics
+
+- Every time you make a rule change in a security group, that change takes affect immediately. If you delete your inbound HTTP port 80 rules you will immediately lose the ability to access the website.
+- **Security Groups are stateful**, when you create an inbound rule an outbound rule is created automatically. If you allow HTTP, SSH, etc. in, it is automatically allowed back out.
+- Security groups work by blocking everything by default, you as the developer have to _allow_ traffic like HTTP, mySQL, etc. to go through.
+- All inbound traffic is blocked by default.
+- All outbound traffic is allowed.
+- Changes to security groups take effect immediately.
+- You can have multiple security groups attached to EC2 Instances.
+- You can specify allow rules, but not deny rules.
+
 ### Keywords:
 
 - **AMI** - Amazon Machine Image
@@ -471,6 +482,18 @@ U - Bare Metal
 
 - **Which EC2 volume is the device OS installed onto?**
   _The root volume_
+
+- **If you make a rule change to a security group, how quickly does it take affect?**
+  _Immediately._
+
+- **What happens if you delete an outbound rule in an EC2 instance?**
+  _Nothing, security groups are stateful. When you create an inbound rule an outbound rule is automatically created._
+
+- **Can you blacklist ports or IP addresses with security groups?**
+  _Nope. That said, security groups work by blocking everything by default, you as the developer have to allow traffic access manually. In order to block specific IP addresses you would use Network Access Control Lists_
+
+- **Can you attach more than one security group to an EC2 instance?**
+  _Yes. Actions > Networking > Change Security Groups_
 
 ---
 
@@ -613,3 +636,8 @@ U - Bare Metal
 - On an EBS-backed instance, is the default action to delete the root EBS volume when the instance is deleted?
 - Can the EBS Root Volumes of your DEFAULT AMI's be encrypted?
 - Which EC2 volume is the device OS installed onto?
+- Security Groups are stateful, what does that mean?
+- If you make a rule change to a security group, how quickly does it take affect?
+- What happens if you delete an outbound rule in an EC2 instance?
+- Can you blacklist ports or IP addresses with security groups?
+- Can you attach more than one security group to an EC2 instance?

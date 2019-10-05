@@ -530,6 +530,30 @@ U - Bare Metal
 - **EC2 AZ change:** EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
 - **EC2 Region change:** Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
 
+### EBS vs Instance Store
+
+- Instance Store Volumes are sometimes called Ephemeral Storage.
+- **Instance Store Volumes cannot be stopped.** If the underlying host fails, you will lose your data.
+- **EBS backed instances can be stopped.** You will not lose your data on the instance if it is stopped.
+- You can reboot both an instance store volume and an EBS backed instance, you will not lose your data. Essentially, only if the host fails and your data is stored on an instance store than you will lose your data.
+- By default, both ROOT volumes will be deleted on termination. However, with EBS volumes, you can tell AWS to keep the root device volume. That cannot be done with an instance store.
+
+#### AMI can be selected based on:
+
+- Region
+- Operating System
+- Architecture (32-bit, 64-bit)
+- Launch Permissions
+- Storage for Root Device (Root Device Volume)
+
+  1. Instance Store (**EPHEMERAL STORAGE**)
+  2. EBS Backed Volumes
+
+- All AMIs are categorized as either backed by Amazon EBS or backed by instance store.
+- **For EBS Volumes:** The root device for an instance launched from the AMI is an Amazon EBS Volume created from an Amazon EBS snapshot.
+
+- **For Instance Store Volumes:** The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
+
 ### Questions:
 
 - **Can you have your EC2 and EBS volumes in different AZs?**  

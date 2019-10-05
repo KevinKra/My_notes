@@ -527,16 +527,17 @@ U - Bare Metal
 - You can create AMI's from both Volumes and Snapshots.
 - You can change EBS volume sizes on the fly, including changing the size and storage type.
 - Volumes will **ALWAYS** be in the AZ as the EC2 instance.
-- EC2 AZ change. EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
-- EC2 Region change. Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
+- **EC2 AZ change:** EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
+- **EC2 Region change:** Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
 
-* **What ever AZ an EC2 instance is located, the EBS volume with be in the same location.** When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion.
+### Questions:
 
-* **How do you move an EDS volume to a new location?**
+- **Can you have your EC2 and EBS volumes in different AZs?**  
+  _No. When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion._
 
-* a **snapshot** is a "photograph" of the disk.
+- **How do you move an EDS volume to a new location?**
 
-* **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
+- **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
   _No. When you terminate an EC2 instance only the root volume will terminate with it. You will need to manually terminate additional EBS volumes that you had provisioned._
 
 ---

@@ -97,6 +97,13 @@ f. [Review Section](#review-section)
 - **Policies** - Policies are made up of documents called Policy documents. These documents are in JSON (JavaScript Object Notation) format and give permissions to what a User/Group/Role is able to do.
 - **Roles** - You create roles and assign them to AWS resources. The resources then can communicate with other AWS services.
 
+#### IAM Roles
+
+- **IAM roles are more secure than storing your access key and secret access keys on individual EC2 instances.**
+- Roles are much easier to manage than having EC2 instances hold keys.
+- Roles can be assigned to an EC2 instance after is created using both the console and command line.
+- Roles are universal, you can use them in any region.
+
 #### Hands on
 
 - Policy example (AdministratorAccess)
@@ -629,6 +636,24 @@ U - Bare Metal
 - **Logs** - Cloudwatch logs help you aggregate, monitor, and store logs.
 
 ---
+
+## AWS CLI
+
+- Can interact with AWS from anywhere in the world just by using the CLI
+- You will need to set up access in IAM
+- **IAM roles are more secure than storing your access key and secret access keys on individual EC2 instances.**
+- Roles are much easier to manage than having EC2 instances hold keys.
+- Roles can be assigned to an EC2 instance after is created using both the console and command line.
+- Roles are universal, you can use them in any region.
+
+#### useful commands:
+
+`aws <service> ls`
+`aws configure`
+`aws s3 mb s3://<bucketname>` - make bucket
+`cd ~` - home directory
+`cd .aws` - hidden aws directory containing your config and credentials (Access key and Secret key here.)
+`rm -rf .aws` - removes hidden aws directory and removes credentials
 
 ## Databases on AWS <a name="databases-on-aws"></a>
 

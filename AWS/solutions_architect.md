@@ -516,6 +516,29 @@ U - Bare Metal
 - **EBS magnetic HDD** - **standard** - Workloads where data is infrequently accessed and not using something like S3 Glacier.
   > _Volume Size: 1 GiB - 1 TiB, Max IOPS Volume: 40-200_
 
+### Volumes and Snapshots
+
+- Volumes exist on EBS. Think of EBS as a virtual hard disk.
+- **Snapshots exist on S3**. Think of snapshots as a photograph of the disk.
+- Snapshots are point-of-time copies of Volumes.
+- Snapshots are incremental -- this means that only the blocks that have changed since your last snapshot are moved to S3.
+- The first snapshot takes some time to create.
+- To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instance before taking the snapshot to ensure it is consistent. Though, it can still be taken while the instance is running.
+- You can create AMI's from both Volumes and Snapshots.
+- You can change EBS volume sizes on the fly, including changing the size and storage type.
+- Volumes will **ALWAYS** be in the AZ as the EC2 instance.
+- EC2 AZ change. EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
+- EC2 Region change. Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
+
+* **What ever AZ an EC2 instance is located, the EBS volume with be in the same location.** When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion.
+
+* **How do you move an EDS volume to a new location?**
+
+* a **snapshot** is a "photograph" of the disk.
+
+* **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
+  _No. When you terminate an EC2 instance only the root volume will terminate with it. You will need to manually terminate additional EBS volumes that you had provisioned._
+
 ---
 
 ## Databases on AWS <a name="databases-on-aws"></a>

@@ -421,6 +421,43 @@ A - Arm-based workloads
 
 U - Bare Metal
 
+### SSH into EC2 Instance and Setup Webserver
+
+#### Steps (Mac):
+
+1. `cd downloads`
+2. `mkdir SSH`
+3. `mv <KeyPair> SSH` - move .pem file to SSH directory
+4. `cd SSH`
+5. `CHMOD 400 <KeyPair>` - lockdown file
+6. `ssh ec2-user@<our-ip-address> -i <KeyPair>` - Gain access to ec2 user account.
+
+7. yes
+8. permanently adds your ip address to the list of known hosts for the EC2 Instance.
+
+9. `sudo su` - Elevates privileges from ec2-user to root
+10. `yum update -y` - looks for OS updates
+11. `yum install httpd -y` - installs Apache, turns EC2 instance into a webserver.
+12. `cd /var/www/html` - Anything put in here will essentially be a website.
+13. `nano index.html` - Create html doc in nano text editor
+14. `service httpd start` - launches the webserver so you can visit the website.
+15. `chkconfig on` - automatically starts the httpd service if your ec2 instance reboots.
+
+### Security Groups Basics
+
+- Every time you make a rule change in a security group, that change takes affect immediately. If you delete your inbound HTTP port 80 rules you will immediately lose the ability to access the website.
+- **Security Groups are stateful**, when you create an inbound rule an outbound rule is created automatically. If you allow HTTP, SSH, etc. in, it is automatically allowed back out.
+- Security groups work by blocking everything by default, you as the developer have to _allow_ traffic like HTTP, mySQL, etc. to go through.
+- All inbound traffic is blocked by default.
+- All outbound traffic is allowed.
+- Changes to security groups take effect immediately.
+- You can have multiple security groups attached to EC2 Instances.
+- You can specify allow rules, but not deny rules.
+
+### Keywords:
+
+- **AMI** - Amazon Machine Image
+
 ### Questions:
 
 - **Explain EC2.**
@@ -430,6 +467,77 @@ U - Bare Metal
 - **How many types of reserved instances exist and what are their details?**
 
 - **What are the EC2 types and their respective use cases?**
+
+- **Is termination protection on or off by default?**
+  _By default EC2 termination protection is off_
+
+- **On an EBS-backed instance, is the default action to delete the root EBS volume when the instance is deleted?**
+  _Yes. If you terminate your EC2 instance you're also going to terminate your virtual HDD as well. Can be changed to not do this._
+
+- **Can the EBS Root Volumes of your DEFAULT AMI's be encrypted?**
+  _No, but third party tools (like bit locker) can be used to encrypt the root volume_
+
+- **Can additional EC2 instance volumes be encrypted?**
+  _Yes._
+
+- **Which EC2 volume is the device OS installed onto?**
+  _The root volume_
+
+- **If you make a rule change to a security group, how quickly does it take affect?**
+  _Immediately._
+
+- **What happens if you delete an outbound rule in an EC2 instance?**
+  _Nothing, security groups are stateful. When you create an inbound rule an outbound rule is automatically created._
+
+- **Can you blacklist ports or IP addresses with security groups?**
+  _Nope. That said, security groups work by blocking everything by default, you as the developer have to allow traffic access manually. In order to block specific IP addresses you would use Network Access Control Lists_
+
+- **Can you attach more than one security group to an EC2 instance?**
+  _Yes. Actions > Networking > Change Security Groups_
+
+---
+
+## EBS 101
+
+- What is EBS? **Elastic Block Store**, it provides persistent block storage volumes for use with Amazon EC2 instances in the AWS cloud. **Each Amazon EBS volume is automatically replicated within its AZ to protect you from component failure**, offering high availability and durability. In short, EBS is a virtual HDD in the cloud.
+
+### 5 Types of EBS Storage
+
+> gp2, io1, st1, sc1, standard
+
+- **General Purpose (SSD)** - **gp2** - Balance of price and performance suitable for most workloads.
+  > _Volume Size: 1 GiB - 16 TiB, Max IOPS Volume: 16,000_
+- **Provisioned IOPS (SSD)** - **io1** - Highest Performance SSD volume designed for mission-critical applications.
+  > _Volume Size: 4 GiB - 16 TiB, Max IOPS Volume: 64,000_
+- **Throughput Optimized HDD** - **st1** - Lost cost HDD volume suitable for Big Data & Data Warehouses
+  > _Volume Size: 500 GiB - 16 TiB, Max IOPS Volume: 500_
+- **Cold HDD** - **sc1** - File Servers
+  > _Volume Size: 500 GiB - 16 TiB, Max IOPS Volume: 250_
+- **EBS magnetic HDD** - **standard** - Workloads where data is infrequently accessed and not using something like S3 Glacier.
+  > _Volume Size: 1 GiB - 1 TiB, Max IOPS Volume: 40-200_
+
+### Volumes and Snapshots
+
+- Volumes exist on EBS. Think of EBS as a virtual hard disk.
+- **Snapshots exist on S3**. Think of snapshots as a photograph of the disk.
+- Snapshots are point-of-time copies of Volumes.
+- Snapshots are incremental -- this means that only the blocks that have changed since your last snapshot are moved to S3.
+- The first snapshot takes some time to create.
+- To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instance before taking the snapshot to ensure it is consistent. Though, it can still be taken while the instance is running.
+- You can create AMI's from both Volumes and Snapshots.
+- You can change EBS volume sizes on the fly, including changing the size and storage type.
+- Volumes will **ALWAYS** be in the AZ as the EC2 instance.
+- EC2 AZ change. EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
+- EC2 Region change. Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
+
+* **What ever AZ an EC2 instance is located, the EBS volume with be in the same location.** When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion.
+
+* **How do you move an EDS volume to a new location?**
+
+* a **snapshot** is a "photograph" of the disk.
+
+* **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
+  _No. When you terminate an EC2 instance only the root volume will terminate with it. You will need to manually terminate additional EBS volumes that you had provisioned._
 
 ---
 
@@ -568,3 +676,12 @@ U - Bare Metal
 - Explain Read Replicas.
 - What is DynamoDB?
 - What are the 4 features of DynamoDB?
+- Is EC2 termination protection on or off by default?
+- On an EBS-backed instance, is the default action to delete the root EBS volume when the instance is deleted?
+- Can the EBS Root Volumes of your DEFAULT AMI's be encrypted?
+- Which EC2 volume is the device OS installed onto?
+- Security Groups are stateful, what does that mean?
+- If you make a rule change to a security group, how quickly does it take affect?
+- What happens if you delete an outbound rule in an EC2 instance?
+- Can you blacklist ports or IP addresses with security groups?
+- Can you attach more than one security group to an EC2 instance?

@@ -588,6 +588,16 @@ U - Bare Metal
 
 ---
 
+## EFS 101
+
+- Amazon **Elastic File System** is a file storage service for Amazon Elastic Compute Cloud (EC2) instances. Amazon EFS is easy to use and provides a simple interface that allows you to create and configure file systems quickly. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it.
+
+- Similar to EBS except with EBS you can only mount your disk to one EC2 instance. You cannot have two EC2 instances one EBS volume. However, you _can_ have two EC2 instances share an EFS volume.
+
+- If you provision an EFS instance, unlike an EBS volume, it will grow dynamically with the EC2 instance.
+
+---
+
 ## CloudWatch 101
 
 - CloudWatch is a monitoring service used to monitor your AWS resources, as well as the applications that you run on AWS. CloudWatch basically monitors performance.

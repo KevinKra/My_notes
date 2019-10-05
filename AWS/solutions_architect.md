@@ -497,6 +497,27 @@ U - Bare Metal
 
 ---
 
+## EBS 101
+
+- What is EBS? **Elastic Block Store**, it provides persistent block storage volumes for use with Amazon EC2 instances in the AWS cloud. **Each Amazon EBS volume is automatically replicated within its AZ to protect you from component failure**, offering high availability and durability. In short, EBS is a virtual HDD in the cloud.
+
+### 5 Types of EBS Storage
+
+> gp2, io1, st1, sc1, standard
+
+- **General Purpose (SSD)** - **gp2** - Balance of price and performance suitable for most workloads.
+  > _Volume Size: 1 GiB - 16 TiB, Max IOPS Volume: 16,000_
+- **Provisioned IOPS (SSD)** - **io1** - Highest Performance SSD volume designed for mission-critical applications.
+  > _Volume Size: 4 GiB - 16 TiB, Max IOPS Volume: 64,000_
+- **Throughput Optimized HDD** - **st1** - Lost cost HDD volume suitable for Big Data & Data Warehouses
+  > _Volume Size: 500 GiB - 16 TiB, Max IOPS Volume: 500_
+- **Cold HDD** - **sc1** - File Servers
+  > _Volume Size: 500 GiB - 16 TiB, Max IOPS Volume: 250_
+- **EBS magnetic HDD** - **standard** - Workloads where data is infrequently accessed and not using something like S3 Glacier.
+  > _Volume Size: 1 GiB - 1 TiB, Max IOPS Volume: 40-200_
+
+---
+
 ## Databases on AWS <a name="databases-on-aws"></a>
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.

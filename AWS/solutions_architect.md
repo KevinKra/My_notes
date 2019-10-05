@@ -97,6 +97,13 @@ f. [Review Section](#review-section)
 - **Policies** - Policies are made up of documents called Policy documents. These documents are in JSON (JavaScript Object Notation) format and give permissions to what a User/Group/Role is able to do.
 - **Roles** - You create roles and assign them to AWS resources. The resources then can communicate with other AWS services.
 
+#### IAM Roles
+
+- **IAM roles are more secure than storing your access key and secret access keys on individual EC2 instances.**
+- Roles are much easier to manage than having EC2 instances hold keys.
+- Roles can be assigned to an EC2 instance after is created using both the console and command line.
+- Roles are universal, you can use them in any region.
+
 #### Hands on
 
 - Policy example (AdministratorAccess)
@@ -309,6 +316,100 @@ f. [Review Section](#review-section)
 ## EC2 101 <a name="ec2-101"></a>
 
 - **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
+
+### EC2 Total Lessons Summary
+
+#### SUMMARY: EBS
+
+- Elastic Band Store
+- EBS is basically a virtual HDD in the cloud.
+- EC2 termination protection is **off** by default
+- EBS-backed instances, the **default action is for the root EBS volume to be deleted** when the EC2 instance is terminated. **Additional EBS volumes will persist.**
+- EBS Root Volumes of your **DEFAULT** AMI's cannot be encrypted. You can also use a third party tool to encrypt the root volume, or this can be done when create AMI's in the AWS console or using the API. Steps mentioned in notes.
+- Additional, EBS volumes can be encrypted.
+- Various EBS types both in SSD and HDD.
+
+#### SUMMARY: Security Groups
+
+- All inbound traffic is blocked by default.
+- All outbound traffic is allowed.
+- Changes to Security Groups take effect immediately.
+- Can have multiple EC2 instances within a security group.
+- Can have multiple security groups attached to EC2 instances.
+- Security groups are **Stateful**, if you open a port it will be open for both inbound and outbound traffic.
+- Network ACLs are **Stateless**. You will need to open _both_ the inbound and outbound traffic. Covered in VPC section.
+- You cannot bock specific IP addresses using Security Groups, instead use Network Access Control Lists. Covered in VPC section.
+- Can specify allow rules, but not deny rules.
+
+#### SUMMARY: EBS Snapshots
+
+- Volumes exist on EBS.
+- Snapshots exist on S3.
+- Snapshots are point in time copies of Volumes.
+- Snapshots are incremental. Only blocks that have changed since your last snapshot are moved to S3.
+- Your first snapshot may take some time to create. Future snapshots only replicate the deltas (changes.)
+- Optional. To create a snapshot for Amazon EBS volumes that serve as root devices (where the OS is installed), you should stop the instance before taking the snapshot.
+- You can create AMI's from both Volumes and Snapshots.
+- You can change EBS volume sizes on the fly, including the size and storage type.
+- **Volumes will ALWAYS be in the same availability zone as the EC2 instance**.
+
+#### SUMMARY: Migrating EBS
+
+- To move an EC2 instance volume from one AZ to another, take a snapshot of it, create an AMI from the snapshot and then use the AMI to launch the EC2 instance in a new AZ.
+- To move an EC2 instance volume from one region to another, take a snapshot of it, create an AMI from the snapshot and then copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
+
+#### SUMMARY: EBS Encryption
+
+- Snapshots of encrypted volumes are encrypted automatically.
+- Volumes restored from encrypted snapshots are encrypted automatically.
+- You can share snapshots, but only if they're unencrypted.
+- Unencrypted snapshots can be shared with other AWS accounts or made public.
+- Root Device Volumes can be encrypted. If you have an already existing unencrypted root device volumes then a series of steps need to be follow. Described in notes below.
+
+#### SUMMARY: EBS vs Instance Store
+
+- Instance Store Volumes are sometimes called **Ephemeral Storage.**
+- Instance Store Volumes cannot be stopped. If the underlying host fails, you will lose your data.
+- EBS backed instances can be stopped. You will not lose the data on the instance if it is stopped.
+- You can reboot both and not lose your data.
+- By default, both Root volumes will be deleted on termination. However with EBS volumes, you can tell AWS to keep the root device volume.
+
+#### SUMMARY: CloudWatch
+
+- CloudWatch is used for monitoring performance.
+- CloudWatch can monitor most of AWS as well as applications running on AWS.
+- CloudWatch with EC2 will monitor events every 5 minutes by default.
+- You can have 1 minute intervals by turning on detailed monitoring.
+- You can create CloudWatch alarms which trigger notifications.
+- CloudWatch is about performance, CloudTrail is about auditing.
+- CloundTrail monitors API calls in the AWS environment.
+- Can create Dashboards.
+- Can create Events.
+- Can create Logs to aggregate, monitor, and store logging data.
+
+#### SUMMARY: EFS
+
+- Supports the Network File System 4 (NFSv4) Protocol.
+- You only pay for storage you use (no pre-provisioning required.)
+- Can scale up to petabytes
+- Can support thousands of concurrent NFS connections.
+- Unlike an EBS which can only support one EC2 instance, you can create an NFS/EFS mount and store files there and multiple EC2 instances can access it.
+- Data is stored is multiple AZ's within a region.
+- Read after Write consistency.
+
+#### SUMMARY: Placement Groups
+
+- How EC2 instances are placed.
+- 3 types of placement groups: Clustered Placement Group, Spread Placement Group, Partitioned.
+- Clustered Placement Group: All EC2s are in the same AZ. Low Network Latency / High Network Throughput.
+- Spread Placement Group: For individual critical EC2 instances. In different AZ zones and devices.
+- Partitioned: Multiple EC2 instances of HDFS, Hbase, and cassandra.
+- Clustered placement does not span multiple AZ, spread and partitioned can.
+- The name you specify for a placement group must be unique within your AWS account.
+- Only certain types of EC2 instances can be launched in a placement group (Compute Optimized, GPU, Memory Optimized, Storage Optimized)
+- AWS recommends homogenous instances within clustered placement groups.
+- You **cannot** merge placement groups.
+- You **cannot** move an existing EC2 instance into a placement group. You **can** create an AMI from your existing instance and then launch a new instance from the AMI into a placement group.
 
 ### Pricing Models Instances
 
@@ -581,6 +682,16 @@ U - Bare Metal
 
 ---
 
+## EFS 101
+
+- Amazon **Elastic File System** is a file storage service for Amazon Elastic Compute Cloud (EC2) instances. Amazon EFS is easy to use and provides a simple interface that allows you to create and configure file systems quickly. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it.
+
+- Similar to EBS except with EBS you can only mount your disk to one EC2 instance. You cannot have two EC2 instances one EBS volume. However, you _can_ have two EC2 instances share an EFS volume.
+
+- If you provision an EFS instance, unlike an EBS volume, it will grow dynamically with the EC2 instance.
+
+---
+
 ## CloudWatch 101
 
 - CloudWatch is a monitoring service used to monitor your AWS resources, as well as the applications that you run on AWS. CloudWatch basically monitors performance.
@@ -627,6 +738,47 @@ U - Bare Metal
 - **Alarms** - Allows you to create alarms when threshold limits are reached.
 - **Events** - Cloudwatch events respond to state changes in your AWS resources.
 - **Logs** - Cloudwatch logs help you aggregate, monitor, and store logs.
+
+---
+
+## AWS CLI
+
+- Can interact with AWS from anywhere in the world just by using the CLI
+- You will need to set up access in IAM
+- **IAM roles are more secure than storing your access key and secret access keys on individual EC2 instances.**
+- Roles are much easier to manage than having EC2 instances hold keys.
+- Roles can be assigned to an EC2 instance after is created using both the console and command line.
+- Roles are universal, you can use them in any region.
+
+#### useful commands:
+
+`aws <service> ls`
+`aws configure`
+`aws s3 mb s3://<bucketname>` - make bucket
+`cd ~` - home directory
+`cd .aws` - hidden aws directory containing your config and credentials (Access key and Secret key here.)
+`rm -rf .aws` - removes hidden aws directory and removes credentials
+
+---
+
+### Boot Strap Scripts
+
+`#!/bin/bash`
+
+> Note: there seems to be a potential error in the below bash commands
+
+```
+#!/bin/bash
+yum update -y
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+cd /var/www/html
+echo "<html><h1>Hello this is another webpage</h1></html>"
+> index.html
+aws s3 mb s3://hjkhjkhjkqweide123asddddWOW
+aws s3 cp index.html s3://hjkhjkhjkqweide123asddddWOW
+```
 
 ---
 

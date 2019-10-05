@@ -317,6 +317,12 @@ f. [Review Section](#review-section)
 
 - **Elastic Compute Cloud**, Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, this provides for the ability to quickly scale capacity both up and down as your computing requirements change. The EC2 solution is drastically faster than traditional server solutions where setting up and deploying physical servers could take days or even months and the costs would all be upfront. EC2 allows for provisioning servers in the cloud and takes mere minutes to complete.
 
+- Instance Metadata and User Data can be retrieved from within the instance via a special URL. Similar information can be extracted by using the API via the CLI or an SDK.
+
+- EBS, EFS, and FSx are all storage services based on block storage.
+
+- Individual instances are provisioned in AZs.
+
 ### EC2 Total Lessons Summary
 
 #### SUMMARY: EBS
@@ -404,12 +410,15 @@ f. [Review Section](#review-section)
 - Clustered Placement Group: All EC2s are in the same AZ. Low Network Latency / High Network Throughput.
 - Spread Placement Group: For individual critical EC2 instances. In different AZ zones and devices.
 - Partitioned: Multiple EC2 instances of HDFS, Hbase, and cassandra.
+- Spread Placement Groups can be deployed across availability zones since they spread the instances further apart. Cluster Placement Groups can only exist in one Availability Zone since they are focused on keeping instances together, which you cannot do across Availability Zones
 - Clustered placement does not span multiple AZ, spread and partitioned can.
 - The name you specify for a placement group must be unique within your AWS account.
 - Only certain types of EC2 instances can be launched in a placement group (Compute Optimized, GPU, Memory Optimized, Storage Optimized)
 - AWS recommends homogenous instances within clustered placement groups.
 - You **cannot** merge placement groups.
 - You **cannot** move an existing EC2 instance into a placement group. You **can** create an AMI from your existing instance and then launch a new instance from the AMI into a placement group.
+- Spread placement groups have a specific limitation that you can only have a maximum of 7 running instances per Availability Zone. Deploying instances in a single Availability Zone is unique to Cluster Placement Groups only.
+- Depending on your type of RL(?) you can You can modify the AZ, scope, network platform, or instance size (within the same instance type), but not Region. In some circumstances you can sell RIs, but only if you have a US bank account.
 
 ### Pricing Models Instances
 
@@ -926,3 +935,5 @@ aws s3 cp index.html s3://hjkhjkhjkqweide123asddddWOW
 - What happens if you delete an outbound rule in an EC2 instance?
 - Can you blacklist ports or IP addresses with security groups?
 - Can you attach more than one security group to an EC2 instance?
+- If an Amazon EBS volume is an additional partition (not the root volume), can I detach it without stopping the instance?
+- Can you add multiple volumes to an EC2 instance and then create your own RAID 5/RAID 10/RAID 0 configurations using those volumes.

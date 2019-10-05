@@ -581,6 +581,55 @@ U - Bare Metal
 
 ---
 
+## CloudWatch 101
+
+- CloudWatch is a monitoring service used to monitor your AWS resources, as well as the applications that you run on AWS. CloudWatch basically monitors performance.
+
+#### Can monitor things like:
+
+- **Compute**
+  - EC2 Instances
+  - Autoscaling Groups
+  - Elastic Load Balancers
+  - Route53 Health Checks
+- **Storage & Content Delivery**
+- EBS Volumes
+- Storage Gateways
+- CloudFront
+
+#### Moniters Host Level Metrics like:
+
+- CPU
+- Network
+- Disk
+- Status Desk
+  - Underlying hypervisor
+  - Underlying EC2 instance
+
+#### Cloudtrail vs Cloudwatch monitoring
+
+- **AWS Cloudtrail** increases visibility into your user and resource activity by recording AWS management console actions and API calls. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred.
+
+- Essentially, when you create an EC2 instance, S3 bucket, etc. you are making an API call to AWS. This actions are recorded by Cloudtrail.
+
+- **AWS Cloudwatch** is used for monitoring performance. Can monitor most of AWS as well as applications run on AWS.
+- Cloudwatch with EC2 will monitor events every 5 minutes by default.
+- Can activate detailed monitoring turn on with 1 minute intervals.
+- Can create Cloudwatch alarms. ex: Billing Alarm.
+- CloudWatch is about performance. CloudTrail is auditing.
+
+### Cloudwatch Features
+
+- Standard Monitoring = 5 minutes
+- Detailed Monitoring = 1 minute
+
+- **Dashboards** - create dashboards to track AWS environment.
+- **Alarms** - Allows you to create alarms when threshold limits are reached.
+- **Events** - Cloudwatch events respond to state changes in your AWS resources.
+- **Logs** - Cloudwatch logs help you aggregate, monitor, and store logs.
+
+---
+
 ## Databases on AWS <a name="databases-on-aws"></a>
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.

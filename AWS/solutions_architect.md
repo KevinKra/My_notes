@@ -527,17 +527,106 @@ U - Bare Metal
 - You can create AMI's from both Volumes and Snapshots.
 - You can change EBS volume sizes on the fly, including changing the size and storage type.
 - Volumes will **ALWAYS** be in the AZ as the EC2 instance.
-- EC2 AZ change. EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
-- EC2 Region change. Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
+- **EC2 AZ change:** EC2 volumes can be moved from one AZ to another. To move an EC2 volume, take a snapshot of it, create an AMI from the snapshot, then use the AMI to launch the EC2 instance in a new AZ.
+- **EC2 Region change:** Take a snapshot of the EC2 volume, create an AMI from the snapshot, copy the AMI from one region to another. Then use the copied AMI to launch the new EC2 instance in the new region.
 
-* **What ever AZ an EC2 instance is located, the EBS volume with be in the same location.** When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion.
+### EBS vs Instance Store
 
-* **How do you move an EDS volume to a new location?**
+- Instance Store Volumes are sometimes called Ephemeral Storage.
+- **Instance Store Volumes cannot be stopped.** If the underlying host fails, you will lose your data.
+- **EBS backed instances can be stopped.** You will not lose your data on the instance if it is stopped.
+- You can reboot both an instance store volume and an EBS backed instance, you will not lose your data. Essentially, only if the host fails and your data is stored on an instance store than you will lose your data.
+- By default, both ROOT volumes will be deleted on termination. However, with EBS volumes, you can tell AWS to keep the root device volume. That cannot be done with an instance store.
 
-* a **snapshot** is a "photograph" of the disk.
+#### AMI can be selected based on:
 
-* **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
+- Region
+- Operating System
+- Architecture (32-bit, 64-bit)
+- Launch Permissions
+- Storage for Root Device (Root Device Volume)
+
+  1. Instance Store (**EPHEMERAL STORAGE**)
+  2. EBS Backed Volumes
+
+- All AMIs are categorized as either backed by Amazon EBS or backed by instance store.
+- **For EBS Volumes:** The root device for an instance launched from the AMI is an Amazon EBS Volume created from an Amazon EBS snapshot.
+
+- **For Instance Store Volumes:** The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
+
+### Encrypted Root Device Volumes & Snapshots
+
+- **The old school way of encrypting a EC2 instance's Root Device Volume:** take a snapshot of the (unencrypted) root volume, copy the snapshot and enable encryption, then create an AMI from that snapshot, then launch that EC2 instance as an encrypted root device volume.
+
+- In the past you were not able to have encrypted root device volumes, so you had to follow the above work-around steps to encrypt it. These days, you can launch a root device volume with encryption.
+
+- You cannot take a snapshot that is encrypted and then launch it as a non-encrypted volume.
+- Snapshots of encrypted volumes are encrypted automatically.
+- Volumes restored from encrypted snapshots are encrypted automatically.
+- You can share snapshots, but **only** if they're unencrypted.
+- Unencrypted snapshots can be shared with other AWS accounts or made public.
+- You can now encrypt root device volumes upon creation of the EC2 instance.
+
+### Questions:
+
+- **Can you have your EC2 and EBS volumes in different AZs?**  
+  _No. When you have a virtual machine, you would want the virtual hard drive to be as close as possible, so having them in the same location is a logical conclusion._
+
+- **How do you move an EDS volume to a new location?**
+
+- **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
   _No. When you terminate an EC2 instance only the root volume will terminate with it. You will need to manually terminate additional EBS volumes that you had provisioned._
+
+- **You have an already existing unencrypted root device volume, what is the process for encrypting it?**
+
+---
+
+## CloudWatch 101
+
+- CloudWatch is a monitoring service used to monitor your AWS resources, as well as the applications that you run on AWS. CloudWatch basically monitors performance.
+
+#### Can monitor things like:
+
+- **Compute**
+  - EC2 Instances
+  - Autoscaling Groups
+  - Elastic Load Balancers
+  - Route53 Health Checks
+- **Storage & Content Delivery**
+- EBS Volumes
+- Storage Gateways
+- CloudFront
+
+#### Moniters Host Level Metrics like:
+
+- CPU
+- Network
+- Disk
+- Status Desk
+  - Underlying hypervisor
+  - Underlying EC2 instance
+
+#### Cloudtrail vs Cloudwatch monitoring
+
+- **AWS Cloudtrail** increases visibility into your user and resource activity by recording AWS management console actions and API calls. You can identify which users and accounts called AWS, the source IP address from which the calls were made, and when the calls occurred.
+
+- Essentially, when you create an EC2 instance, S3 bucket, etc. you are making an API call to AWS. This actions are recorded by Cloudtrail.
+
+- **AWS Cloudwatch** is used for monitoring performance. Can monitor most of AWS as well as applications run on AWS.
+- Cloudwatch with EC2 will monitor events every 5 minutes by default.
+- Can activate detailed monitoring turn on with 1 minute intervals.
+- Can create Cloudwatch alarms. ex: Billing Alarm.
+- CloudWatch is about performance. CloudTrail is auditing.
+
+### Cloudwatch Features
+
+- Standard Monitoring = 5 minutes
+- Detailed Monitoring = 1 minute
+
+- **Dashboards** - create dashboards to track AWS environment.
+- **Alarms** - Allows you to create alarms when threshold limits are reached.
+- **Events** - Cloudwatch events respond to state changes in your AWS resources.
+- **Logs** - Cloudwatch logs help you aggregate, monitor, and store logs.
 
 ---
 

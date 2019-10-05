@@ -554,6 +554,19 @@ U - Bare Metal
 
 - **For Instance Store Volumes:** The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
 
+### Encrypted Root Device Volumes & Snapshots
+
+- **The old school way of encrypting a EC2 instance's Root Device Volume:** take a snapshot of the (unencrypted) root volume, copy the snapshot and enable encryption, then create an AMI from that snapshot, then launch that EC2 instance as an encrypted root device volume.
+
+- In the past you were not able to have encrypted root device volumes, so you had to follow the above work-around steps to encrypt it. These days, you can launch a root device volume with encryption.
+
+- You cannot take a snapshot that is encrypted and then launch it as a non-encrypted volume.
+- Snapshots of encrypted volumes are encrypted automatically.
+- Volumes restored from encrypted snapshots are encrypted automatically.
+- You can share snapshots, but **only** if they're unencrypted.
+- Unencrypted snapshots can be shared with other AWS accounts or made public.
+- You can now encrypt root device volumes upon creation of the EC2 instance.
+
 ### Questions:
 
 - **Can you have your EC2 and EBS volumes in different AZs?**  
@@ -563,6 +576,8 @@ U - Bare Metal
 
 - **When you terminate an EC2 instance will the root and EBS volumes all terminate?**
   _No. When you terminate an EC2 instance only the root volume will terminate with it. You will need to manually terminate additional EBS volumes that you had provisioned._
+
+- **You have an already existing unencrypted root device volume, what is the process for encrypting it?**
 
 ---
 

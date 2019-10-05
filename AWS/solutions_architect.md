@@ -655,6 +655,29 @@ U - Bare Metal
 `cd .aws` - hidden aws directory containing your config and credentials (Access key and Secret key here.)
 `rm -rf .aws` - removes hidden aws directory and removes credentials
 
+---
+
+### Boot Strap Scripts
+
+`#!/bin/bash`
+
+> Note: there seems to be a potential error in the below bash commands
+
+```
+#!/bin/bash
+yum update -y
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+cd /var/www/html
+echo "<html><h1>Hello this is another webpage</h1></html>"
+> index.html
+aws s3 mb s3://hjkhjkhjkqweide123asddddWOW
+aws s3 cp index.html s3://hjkhjkhjkqweide123asddddWOW
+```
+
+---
+
 ## Databases on AWS <a name="databases-on-aws"></a>
 
 - Relational databases have existed since the 1970s, they are a series of interconnected tables with one-to-one, one-to-many, and many-to-many (that utilize join tables) relationships. Relational databases consist of tables or **collections** which themselves consist of rows. Rows, or **documents**, consist of key-value pairs or **fields**.

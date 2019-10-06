@@ -1,5 +1,7 @@
 # CLI & SSH
 
+## CLI
+
 > Command Line Interface
 
 - **CLI, Command Line Interface.** An interface that allows you to control your computer via commands.
@@ -7,6 +9,18 @@
 - **Shell**, a program that provides a CLI to a user. Examples: Bash, oh-my-zsh, etc.
 - **Terminal**, sometimes used interchangeable with "CLI" and "Shell". It is the program that runs your shell.
 - **Command Prompt**: `my-iMac:~ steven$`
+
+#### Commands
+
+- ls
+- pwd
+- cd
+- clear
+- cp
+- mkdir
+- touch
+- mv
+- rm
 
 ## SSH
 
@@ -18,6 +32,7 @@
 - Public half: exist on any machine we want to connect and communicate with.
 - When a connection is made between both halves the SSH protocol creates a cryptographically secure connection to the server.
 - There is no way to retrieve a passphrase if it is forgotten.
+- SSH connects on port 22.
 
 #### SSH into a system
 
@@ -32,5 +47,8 @@
 
 #### Commands:
 
-`ssh-keygen -C <your_email> -f ~/.ssh/id_rsa_example` - creates an SSH key pair in a hidden .ssh file.
-`ls -l ~/.ssh` - list files in hidden .ssh file./
+- `ssh-keygen -C <your_email> -f ~/.ssh/id_rsa_example` - creates an SSH key pair in a hidden .ssh file.
+
+- `ls -l ~/.ssh` - list files in hidden .ssh file.
+
+- `exit` || ctrl+D - exit SSH session.

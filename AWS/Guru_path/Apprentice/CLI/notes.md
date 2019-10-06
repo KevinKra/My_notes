@@ -12,15 +12,15 @@
 
 #### Commands
 
-- ls
-- pwd
-- cd
-- clear
-- cp
-- mkdir
-- touch
-- mv
-- rm
+- `ls`
+- `pwd`
+- `cd`
+- `clear`
+- `cp -R`, recursively copy directory contents
+- `mkdir -p`, make parent directories if needed
+- `touch`
+- `mv`
+- `rm -R`: recursive, -f: force
 
 ## SSH
 
@@ -41,9 +41,9 @@
 1. User account. example:
 2. IP Address _or_ Hostname
 
-`<username>@<ip_address>` - `ec2-user@18.223.122.145`
+- `<username>@<ip_address>` > `ec2-user@18.223.122.145`
 
-`ec2-user@18.223.122.145 -i ~/.ssh/id_rsa_example`
+- `ec2-user@18.223.122.145 -i ~/.ssh/id_rsa_example`
 
 #### Commands:
 

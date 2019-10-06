@@ -131,6 +131,7 @@
 
 - Lifecycle Management
 - Versioning
+- Storage classes/tiers (can be changed on the fly)
 - Encrypt Files at Rest
 - Access Control Lists (file level restrictions and permissions)
 - Bucket Policies (bucket level restrictions and permissions)
@@ -185,6 +186,12 @@
   > Notes say PUT but POST would be more accurate in regards to RESTful architecture patterns regarding new data being submitted.
 - PUTs / DELETEs have **eventual consistency.** Can take time to propagate, or update data. There is potential for seeing previous versions of files before the propagation updates the file.
 
+### Ways to restrict access to Buckets?
+
+- Bucket Policies
+- Object Policies
+- IAM Policies to Users and Groups
+
 ### Questions:
 
 - What is block based storage?
@@ -202,3 +209,9 @@
 - What is the difference between Access Control Lists and Bucket Policies?
 - Explain S3 Transfer Acceleration.
 - Explain S3 Cross-region-replication.
+- Is S3 regional or global?
+- Can you change Storage Tiers on the fly?
+- What are 3 ways to restrict bucket access?
+- Are buckets public by default?
+- Can you host static websites on S3?
+- Does S3 automatically scale to demand?

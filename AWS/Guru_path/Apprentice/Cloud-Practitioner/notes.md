@@ -92,3 +92,32 @@
 
 - What are the four different AWS support plans?
 - What are the details, costs, and use cases, of each support plan?
+
+---
+
+## IAM
+
+- **IAM, Identity Access Management**, allows you to create users, roles, groups, and policies, that establish permissions that can be used across an AWS instance.
+- When you add a User to a Group they will inherit all the privileges delegated to the group.
+- IAM is **Global**, you do not need to specify a region.
+- **Root Account** is the email used to set up your AWS account. Root account has full admin access, even more than standard full-admins, and is essentially the god account.
+- To give permissions to a group you need to create a policy. **Policies are written in JSON.**
+
+### Adding Users
+
+- There are three ways to grant users access to AWS.
+
+  1. Programmatic Access - Enables an **access key ID** and **secret access key** for the AWS API, CLI, SDK, and other de tools.
+  2. Console Password - Enables a **password** that allows users to sign-in to the AWS management console.
+  3. Using the Software Development Kit, SDK.
+
+### Questions:
+
+- What are the three ways for users to gain access to AWS?
+- What does IAM stand for, what is it's purpose?
+- What are the IAM permission formats?
+- Is IAM regional or global?
+- Explain the root account.
+- How can you give permissions to a group, what language are they written in?
+
+---

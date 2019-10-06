@@ -76,3 +76,33 @@
   - Compute (IaaS, PaaS, SaaS, FaaS)
   - Databases and storage
   - Serverless
+
+--
+
+## Patterns and Best Practices
+
+### Cloud Application development patterns
+
+- Automate provisioning and deployment
+  - Quickly update and deploy new resources.
+- Scale on-demand
+  - Efficiently use your resources.
+- Create loosely-coupled services
+  - Build scalable and fault-tolerant applications.
+- Automate testing and monitoring
+  - Reduce code debt, increase application durability.
+- Iterate rapidly
+  - Provides ability to respond to customer needs more quickly.
+- Use third-party services and existing tech
+  - Use existing technology when possible, so you can focus creating unique things that users need.
+
+### Cloud Development scenarios
+
+- "Lift and Shift"
+  - Convert physical servers to virtual servers and take advantage of the durability and securities of the cloud.
+- Rearchitect
+  - Take an existing application and modify it to take advantage of cloud technology.
+- Rewrite
+  - Complete rewrite of application, expensive and time consuming.
+- New development
+  - Building technology from the ground up to take advantage of serverless cloud architecture patterns.

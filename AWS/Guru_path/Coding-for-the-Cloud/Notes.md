@@ -1,6 +1,6 @@
 # Coding for the Cloud 101
 
-### Background / Cloud Solutions
+## Background / Cloud based solutions
 
 - Before the cloud we had physical servers (aka **"bare metal"**) usually located in data centers. You were given for remote access to the machine and you responsible for everything that happens on the machine.
 - **Virtualization**. Virtualization is a technology that created virtual servers and other infrastructure called **Virtual Machines or VM**. One or more virtual servers can run on a machine. A virtual machine can be provisioned in minutes instead of weeks or months.
@@ -45,3 +45,34 @@
 - Create thicker, more powerful frontends.
 
 - Embrace third party services.
+
+---
+
+## Vendors and Technologies
+
+### Vendors
+
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud Platform
+- Salesforce
+- IBM
+- Red Hat
+- Oracle
+- Heroku
+- ect...
+
+### Technologies: Frontend vs. Backend
+
+- Frontend
+
+  - Code running on the user's device
+  - Powerful browsers mean more powerful frontend apps
+  - Developing for browsers
+  - Developing for devices
+
+- Backend
+  - Code running on a server (virtual or physical)
+  - Compute (IaaS, PaaS, SaaS, FaaS)
+  - Databases and storage
+  - Serverless

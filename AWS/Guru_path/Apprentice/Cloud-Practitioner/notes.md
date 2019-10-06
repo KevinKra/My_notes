@@ -1,5 +1,11 @@
 # AWS Cloud Practitioner
 
+> Content necessary for the AWS Cloud Practitioner certificate.
+
+---
+
+# Cloud Concepts and Technology
+
 #### What is Cloud Computing?
 
 - Cloud Computing is the on-demand delivery of compute, database storage, applications, and other IT resources, through a cloud services platform with pay-as-you pricing.
@@ -16,7 +22,7 @@
 
 3. Stop guessing about capacity.
 
-   > No longer need to have to deal with situations of too little or too much. Cloud skills dynamically with business needs without being restricted by contracts automatically.
+   > No longer have to deal with situations of too little or too much provisioned capacity. Cloud scales dynamically and automatically with business needs without being restricted by contracts or physical limitations.
 
 4. Increase speed and agility.
 
@@ -47,8 +53,42 @@
 - Private Cloud (or on premise)
   > You manage it in your data center.
 
+### Factors in determining the correct Region
+
+- Data Sovereignty laws
+- Latency
+- AWS services
+
 ### Questions:
 
 - What are the six advantages of cloud computing?
 - What are three types of cloud computing?
 - What are the three types of Cloud Deployments?
+- What are the three main factors in determining the correct region to setup into?
+
+---
+
+## AWS Account Details
+
+### AWS Support Plans
+
+- **Basic**
+  1. **Price:** Included
+  2. **Details:** Customer service for account and billing questions and access to AWS forums.
+- **Developer**
+  1. **Price:** Starts at \$29/month. Scales with usage.
+  2. **Details:** One primary contact that you can ask technical questions to and expect an answer in 12-24 hours.
+  3. **Use Case:** AWS experimenting.
+- **Business**
+  1. **Price:** Starts at \$100/month. Scales with usage.
+  2. **Details:** 24/7 support by phone and chat. 1-hour response for urgent cases.
+  3. **Use Case:** Production use of AWS.
+- **Enterprise**
+  1. **Price:** Starts at \$15,000/month. Scales with usage.
+  2. **Details:** All business features. Assigned **Technical Account Manager (TAM)**. 15-minute response to critical support needs.
+  3. **Use Case:** Mission-critical usage of AWS.
+
+### Questions:
+
+- What are the four different AWS support plans?
+- What are the details, costs, and use cases, of each support plan?

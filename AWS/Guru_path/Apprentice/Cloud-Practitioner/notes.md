@@ -376,6 +376,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 - Identity Access Management
 - You don't specify a region, it is **global**, when you create a user or group it is created **globally**.
+- Roles and users are global.
 
 ### Three ways to access the AWS console
 
@@ -422,3 +423,117 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Can be **Read & Write**
 - **Time to live, TTL** - objects are cached for the life of the TTL (always in seconds.)
 - You can clear cached objects from the edge location, **but you will be charged.**
+
+### Common Ports
+
+- Linux = SSH - Port 22
+- Microsoft = Remote Desktop Protocol (RDP) - Port 3389
+- HTTP - Port 80
+- HTTPS - Port 443
+
+### Firewalls
+
+- 0.0.0.0/0 - lets everything in
+- x.x.x.x/32 - specific IP address
+- **Security Groups** are virtual firewalls. Everything is blocked by default
+
+### General
+
+- Always design for failure
+- Have one EC2 Instance in each availability zone
+
+### Security
+
+- **Do not store credentials on EC2 instances.** Use roles instead.
+- Roles can be applied to EC2 instances at any time, changes take place immediately.
+
+### Three Types of Load Balancers
+
+- Application Load Balancers
+  > Layer-7 (make intelligent routing decisions)
+- Network Load Balancers
+  > Extreme Performance/Static IP Addresses
+- Classic Load Balancers
+  > Test & Dev, keep costs low.
+
+### Databases
+
+- RDS: SQL, MySQL, PostreSQL, Oracle, Aurora, MariaDB
+- RDS two key features: Multi-AZ (durability), Read Replicas (performance)
+- NoSQL: DynamoDB
+- OLAP: RedShift
+- Redshift - Database Warehousing
+- Elasticache - Dramatically speeds up performance of existing databases
+
+### Elasticache
+
+- Caching service for very frequently queried DB blocks
+- Memcached
+- Redis
+
+### Graph Databases
+
+- Scalability
+- High Availability
+- AWS Neptune
+
+### Autoscaling
+
+- Autoscaling allows you to provision multiple EC2 instances behind a load balancer automatically depending on your demand.
+
+### DNS (Domain Name System) Route53
+
+- Amazons DNS is called Route53
+- DNS is on port 53
+- **Route53 is global**, similar to IAM and S3
+- Works exactly like a phonebook. It's the process that computers use to resolve domain names to IP addresses.
+- You can use it to direct traffic all around the world and you can use it to register a domain name.
+
+### Elastic Beanstalk
+
+- What developers use if they don't know how to use AWS.
+- Allows you to quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. You simply upload your application and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
+- **Free resource**, though what it provisions might not be.
+- **Limited in what it can provision. Not Programmable.**
+
+### AWS CloudFormation
+
+- What developers use if they know how to use AWS.
+- Helps you model and set up your AWS resources so that you spend less time managing those resources and more time focusing on your applications that run in AWS.
+- You create a template that describes all the AWS resources that you want and AWS CloudFormation takes care of provisioning and configuring those resources for you.
+- You don't need to individually create and configure AWS resources and figure out what is dependent on what, AWS CloudFormation handles that.
+- CF template is a JSON object.
+- **Free resource**, though what it provisions might not be.
+- **Can provision almost any AWS service. Completely programmable.**
+
+### Global Services
+
+- IAM
+- Route53
+- CloudFront
+- SNS
+- SES
+
+### AWS that can be used on premise
+
+- Snowball
+- Snowball Edge
+- Storage Gateway
+- CodeDeploy
+- Opsworks
+- IoT Greengrass
+
+### CloudWatch
+
+- CloudWatch is used for monitoring performance
+- CloudWatch can monitor most of AWS as well as applications that run on AWS
+- CloudWatch with EC2 will monitor events every 5 minutes by default
+- You can have 1 minute intervals by turning on detailed monitoring
+
+### AWS Systems Manager
+
+- Used to manage fleets of EC2 instances and virtual machines
+- A piece of software is installed on each VM
+- Can be both inside AWS and on premise
+- Run Command is used to install, patch, uninstall software
+- Integrates with CloudWatch to give a dashboard of entire estate

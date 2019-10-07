@@ -313,3 +313,112 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - What does ElastiCache do?
 - What is an ElastiCache use case?
 - What are the two current ElastiCache engines?
+
+---
+
+## Cloud Concepts and Technology Summary
+
+### The six advantages of the cloud
+
+- Trade Capital Expense for Variable Expense
+- Benefit from massive economies of scale
+- Stop Guessing about capacity
+- Increase Speed and Agility
+- Stop spending money maintaining infrastructure
+- Go Global in minutes
+
+### Three types of Cloud Computing
+
+- IaaS, Infrastructure as a Service
+  > EC2, S3, etc.
+- PaaS, Platform as a Service
+  > ElasticbeanStalk, Heroku, etc.
+- SaaS, Software as a Service
+  > Gmail, Google Docs, etc.
+
+### Three Types of Cloud Computing Deployments
+
+- Public
+  > AWS, Azure
+- Hybrid
+  > Applications that are both hosted in the cloud and in traditional data centers.
+- Private
+  > You manage it in your data center using vmware or openstack.
+
+### Regions, AZs, Edge locations
+
+- Regions
+  > Consist of >=2 AZs
+- Availability Zones
+  > One or more discrete data centers with redundancies in power, connectivity, devices, and networks.
+- Edge Locations
+  > Endpoints used by AWS to cache content, typically consists of CloudFront (Amazons content delivery network/CDN)
+
+### What to consider when choosing a region.
+
+- Data Sovereignty laws
+- Latency to end users
+- Needed AWS services
+  > Does the region have the services you need like glacier for instance.
+
+### Different Support Packages
+
+- Basic
+  > Free
+- Developer
+  > \$29/month (scales on usage)
+- Business
+  > \$100/month (scales on usage)
+- Enterprise
+  > \$15,000/month (scales on usage) + full-time Technical Account Manager (
+
+### IAM
+
+- Identity Access Management
+- You don't specify a region, it is **global**, when you create a user or group it is created **globally**.
+
+### Three ways to access the AWS console
+
+- Via the console (duh)
+- Programmatically (using the CLI)
+- Using the Software Developers Kit (SDK)
+
+### Root Account
+
+- Account made with your AWS account
+- _God_ access to everything
+- **Do not share** the account credentials with anyone
+- Create users for individuals in your organization
+- Protect with MF
+
+### S3
+
+- Object Based
+- 0B - 5TB
+- Unlimited storage
+- Buckets / Objects
+- Universal name space
+- Not suitable for installing OSs on
+- Uploads send a 200 status code
+- Key, value, metadata, versioning, subresources
+- data consistency variants on puts / deletes / posts
+- You _can_ have buckets in regions, but you can still see them all globally
+- opt-in automatic Cross Region Replication (CRR)
+- Transfer Acceleration
+- Six Different types of S3: S3 standard, S3-IA, S3 one-zone IA, S3 Glacier, S3 Glacier Deep Archive (2018), S3 Intelligent Tiering (2018)
+- Bucket and Object level policies
+- S3 can host static websites
+- Websites that need DB connections cannot be hosted on S3
+- S3 scales automatically with demand, great for static websites
+- S3 & CloudFront
+
+### CloudFront - Write this section out
+
+- Edge location is a location that caches data
+- Origin is the origin of all the files that the CDN will distribute. Can be an instance of: S3 Bucket, EC2, Route53, Elastic Load Balancer
+- Distribution is the name given to CDN which consists of a collection of Edge Locations
+- Web Distribution - Typically used for Websites
+- RTMP - used for media streaming (Adobe flash)
+- Can be **Read & Write**
+- **Time to live, TTL** - objects are cached for the life of the TTL (always in seconds.)
+- You can clear cached objects from the edge location, **but you will be charged.**

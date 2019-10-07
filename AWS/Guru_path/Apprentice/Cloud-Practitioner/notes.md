@@ -215,3 +215,38 @@
 - Are buckets public by default?
 - Can you host static websites on S3?
 - Does S3 automatically scale to demand?
+
+---
+
+## Load Balancers
+
+- EC2 load balancers
+
+### Types of LoadBalancers
+
+- Application Load Balancers
+  > Application aware and can make intelligent routing decisions. Layer-7 aware (Make Intelligent Decisions).
+- Network Load Balancers
+  > Ultra-high performance and static ip addresses.
+- Classic load Balancers
+  > Testing and Development, keep costs low. Getting phased out.
+
+#### BootStrap Scripts
+
+```
+#!/bin/bash/
+yum update -y
+yum install httdp -y
+service httpd start
+chkconfig on
+cd /var/www/html
+echo "<html><h1>Hello</h1></html>" > index.html
+```
+
+### Questions:
+
+- What does a load balancer do?
+- What are the three types of load balancers?
+- Why should you always aim to have EC2 servers in multiple AZs?
+
+---

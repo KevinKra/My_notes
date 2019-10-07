@@ -215,3 +215,325 @@
 - Are buckets public by default?
 - Can you host static websites on S3?
 - Does S3 automatically scale to demand?
+
+---
+
+## Load Balancers
+
+- EC2 load balancers
+
+### Types of LoadBalancers
+
+- Application Load Balancers
+  > Application aware and can make intelligent routing decisions. Layer-7 aware (Make Intelligent Decisions).
+- Network Load Balancers
+  > Ultra-high performance and static ip addresses.
+- Classic load Balancers
+  > Testing and Development, keep costs low. Getting phased out.
+
+#### BootStrap Scripts
+
+```
+#!/bin/bash/
+yum update -y
+yum install httdp -y
+service httpd start
+chkconfig on
+cd /var/www/html
+echo "<html><h1>Hello</h1></html>" > index.html
+```
+
+### Questions:
+
+- What does a load balancer do?
+- What are the three types of load balancers?
+- Why should you always aim to have EC2 servers in multiple AZs?
+
+---
+
+## Databases 101
+
+### Types of Databases:
+
+- **Relational Databases (RDS)**
+
+  > Consists of Tables composed of rows and a fixed number of columns. Need to be well-planned in advance.
+
+  - AWS RDS as two key features:
+    - **Multi-AZ**: For disaster recovery and protection. If you lose on AZ, RDS will **automatically** fail-over to the other AZ and access that RDS.
+    - **Read Replicas**: Copies of the production database, EC2s can be instructed to read from the read-replicas instead of the production database thus increasing performance. If your primary database fails, AWS will **not** automatically fail-over to the read-replica. A **solution:** EC2 instances can send all their writes to the primary RDS and read from the replicas. This architecture also provides for greater performance because while the writes all go to the primary RDS, all the EC2 reads will be spread across the (up to 5) read replica RDS.
+  - Types:
+    - Microsoft SQLserver
+    - Oracle
+    - MySQL
+    - Amazon Aurora
+    - MariaDB
+
+- **Non-relational Databases**
+  > Consists of Collections composed of documents made up of key value pairs. Key value pairs can be added individually to documents.
+  - Types:
+    - DynamoDB
+
+### Data Warehousing
+
+- Data Warehousing databases use different type of architecture both from a database perspective and an infrastructure layer.
+  - Types:
+    - **AWS Redshift (OLAP)** - built from the ground up for the OLAP purpose. use RedShift instead of RDS for OLAP.
+
+#### OLTP vs. OLAP
+
+- **Online Transaction Processing (OLTP)** differs from **Online Analytics Processing (OLAP)** in regards to the types of queries you will run.
+
+- OLTP example: Reading or writing a row from a database. Order number 213851, pull up row of data including: Name, Date, address to deliver to, delivery status, etc.
+- OLAP example: Net Profit for EMEA and Pacific regions for the Digital Radio Product. Pulls in _large numbers of records_: Sum of radios sold in EMEA, Pacific, unit costs of radios, etc.
+
+- **Data Warehousing** - Used for business intelligence. Tools like Cognos, Jaspersoft, etc. are used to pull in very large and complex data sets. The concept was invented to keep all of the complex processes involved with OLAP separate from the primary database, so it doesn't impact the its performance. Instead, there is a secondary database (specifically built for OLAP) that can instead manage the queries.
+
+### ElastiCache
+
+- ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. ElastiCache caches common DB queries in its own servers and allows future queries to interact with ElastiCache instead of going through the slower route of interacting with the DB. ElastiCache takes a tremendous load off the primary production DB because the most common queries will interact with EC leaving only uncommon queries to request from the primary DB.
+
+- ElastiCache comes in two different caching engines:
+  - Memcached
+  - Redis
+
+### Questions:
+
+- What is an RDS?
+- Explain Multi-AZ.
+- Explain Read Replicas.
+- What are the 6 types of RDS available on AWS?
+- What is the structure of an RDS?
+- What is the structure of an noSQL non-relational database?
+- What is the key difference between RDS and noSQL?
+- What is Data Warehousing?
+- What is amazons Data Warehousing technology?
+- What is the structure and use-cases of OLTP and OLAP?
+- What does OLTP and OLAP stand for?
+- What does ElastiCache do?
+- What is an ElastiCache use case?
+- What are the two current ElastiCache engines?
+
+---
+
+## Cloud Concepts and Technology Summary
+
+### The six advantages of the cloud
+
+- Trade Capital Expense for Variable Expense
+- Benefit from massive economies of scale
+- Stop Guessing about capacity
+- Increase Speed and Agility
+- Stop spending money maintaining infrastructure
+- Go Global in minutes
+
+### Three types of Cloud Computing
+
+- IaaS, Infrastructure as a Service
+  > EC2, S3, etc.
+- PaaS, Platform as a Service
+  > ElasticbeanStalk, Heroku, etc.
+- SaaS, Software as a Service
+  > Gmail, Google Docs, etc.
+
+### Three Types of Cloud Computing Deployments
+
+- Public
+  > AWS, Azure
+- Hybrid
+  > Applications that are both hosted in the cloud and in traditional data centers.
+- Private
+  > You manage it in your data center using vmware or openstack.
+
+### Regions, AZs, Edge locations
+
+- Regions
+  > Consist of >=2 AZs
+- Availability Zones
+  > One or more discrete data centers with redundancies in power, connectivity, devices, and networks.
+- Edge Locations
+  > Endpoints used by AWS to cache content, typically consists of CloudFront (Amazons content delivery network/CDN)
+
+### What to consider when choosing a region.
+
+- Data Sovereignty laws
+- Latency to end users
+- Needed AWS services
+  > Does the region have the services you need like glacier for instance.
+
+### Different Support Packages
+
+- Basic
+  > Free
+- Developer
+  > \$29/month (scales on usage)
+- Business
+  > \$100/month (scales on usage)
+- Enterprise
+  > \$15,000/month (scales on usage) + full-time Technical Account Manager (
+
+### IAM
+
+- Identity Access Management
+- You don't specify a region, it is **global**, when you create a user or group it is created **globally**.
+- Roles and users are global.
+
+### Three ways to access the AWS console
+
+- Via the console (duh)
+- Programmatically (using the CLI)
+- Using the Software Developers Kit (SDK)
+
+### Root Account
+
+- Account made with your AWS account
+- _God_ access to everything
+- **Do not share** the account credentials with anyone
+- Create users for individuals in your organization
+- Protect with MF
+
+### S3
+
+- Object Based
+- 0B - 5TB
+- Unlimited storage
+- Buckets / Objects
+- Universal name space
+- Not suitable for installing OSs on
+- Uploads send a 200 status code
+- Key, value, metadata, versioning, subresources
+- data consistency variants on puts / deletes / posts
+- You _can_ have buckets in regions, but you can still see them all globally
+- opt-in automatic Cross Region Replication (CRR)
+- Transfer Acceleration
+- Six Different types of S3: S3 standard, S3-IA, S3 one-zone IA, S3 Glacier, S3 Glacier Deep Archive (2018), S3 Intelligent Tiering (2018)
+- Bucket and Object level policies
+- S3 can host static websites
+- Websites that need DB connections cannot be hosted on S3
+- S3 scales automatically with demand, great for static websites
+- S3 & CloudFront
+
+### CloudFront - Write this section out
+
+- Edge location is a location that caches data
+- Origin is the origin of all the files that the CDN will distribute. Can be an instance of: S3 Bucket, EC2, Route53, Elastic Load Balancer
+- Distribution is the name given to CDN which consists of a collection of Edge Locations
+- Web Distribution - Typically used for Websites
+- RTMP - used for media streaming (Adobe flash)
+- Can be **Read & Write**
+- **Time to live, TTL** - objects are cached for the life of the TTL (always in seconds.)
+- You can clear cached objects from the edge location, **but you will be charged.**
+
+### Common Ports
+
+- Linux = SSH - Port 22
+- Microsoft = Remote Desktop Protocol (RDP) - Port 3389
+- HTTP - Port 80
+- HTTPS - Port 443
+
+### Firewalls
+
+- 0.0.0.0/0 - lets everything in
+- x.x.x.x/32 - specific IP address
+- **Security Groups** are virtual firewalls. Everything is blocked by default
+
+### General
+
+- Always design for failure
+- Have one EC2 Instance in each availability zone
+
+### Security
+
+- **Do not store credentials on EC2 instances.** Use roles instead.
+- Roles can be applied to EC2 instances at any time, changes take place immediately.
+
+### Three Types of Load Balancers
+
+- Application Load Balancers
+  > Layer-7 (make intelligent routing decisions)
+- Network Load Balancers
+  > Extreme Performance/Static IP Addresses
+- Classic Load Balancers
+  > Test & Dev, keep costs low.
+
+### Databases
+
+- RDS: SQL, MySQL, PostreSQL, Oracle, Aurora, MariaDB
+- RDS two key features: Multi-AZ (durability), Read Replicas (performance)
+- NoSQL: DynamoDB
+- OLAP: RedShift
+- Redshift - Database Warehousing
+- Elasticache - Dramatically speeds up performance of existing databases
+
+### Elasticache
+
+- Caching service for very frequently queried DB blocks
+- Memcached
+- Redis
+
+### Graph Databases
+
+- Scalability
+- High Availability
+- AWS Neptune
+
+### Autoscaling
+
+- Autoscaling allows you to provision multiple EC2 instances behind a load balancer automatically depending on your demand.
+
+### DNS (Domain Name System) Route53
+
+- Amazons DNS is called Route53
+- DNS is on port 53
+- **Route53 is global**, similar to IAM and S3
+- Works exactly like a phonebook. It's the process that computers use to resolve domain names to IP addresses.
+- You can use it to direct traffic all around the world and you can use it to register a domain name.
+
+### Elastic Beanstalk
+
+- What developers use if they don't know how to use AWS.
+- Allows you to quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. You simply upload your application and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
+- **Free resource**, though what it provisions might not be.
+- **Limited in what it can provision. Not Programmable.**
+
+### AWS CloudFormation
+
+- What developers use if they know how to use AWS.
+- Helps you model and set up your AWS resources so that you spend less time managing those resources and more time focusing on your applications that run in AWS.
+- You create a template that describes all the AWS resources that you want and AWS CloudFormation takes care of provisioning and configuring those resources for you.
+- You don't need to individually create and configure AWS resources and figure out what is dependent on what, AWS CloudFormation handles that.
+- CF template is a JSON object.
+- **Free resource**, though what it provisions might not be.
+- **Can provision almost any AWS service. Completely programmable.**
+
+### Global Services
+
+- IAM
+- Route53
+- CloudFront
+- SNS
+- SES
+
+### AWS that can be used on premise
+
+- Snowball
+- Snowball Edge
+- Storage Gateway
+- CodeDeploy
+- Opsworks
+- IoT Greengrass
+
+### CloudWatch
+
+- CloudWatch is used for monitoring performance
+- CloudWatch can monitor most of AWS as well as applications that run on AWS
+- CloudWatch with EC2 will monitor events every 5 minutes by default
+- You can have 1 minute intervals by turning on detailed monitoring
+
+### AWS Systems Manager
+
+- Used to manage fleets of EC2 instances and virtual machines
+- A piece of software is installed on each VM
+- Can be both inside AWS and on premise
+- Run Command is used to install, patch, uninstall software
+- Integrates with CloudWatch to give a dashboard of entire estate

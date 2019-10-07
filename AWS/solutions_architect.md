@@ -29,7 +29,7 @@ f. [Review Section](#review-section)
 
 ### The History of AWS
 
-- Why is AWS so powerful? Amazon allows companies to use Amazon's Web Servers(AWS) without risks associated with having to build home-grown servers. This allows for companies with tighter budgets to build into AWS and leverage all the integrated server scalability features that Amazon provides. Additionally, it reduces risks to the company because they no longer have to manage and maintain their own server farm.
+- Why is AWS so powerful? Amazon allows companies to use Amazon's Web Service (AWS) without the risks associated with having to build home-grown infrastructure. This allows for companies with tighter budgets to build into AWS and leverage all the integrated server scalability features that Amazon provides. Additionally, it reduces risks to the company because they no longer have to manage and maintain their own server farm.
 
 - in 2003 Chris Pinkham and Benjamin Black presented a paper on what Amazons internal infrastructure could look like. They suggested selling it as a service and prepared a business case for it.
 
@@ -45,7 +45,7 @@ f. [Review Section](#review-section)
 ### AWS Platform
 
 - **AWS Global Infrastructure** - Amazon's global infrastructure and servers around the world. As of 2019 there are 24 regions and 72 availability zones.
-- **Availability Zone** - an AZ is a data center, or cluster of data centers, that are comprised of many servers that support the AWS cloud. In many cases, there are several geographically isolated data centers that protect the network from issues that may knock any one specific center out.
+- **Availability Zone** - an AZ is a data center, or cluster of data centers, that are comprised of many servers that support the AWS cloud. In many cases, there are several geographically isolated data centers that protect the network from issues that may knock any one or more centers out.
 - **Regions** - A geographical area that consists of 2 or more availability zones.
 - **Edge Location** - Edge locations are endpoints for AWS which are used for caching content. Caches files and content from distant regions and holds them in a closer edge location facility.
 
@@ -99,9 +99,9 @@ f. [Review Section](#review-section)
 
 #### IAM Roles
 
-- **IAM roles are more secure than storing your access key and secret access keys on individual EC2 instances.**
-- Roles are much easier to manage than having EC2 instances hold keys.
-- Roles can be assigned to an EC2 instance after is created using both the console and command line.
+- **IAM roles are more secure than storing your access and secret access keys on individual EC2 instances.**
+- Roles are much easier to manage than having EC2 instances holding keys.
+- Roles can be assigned to an EC2 instance after it's created using both the console and command line.
 - Roles are universal, you can use them in any region.
 
 #### Hands on
@@ -259,7 +259,7 @@ f. [Review Section](#review-section)
 - **Can MFA be used in relation to S3?**
   _Yes, it can be used to protect from the deletion of files._
 
-- **What are the key fundamentals of S3 data?**
+- **What are the key fundamentals of S3 Objects?**
   _There is a key, value, versionID, metadata, and sub-resources (Access Control Lists/permissions, Torrent)_
 
 - **Explain the steps to make a file in a bucket public**
@@ -272,7 +272,7 @@ f. [Review Section](#review-section)
 
 ### S3 Security and Encryption
 
-- By default, all newly created buckets are **private**. You can setup access control to your buckets using **Bucket Policies**, **Access Control Lists**. Additionally, S3 buckets can be configured to create access logs, which cause all requests to be logged and sent to an S3 Bucket on the same account or even on another account.
+- By default, all newly created buckets are **private**. You can setup access control to your buckets using **Bucket Policies**. **Access Control Lists** can be used to manage access rights to objects. Additionally, S3 buckets can be configured to create access logs, which cause all requests to be logged and sent to an S3 Bucket on the same account or even on another account.
 
 #### Encryption
 
@@ -284,7 +284,7 @@ f. [Review Section](#review-section)
 1. **S3 Managed Keys - SSE-S3**, amazon automatically manages the keys (encryption / decryption) for you.
 2. **AWS Key Management Service, Managed Keys - SSE-KMS**, developer and amazon manage the keys together.
 3. **Server Side Encryption with Customer provided keys - SSE-C**, Give amazon your own keys, that you manage, and you can use them to encrypt your S3 objects.
-4. Client side encryption. Encrypt client side and upload to S3.
+4. **Client side encryption.** Encrypt client side and upload to S3.
 
 ### S3 Version Control
 
@@ -319,7 +319,7 @@ f. [Review Section](#review-section)
 
 - Instance Metadata and User Data can be retrieved from within the instance via a special URL. Similar information can be extracted by using the API via the CLI or an SDK.
 
-- EBS, EFS, and FSx are all storage services based on block storage.
+- EBS, EFS, and FSx are all storage services based on **block storage**.
 
 - Individual instances are provisioned in AZs.
 
@@ -469,7 +469,7 @@ f. [Review Section](#review-section)
 
 > Required knowledge for Professional Cert
 
-**Family & Gen#** - **Speciality** - **Use case**
+**Family & Gen#** - **Specialty** - **Use case**
 
 F1 - Field Programmable Gate Array - Genomics research, financial analytics, real-time video processing, big data, etc.
 

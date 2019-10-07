@@ -250,3 +250,66 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Why should you always aim to have EC2 servers in multiple AZs?
 
 ---
+
+## Databases 101
+
+### Types of Databases:
+
+- **Relational Databases (RDS)**
+
+  > Consists of Tables composed of rows and a fixed number of columns. Need to be well-planned in advance.
+
+  - AWS RDS as two key features:
+    - **Multi-AZ**: For disaster recovery and protection. If you lose on AZ, RDS will **automatically** fail-over to the other AZ and access that RDS.
+    - **Read Replicas**: Copies of the production database, EC2s can be instructed to read from the read-replicas instead of the production database thus increasing performance. If your primary database fails, AWS will **not** automatically fail-over to the read-replica. A **solution:** EC2 instances can send all their writes to the primary RDS and read from the replicas. This architecture also provides for greater performance because while the writes all go to the primary RDS, all the EC2 reads will be spread across the (up to 5) read replica RDS.
+  - Types:
+    - Microsoft SQLserver
+    - Oracle
+    - MySQL
+    - Amazon Aurora
+    - MariaDB
+
+- **Non-relational Databases**
+  > Consists of Collections composed of documents made up of key value pairs. Key value pairs can be added individually to documents.
+  - Types:
+    - DynamoDB
+
+### Data Warehousing
+
+- Data Warehousing databases use different type of architecture both from a database perspective and an infrastructure layer.
+  - Types:
+    - **AWS Redshift (OLAP)** - built from the ground up for the OLAP purpose. use RedShift instead of RDS for OLAP.
+
+#### OLTP vs. OLAP
+
+- **Online Transaction Processing (OLTP)** differs from **Online Analytics Processing (OLAP)** in regards to the types of queries you will run.
+
+- OLTP example: Reading or writing a row from a database. Order number 213851, pull up row of data including: Name, Date, address to deliver to, delivery status, etc.
+- OLAP example: Net Profit for EMEA and Pacific regions for the Digital Radio Product. Pulls in _large numbers of records_: Sum of radios sold in EMEA, Pacific, unit costs of radios, etc.
+
+- **Data Warehousing** - Used for business intelligence. Tools like Cognos, Jaspersoft, etc. are used to pull in very large and complex data sets. The concept was invented to keep all of the complex processes involved with OLAP separate from the primary database, so it doesn't impact the its performance. Instead, there is a secondary database (specifically built for OLAP) that can instead manage the queries.
+
+### ElastiCache
+
+- ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases. ElastiCache caches common DB queries in its own servers and allows future queries to interact with ElastiCache instead of going through the slower route of interacting with the DB. ElastiCache takes a tremendous load off the primary production DB because the most common queries will interact with EC leaving only uncommon queries to request from the primary DB.
+
+- ElastiCache comes in two different caching engines:
+  - Memcached
+  - Redis
+
+### Questions:
+
+- What is an RDS?
+- Explain Multi-AZ.
+- Explain Read Replicas.
+- What are the 6 types of RDS available on AWS?
+- What is the structure of an RDS?
+- What is the structure of an noSQL non-relational database?
+- What is the key difference between RDS and noSQL?
+- What is Data Warehousing?
+- What is amazons Data Warehousing technology?
+- What is the structure and use-cases of OLTP and OLAP?
+- What does OLTP and OLAP stand for?
+- What does ElastiCache do?
+- What is an ElastiCache use case?
+- What are the two current ElastiCache engines?

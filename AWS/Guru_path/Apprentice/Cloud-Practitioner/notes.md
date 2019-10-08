@@ -326,6 +326,20 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
+### Elastic Beanstalk
+
+- Allows for the provisioning of AWS resources in just a few clicks and easily deploying applications to the cloud.
+- **Free Service**, though what they provision may not be.
+
+---
+
+### CloudFormation
+
+- consists of stacks
+- **Free Service**, though what they provision may not be.
+
+---
+
 ## Cloud Concepts and Technology Summary
 
 ### The six advantages of the cloud

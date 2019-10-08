@@ -316,6 +316,16 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
+### Route53 101
+
+- Route53 is an AWS DNS service.
+- DNS works on port 53 hence the name.
+- Route53 is **Global**
+- You can use Route53 to direct traffic and it can be used to register a domain name.
+- DNS is a service computers use to resolve domain names to IP addresses.
+
+---
+
 ## Cloud Concepts and Technology Summary
 
 ### The six advantages of the cloud

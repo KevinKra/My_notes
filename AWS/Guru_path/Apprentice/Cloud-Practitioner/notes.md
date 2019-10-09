@@ -736,3 +736,76 @@ echo "<html><h1>Hello</h1></html>" > index.html
   > Consolidated Billing is a feature of AWS Organizations. Once enabled and configured, you will receive a bill containing the costs and charges for all of the AWS accounts within the Organization. Although each of the individual AWS accounts are combined into a single bill, they can still be tracked individually and the cost data can be downloaded in a separate file. Using Consolidated Billing may ultimately reduce the amount you pay, as you may qualify for Volume Discounts. There is no charge for using Consolidated Billing.
 
   [resource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+
+---
+
+# AWS Billing and Pricing
+
+### Capex vs. Opex
+
+- **Capex stands for Capital Expenditure** where you pay upfront. It's a fixed, sunk cost.
+- **Opex stands for Operational Expenditure**. You pay for what you use as you use them.
+
+### Pricing Policies
+
+- Pay as you go
+- Pay less when you reserve
+- Pay less for more
+- Pay even less as AWS grows
+- Custom Pricing
+
+#### Key Principles of Pricing Models
+
+- Understand the fundamentals of pricing
+- Start early with cost optimization
+- Maximize the power of flexibility
+- Use the right pricing model for the job
+
+### Three Fundamental drivers of Cost with AWS
+
+- Compute
+- Storage
+- Outbound Data
+
+### Starting Early with Cost Optimization
+
+- It's never too early to start with cost optimization in cloud. Furthermore, It's easiest to put cost controls in place _before_ the environment grows to large.
+- Managing costs effectively from the start ensures that managing cloud investments doesn't become an obstruction as you grow and scale.
+
+### Maximizing Flexibility
+
+- AWS services are priced independently and transparently, so you can choose and pay for exactly what you need and no more.
+- There are no minimum commitments or long-term contracts that are required, _unless_ you choose to save money through a reservation model.
+- By paying for resources as needed, you can redirect your focus to innovation and invention allowing your business to be elastic.
+- One of the key advantages of cloud-based resources is that you don't pay for them when they're not running. By turning off instances you don't use, you can significantly reduce costs.
+
+### Price Models
+
+- On Demand
+- Dedicated Instances
+- Spot
+- Reservations
+
+#### Free Services
+
+- Amazon VPC (a virtual datacenter in the cloud)
+- Elastic Beanstalk
+- CloudFormation
+- IAM
+- Auto Scaling
+- Opsworks (similar to EB)
+- Consolidated billing
+
+---
+
+## EC2 Pricing
+
+- Clock hours of server time
+- Instance type
+- Pricing model
+- Number of instances
+- Load Balancing
+- Detailed Monitoring
+- Auto Scaling (more EC2 instances the more you pay)
+- Elastic IP Addresses (Everytime we created an EC2 instance we were given an IP address)
+- Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)

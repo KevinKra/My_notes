@@ -40,7 +40,7 @@
 - IaaS
   > example: EC2
 - PaaS
-  > example: GoDaddy, Heroku, ElasticBeanStalk, etc.
+  > example: AWS Lightsail, GoDaddy, Heroku, ElasticBeanStalk, etc.
 - SaaS
   > example: Gmail
 
@@ -316,6 +316,189 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
+### Route53 101
+
+- Route53 is an AWS DNS service.
+- DNS works on port 53 hence the name.
+- Route53 is **Global**
+- You can use Route53 to direct traffic and it can be used to register a domain name.
+- DNS is a service computers use to resolve domain names to IP addresses.
+
+---
+
+### Elastic Beanstalk
+
+- Allows for the provisioning of AWS resources in just a few clicks and easily deploying applications to the cloud.
+- **Free Service**, though what they provision may not be.
+
+---
+
+### CloudFormation
+
+- consists of stacks
+- **Free Service**, though what they provision may not be.
+
+---
+
+### Amazon Cloud Whitepaper
+
+#### Scalability
+
+- **Scale up**
+  > Upgrading the infrastructure currently being utilized by an account, example: Upgrading the EC2 instance from t family to m.
+- **Scale out**
+  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up)
+  - **Stateless Applications** - an application that doesn't hold state (lamba) and forgets after interaction.
+  - **Distribute Load to Multiple Nodes** - RDS read-replicas are an example.
+  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data instead on the user's browser as a cookie.
+  - **Stateful Components** - Storing information in a database.
+  - **Implement Session Affinity** - _Sticky session_, putting a cookie in a user's browser. An ALB will detect the cookie and send the user to a specific EC2 instance.
+  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data.
+
+#### Disposable Resources
+
+- Instantiating compute resources
+  - **Bootstrapping** - Helps in avoiding the need to repeat steps every single time between setups.
+  - **Golden Images** - Taking an Image of an EC2 instance after it was set up and configured and then using that "golden image" to serve as the setup for additional EC2 Instances.
+  - **Containers** - null
+  - **Hybrid** - Hybrids of containers and EC2 instances
+
+#### Infrastructure as Code
+
+- CloudFormation
+
+#### Automation
+
+- Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take of themselves (Amazon's job is to maintain that infrastructure.)
+- Infrastructure Management and Deployment
+  - AWS Elastic Beanstalk
+  - Amazon EC2 auto recovery
+  - AWS Systems Manager
+  - Auto Scaling
+
+#### Alarms and Events
+
+- Amazon CloudWatch alarms - example: billing alert.
+- Amazon CloudWatch Events - **Proactive responses to events.** example: can be used to detect if images have been uploaded to S3, can trigger a Lamba function to create a watermark on the image.
+- AWS Lamba Scheduled Events
+- AWS WAF security automations
+
+#### Loose Coupling
+
+- Well defined Interfaces
+  - Amazon API Gateway
+- Service Discovery
+  - Implement Service Discovery
+
+#### Distributed Systems Best Practices
+
+- Graceful Failure in practice
+  > If there is an issue with a page, show an error html page and send alert
+
+#### Aurora
+
+- Scalable
+- Compatible with mySQL and PostgreSQL
+- High Availability - Multi-AZ
+- 6 copies of data across >= 3 AZs
+- **Anti-patterns**- _Where you wouldnt use a technology._ If no need for joins or complex transactions then use noSQL.
+
+#### DynamoDB
+
+- Scalable
+- Push button scalability, autoscaling built in
+- High Availability - Multi-AZ
+- **Anti-patterns** - Data the requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
+
+#### Redshift
+
+- Scalable
+- High Availability - Multi-AZ
+- **Anti-patterns** - Not meant for OLTP
+
+#### Graph Databases
+
+- Scalable
+- High Availability
+- Neptune
+
+#### Data Lake
+
+- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to covert it to a predfined schema, and you no longer need to know what questions to ask about your data beforehand.
+- S3 is a great place to create data lakes and using services like Athena would allow you to run SQL queries on that data.
+
+#### Removing Single Points of Failure
+
+- Introducing redundancy
+- Detect failure
+- Durable data storage
+- Automate multi-data center resilience
+- Fault Isolation and traditional horizontal scaling (scaling out)
+- **Sharding** - splitting data across multiple shards allowing faster data processing.
+
+#### Optimization Patterns
+
+- Correct sizing
+- Elasticity
+- Take advantage of purchasing options (EC2 Spot, reserved instances, etc)
+
+#### Caching
+
+- Application Caching - Elasticache
+- Edge Caching - Cloudfront
+
+#### Security
+
+- Use AWS features for defense in depth
+- Share security responsibility with AWS
+- Least privilege for users
+  **- Security as Code - Create Golden Images of hardened EC2 instances and instantiate these hardened EC2 instances around the world.**
+- Real-time Auditing (CloudTrail)
+
+---
+
+## Global AWS services
+
+#### Global
+
+- IAM
+- Route53
+- CloudFront
+- SNS
+- SES
+
+#### Regional
+
+- **S3 (has global view)** - appear global but are actually in specific regions
+
+---
+
+## On Premise AWS Services
+
+> The AWS services that can be used inside your own data centers or corporate office.
+
+- Snowball - A massive disk that you load your data onto and send back to Amazon, **typically 80TB of size,** and then AWS loads the data onto S3.
+- Snowball Edge - similar to snowball but also has CPU with storage that allows you to write Lamba functions on premise. **Snowball Edge is useful for where you cannot get AWS connectivity but still need AWS resources**.
+- Storage Gateway - Similar to snowball, but it **stays on premise at all times**. Can be a physical or virtual device in your data center or HQ. Replicates files directly to S3 and in the event you lose internet connection you still have the device and it's files on premise to provide the data.
+- CodeDeploy - Deploy your code to EC2 instances or on premise web-servers as well. Deploys code.
+- Opsworks - Similar to Elastic Beanstalk, allows for automated deployments to EC2 instances and on premise web-servers.
+- IoT Greengrass - Connects devices to the AWS cloud.
+
+#### Which AWS services can be used to deploy applications on premise
+
+- CodeDeploy
+- Opsworks
+
+---
+
+## AWS Systems Manager
+
+> Allows you to manage EC2 instances at scale. Imagine having hundreds of EC2 instances (an EC2 fleet) that you need to run a yum update on.
+
+- AWS created Systems Manager, when you deploy an EC2 instance you install a piece of software on that VM which connects that EC2 instance to System Manager. Then, System Manager can be used to run commands across the EC2 fleet.
+- Run Command is used to install, patch, and uninstall software.
+- Integrates with CloudWatch to give a dashboard of the entire EC2 fleet estate.
+
 ## Cloud Concepts and Technology Summary
 
 ### The six advantages of the cloud
@@ -413,11 +596,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - S3 scales automatically with demand, great for static websites
 - S3 & CloudFront
 
-### CloudFront - Write this section out
+### CloudFront
 
+- A collection of CDN Edge Locations is called a **distribution**.
 - Edge location is a location that caches data
 - Origin is the origin of all the files that the CDN will distribute. Can be an instance of: S3 Bucket, EC2, Route53, Elastic Load Balancer
-- Distribution is the name given to CDN which consists of a collection of Edge Locations
 - Web Distribution - Typically used for Websites
 - RTMP - used for media streaming (Adobe flash)
 - Can be **Read & Write**
@@ -537,3 +720,175 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Can be both inside AWS and on premise
 - Run Command is used to install, patch, uninstall software
 - Integrates with CloudWatch to give a dashboard of entire estate
+
+---
+
+## Quiz Questions
+
+- Which of the following are not valid CloudFormation template sections?
+  [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
+- Which of the following Route 53 policies allow you to a) route data to a second resource if the first is unhealthy, and b) route data to resources that have better performance?
+
+  > Failover Routing and Latency-based Routing are the only two correct options, as they consider routing data based on whether the resource is healthy or whether one set of resources is more performant than another. Any answer containing location based routing (Geoproximity and Geolocation) cannot be correct in this case, as these types only consider where the client or resources are located before routing the data. They do not take into account whether a resource is online or slow. Simple Routing can also be discounted as it does not take into account the state of the resources.
+
+- Choose the features of Consolidated Billing.
+
+  > Consolidated Billing is a feature of AWS Organizations. Once enabled and configured, you will receive a bill containing the costs and charges for all of the AWS accounts within the Organization. Although each of the individual AWS accounts are combined into a single bill, they can still be tracked individually and the cost data can be downloaded in a separate file. Using Consolidated Billing may ultimately reduce the amount you pay, as you may qualify for Volume Discounts. There is no charge for using Consolidated Billing.
+
+  [resource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)
+
+---
+
+# AWS Billing and Pricing
+
+> Pay as you go, pay for what you use, pay less for more, and pay even less when you reserve capacity
+
+### Capex vs. Opex
+
+- **Capex stands for Capital Expenditure** where you pay upfront. It's a fixed, sunk cost.
+- **Opex stands for Operational Expenditure**. You pay for what you use as you use them.
+
+### Pricing Policies
+
+- Pay as you go
+- Pay less when you reserve
+- Pay less for more
+- Pay even less as AWS grows
+- Custom Pricing
+
+#### Key Principles of Pricing Models
+
+- Understand the fundamentals of pricing
+- Start early with cost optimization
+- Maximize the power of flexibility
+- Use the right pricing model for the job
+
+### Three Fundamental drivers of Cost with AWS
+
+- Compute
+- Storage
+- Outbound Data
+
+### Starting Early with Cost Optimization
+
+- It's never too early to start with cost optimization in cloud. Furthermore, It's easiest to put cost controls in place _before_ the environment grows to large.
+- Managing costs effectively from the start ensures that managing cloud investments doesn't become an obstruction as you grow and scale.
+
+### Maximizing Flexibility
+
+- AWS services are priced independently and transparently, so you can choose and pay for exactly what you need and no more.
+- There are no minimum commitments or long-term contracts that are required, _unless_ you choose to save money through a reservation model.
+- By paying for resources as needed, you can redirect your focus to innovation and invention allowing your business to be elastic.
+- One of the key advantages of cloud-based resources is that you don't pay for them when they're not running. By turning off instances you don't use, you can significantly reduce costs.
+
+### Price Models
+
+- On Demand
+- Dedicated Instances
+- Spot
+- Reservations
+
+#### Free Services
+
+- Amazon VPC (a virtual datacenter in the cloud)
+- Elastic Beanstalk
+- CloudFormation
+- IAM
+- Auto Scaling
+- Opsworks (similar to EB)
+- Consolidated billing
+
+---
+
+## EC2 Pricing
+
+- Clock hours of server time
+- Instance type
+- Pricing model
+- Number of instances
+- Load Balancing
+- Detailed Monitoring
+- Auto Scaling (more EC2 instances the more you pay)
+- Elastic IP Addresses (Everytime we created an EC2 instance we were given an IP address)
+- Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)
+
+---
+
+## Lambda
+
+- Lambda serverless
+- Request Pricing
+  - Free Tier: 1 million requests per month
+  - \$0.20 per 1 million requests thereafter
+- Duration Pricing
+  - 400,000 GB-seconds per month free, up to 3.2 million seconds of compute time
+- Additional Charges
+  - If Lambda uses other AWS services or transfers data.
+  - Example: if Lambda function reads and writes data to or from S3, you will be billed for the read/write requests and data stored in S3.
+
+---
+
+## EBS
+
+- Volumes (per GB)
+- Snapshots (per GB)
+- Data Transfers
+
+---
+
+## S3
+
+- Storage Class
+- Storage amount
+- Number of Requests (GET, POST, PUT, DELETE)
+- Data Transfers
+
+- Glacier
+  - Storage
+  - Data Retrieval times, the longer the retrieval time the more cost savings
+
+---
+
+## Snowball
+
+- PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
+
+- Service fee per job
+  - Snowball 50TB: \$200
+  - Snowball 80TB: \$250
+- Daily Charge
+  - first 10 days are free, \$15 per day after that.
+- Data Transfers
+  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.**
+
+---
+
+## RDS
+
+- Clock hours of server time
+- Database characteristics (type of database)
+- Database purchase type (how large the database is)
+- Number of database instances
+- Provisioned storage (how big are the databases going to be)
+- Additional storage
+- Requests
+- Deployment type
+- Data transfers
+
+---
+
+## DynamoDB
+
+- Provisioned Throughput (write)
+- Provisioned Throughput (read)
+- Indexed data storage (amount of storage saved inside of DB)
+
+---
+
+## CloudFront
+
+- Traffic Distribution
+- Requests
+- Data transfers
+
+---

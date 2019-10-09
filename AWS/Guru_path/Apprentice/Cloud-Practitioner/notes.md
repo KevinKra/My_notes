@@ -800,7 +800,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## EC2 Pricing
+### EC2 Pricing
 
 - Clock hours of server time
 - Instance type
@@ -814,7 +814,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## Lambda
+### Lambda
 
 - Lambda serverless
 - Request Pricing
@@ -828,7 +828,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## EBS
+### EBS
 
 - Volumes (per GB)
 - Snapshots (per GB)
@@ -836,7 +836,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## S3
+### S3
 
 - Storage Class
 - Storage amount
@@ -849,7 +849,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## Snowball
+### Snowball
 
 - PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
 
@@ -863,7 +863,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## RDS
+### RDS
 
 - Clock hours of server time
 - Database characteristics (type of database)
@@ -877,7 +877,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## DynamoDB
+### DynamoDB
 
 - Provisioned Throughput (write)
 - Provisioned Throughput (read)
@@ -885,10 +885,115 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## CloudFront
+### CloudFront
 
 - Traffic Distribution
 - Requests
 - Data transfers
 
 ---
+
+## AWS Budgets vs Cost Explorer
+
+#### AWS Budgets
+
+- AWS budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed, or are forecast to exceed, your budgeted amount.
+- Used to budget costs **before** they have been incurred.
+
+#### AWS Cost Explorer
+
+- AWS Cost Explorer allows you to visualize, understand, and manage your AWS costs and usage over time.
+- Used to explore costs **after** they have been incurred.
+
+---
+
+## AWS Support Plans
+
+- **Basic**
+  - null ;(
+- **Developer**
+  - General guidance: under 24 hours
+  - System impaired: under 12 hours
+  - Production system impaired: null
+  - Production system down: null
+- **Business**
+  - General guidance: under 24 hours
+  - System impaired: under 12 hours
+  - Production system impaired: under 4 hours
+  - Production system down: under 1 hours
+- **Enterprise**
+  - General guidance: under 24 hours
+  - System impaired: under 12 hours
+  - Production system impaired: under 4 hours
+  - Production system down: under 1 hours
+  - Business-critical system down: under 15 minutes
+
+---
+
+## Resource Groups and Tags
+
+### Tags
+
+- Tags are key-value pairs attached to AWS resources.
+- Metadata
+- Tags can be inherited
+- Contain specific information
+  - Examples:
+    - EC2 - Public and Private IP Addresses
+    - ELB - Port Configurations
+    - RDS - Database Engine, etc
+
+### Resource Groups
+
+- Resource groups make it easy to group resources using the tags assigned to them.
+- Can group resources that share one or more tags
+- Resource Groups Contain Information such as
+  - Region
+  - Name
+  - Employee ID
+  - Department
+
+---
+
+## Consolidated Billing
+
+### AWS Organizations
+
+- AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage.
+- Available in **two** feature sets:
+  - Consolidated Billing
+  - All features
+
+### Organizations with Consolidated Billing
+
+#### Structure
+
+- Paying account > Test/Dev, Production, Back Office (linked accounts) > Monthly Bill
+
+- Paying account is independent. **Cannot** access the resources of other accounts or block linked accounts from provisioning resources.
+- Linked accounts are independent.
+- Currently a limit of 20 linked accounts for consolidated billing.
+
+#### Advantages of Consolidated Billing
+
+- One bill per AWS account
+- Very easy to track charges and allocate costs
+- Volume pricing discount
+
+#### S3 Practical Example
+
+- Test/Dev uses 600GB
+- Production uses 900GB
+- Back office uses 500GB
+
+- _Without consolidated billing:_
+
+  - 600 x $0.03 = $18
+  - 900 x $0.03 = $27
+  - 500 x $0.03 = $15
+  - Total Bill = \$60 for 2TB of storage
+
+- _With consolidated billing:_
+  - 1TB x \$0.03 = #30
+  - next 1TB x \$0.0295 = &29.50
+  - Total Bill = \$59.50

@@ -741,6 +741,8 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 # AWS Billing and Pricing
 
+> Pay as you go, pay for what you use, pay less for more, and pay even less when you reserve capacity
+
 ### Capex vs. Opex
 
 - **Capex stands for Capital Expenditure** where you pay upfront. It's a fixed, sunk cost.
@@ -809,3 +811,84 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Auto Scaling (more EC2 instances the more you pay)
 - Elastic IP Addresses (Everytime we created an EC2 instance we were given an IP address)
 - Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)
+
+---
+
+## Lambda
+
+- Lambda serverless
+- Request Pricing
+  - Free Tier: 1 million requests per month
+  - \$0.20 per 1 million requests thereafter
+- Duration Pricing
+  - 400,000 GB-seconds per month free, up to 3.2 million seconds of compute time
+- Additional Charges
+  - If Lambda uses other AWS services or transfers data.
+  - Example: if Lambda function reads and writes data to or from S3, you will be billed for the read/write requests and data stored in S3.
+
+---
+
+## EBS
+
+- Volumes (per GB)
+- Snapshots (per GB)
+- Data Transfers
+
+---
+
+## S3
+
+- Storage Class
+- Storage amount
+- Number of Requests (GET, POST, PUT, DELETE)
+- Data Transfers
+
+- Glacier
+  - Storage
+  - Data Retrieval times, the longer the retrieval time the more cost savings
+
+---
+
+## Snowball
+
+- PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
+
+- Service fee per job
+  - Snowball 50TB: \$200
+  - Snowball 80TB: \$250
+- Daily Charge
+  - first 10 days are free, \$15 per day after that.
+- Data Transfers
+  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.**
+
+---
+
+## RDS
+
+- Clock hours of server time
+- Database characteristics (type of database)
+- Database purchase type (how large the database is)
+- Number of database instances
+- Provisioned storage (how big are the databases going to be)
+- Additional storage
+- Requests
+- Deployment type
+- Data transfers
+
+---
+
+## DynamoDB
+
+- Provisioned Throughput (write)
+- Provisioned Throughput (read)
+- Indexed data storage (amount of storage saved inside of DB)
+
+---
+
+## CloudFront
+
+- Traffic Distribution
+- Requests
+- Data transfers
+
+---

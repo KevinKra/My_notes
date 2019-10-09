@@ -40,7 +40,7 @@
 - IaaS
   > example: EC2
 - PaaS
-  > example: GoDaddy, Heroku, ElasticBeanStalk, etc.
+  > example: AWS Lightsail, GoDaddy, Heroku, ElasticBeanStalk, etc.
 - SaaS
   > example: Gmail
 
@@ -596,11 +596,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - S3 scales automatically with demand, great for static websites
 - S3 & CloudFront
 
-### CloudFront - Write this section out
+### CloudFront
 
+- A collection of CDN Edge Locations is called a **distribution**.
 - Edge location is a location that caches data
 - Origin is the origin of all the files that the CDN will distribute. Can be an instance of: S3 Bucket, EC2, Route53, Elastic Load Balancer
-- Distribution is the name given to CDN which consists of a collection of Edge Locations
 - Web Distribution - Typically used for Websites
 - RTMP - used for media streaming (Adobe flash)
 - Can be **Read & Write**
@@ -720,3 +720,19 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Can be both inside AWS and on premise
 - Run Command is used to install, patch, uninstall software
 - Integrates with CloudWatch to give a dashboard of entire estate
+
+---
+
+## Quiz Questions
+
+- Which of the following are not valid CloudFormation template sections?
+  [resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
+- Which of the following Route 53 policies allow you to a) route data to a second resource if the first is unhealthy, and b) route data to resources that have better performance?
+
+  > Failover Routing and Latency-based Routing are the only two correct options, as they consider routing data based on whether the resource is healthy or whether one set of resources is more performant than another. Any answer containing location based routing (Geoproximity and Geolocation) cannot be correct in this case, as these types only consider where the client or resources are located before routing the data. They do not take into account whether a resource is online or slow. Simple Routing can also be discounted as it does not take into account the state of the resources.
+
+- Choose the features of Consolidated Billing.
+
+  > Consolidated Billing is a feature of AWS Organizations. Once enabled and configured, you will receive a bill containing the costs and charges for all of the AWS accounts within the Organization. Although each of the individual AWS accounts are combined into a single bill, they can still be tracked individually and the cost data can be downloaded in a separate file. Using Consolidated Billing may ultimately reduce the amount you pay, as you may qualify for Volume Discounts. There is no charge for using Consolidated Billing.
+
+  [resource](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html)

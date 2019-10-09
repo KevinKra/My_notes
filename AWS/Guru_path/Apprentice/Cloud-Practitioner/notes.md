@@ -997,3 +997,26 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - 1TB x \$0.03 = #30
   - next 1TB x \$0.0295 = &29.50
   - Total Bill = \$59.50
+
+#### EC2 Practical Example
+
+- Test/Div uses 6 on-demand instances (can use the 2 additional RI)
+- Production has 5 reserve instances, uses 3
+- Back office
+
+### AWS Organizations Best Practices
+
+- Always MFA root account.
+- Always string and complex password on root account.
+- **Paying account should be used for billing purposes only.** Do not deploy resources on paying account.
+
+### CloudTrail
+
+> You push out your CloudTrail logs from all your other accounts into a S3 bucket that is accessible from the paying accounts. This bucket will serve as the source of truth.
+
+- Used to audit AWS services.
+- Per AWS account and is enabled per region.
+- Can consolidate logs using an S3 bucket:
+  - Turn CloudTrail in paying account
+  - Create bucket policy that allows cross-account access
+  - Turn on CloudTrail in the other accounts and use the bucket in the paying account

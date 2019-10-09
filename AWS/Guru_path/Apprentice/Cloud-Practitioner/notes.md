@@ -473,7 +473,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-## AWS services that can be used on premise
+## On Premise AWS Services
 
 > The AWS services that can be used inside your own data centers or corporate office.
 
@@ -490,6 +490,14 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Opsworks
 
 ---
+
+## AWS Systems Manager
+
+> Allows you to manage EC2 instances at scale. Imagine having hundreds of EC2 instances (an EC2 fleet) that you need to run a yum update on.
+
+- AWS created Systems Manager, when you deploy an EC2 instance you install a piece of software on that VM which connects that EC2 instance to System Manager. Then, System Manager can be used to run commands across the EC2 fleet.
+- Run Command is used to install, patch, and uninstall software.
+- Integrates with CloudWatch to give a dashboard of the entire EC2 fleet estate.
 
 ## Cloud Concepts and Technology Summary
 

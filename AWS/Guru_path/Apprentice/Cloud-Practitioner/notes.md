@@ -340,6 +340,49 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
+### Cloud Whitepaper
+
+#### Scalability
+
+- **Scale up**
+  > Upgrading the infrastructure currently being utilized by an account, example: Upgrading the EC2 instance from t family to m.
+- **Scale out**
+  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up)
+  - **Stateless Applications** - an application that doesn't hold state (lamba) and forgets after interaction.
+  - **Distribute Load to Multiple Nodes** - RDS read-replicas are an example.
+  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data instead on the user's browser as a cookie.
+  - **Stateful Components** - Storing information in a database.
+  - **Implement Session Affinity** - _Sticky session_, putting a cookie in a user's browser. An ALB will detect the cookie and send the user to a specific EC2 instance.
+  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data.
+
+#### Disposable Resources
+
+- Instantiating compute resources
+  - **Bootstrapping** - Helps in avoiding the need to repeat steps every single time between setups.
+  - **Golden Images** - Taking an Image of an EC2 instance after it was set up and configured and then using that "golden image" to serve as the setup for additional EC2 Instances.
+  - **Containers** - null
+  - **Hybrid** - Hybrids of containers and EC2 instances
+
+#### Infrastructure as Code
+
+- CloudFormation
+
+#### Automation
+
+- Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take of themselves (Amazon's job is to maintain that infrastructure.)
+- Infrastructure Management and Deployment
+  - AWS Elastic Beanstalk
+  - Amazon EC2 auto recovery
+  - AWS Systems Manager
+  - Auto Scaling
+
+#### Alarms and Events
+
+- Amazon CloudWatch alarms - example: billing alert.
+- Amazon CloudWatch Events - Proactive response to events. example: can be used to detect if images have been uploaded to S3, can trigger a Lamba function to create a watermark on the image.
+
+---
+
 ## Cloud Concepts and Technology Summary
 
 ### The six advantages of the cloud

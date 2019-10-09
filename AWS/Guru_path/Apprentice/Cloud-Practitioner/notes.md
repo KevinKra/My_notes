@@ -340,7 +340,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### Cloud Whitepaper
+### Amazon Cloud Whitepaper
 
 #### Scalability
 
@@ -379,7 +379,81 @@ echo "<html><h1>Hello</h1></html>" > index.html
 #### Alarms and Events
 
 - Amazon CloudWatch alarms - example: billing alert.
-- Amazon CloudWatch Events - Proactive response to events. example: can be used to detect if images have been uploaded to S3, can trigger a Lamba function to create a watermark on the image.
+- Amazon CloudWatch Events - **Proactive responses to events.** example: can be used to detect if images have been uploaded to S3, can trigger a Lamba function to create a watermark on the image.
+- AWS Lamba Scheduled Events
+- AWS WAF security automations
+
+#### Loose Coupling
+
+- Well defined Interfaces
+  - Amazon API Gateway
+- Service Discovery
+  - Implement Service Discovery
+
+#### Distributed Systems Best Practices
+
+- Graceful Failure in practice
+  > If there is an issue with a page, show an error html page and send alert
+
+#### Aurora
+
+- Scalable
+- Compatible with mySQL and PostgreSQL
+- High Availability - Multi-AZ
+- 6 copies of data across >= 3 AZs
+- **Anti-patterns**- _Where you wouldnt use a technology._ If no need for joins or complex transactions then use noSQL.
+
+#### DynamoDB
+
+- Scalable
+- Push button scalability, autoscaling built in
+- High Availability - Multi-AZ
+- **Anti-patterns** - Data the requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
+
+#### Redshift
+
+- Scalable
+- High Availability - Multi-AZ
+- **Anti-patterns** - Not meant for OLTP
+
+#### Graph Databases
+
+- Scalable
+- High Availability
+- Neptune
+
+#### Data Lake
+
+- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to covert it to a predfined schema, and you no longer need to know what questions to ask about your data beforehand.
+- S3 is a great place to create data lakes and using services like Athena would allow you to run SQL queries on that data.
+
+#### Removing Single Points of Failure
+
+- Introducing redundancy
+- Detect failure
+- Durable data storage
+- Automate multi-data center resilience
+- Fault Isolation and traditional horizontal scaling (scaling out)
+- **Sharding** - splitting data across multiple shards allowing faster data processing.
+
+#### Optimization Patterns
+
+- Correct sizing
+- Elasticity
+- Take advantage of purchasing options (EC2 Spot, reserved instances, etc)
+
+#### Caching
+
+- Application Caching - Elasticache
+- Edge Caching - Cloudfront
+
+#### Security
+
+- Use AWS features for defense in depth
+- Share security responsibility with AWS
+- Least privilege for users
+  **- Security as Code - Create Golden Images of hardened EC2 instances and instantiate these hardened EC2 instances around the world.**
+- Real-time Auditing (CloudTrail)
 
 ---
 

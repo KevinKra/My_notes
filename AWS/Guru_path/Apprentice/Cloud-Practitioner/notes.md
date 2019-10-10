@@ -254,6 +254,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 - What is Elastic Load Balancing?
 - What does a load balancer do?
+- Describe the overview of networking traffic interacting with a load balancer.
 - What are the three types of load balancers?
 - Why should you always aim to have EC2 servers in multiple AZs?
 
@@ -334,17 +335,23 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
+### AWS Provisioning 101
+
 ### Elastic Beanstalk
 
 - Allows for the provisioning of AWS resources in just a few clicks and easily deploying applications to the cloud.
 - **Free Service**, though what they provision may not be.
 
----
-
 ### CloudFormation
 
 - consists of stacks
 - **Free Service**, though what they provision may not be.
+
+### Questions
+
+- What is Elastic Beanstalk?
+- What is CloudFormation?
+- What are the similarities and differences between Elastic Beanstalk and CloudFormation?
 
 ---
 

@@ -582,23 +582,37 @@ _Security_
 
 - **S3 (has global view)** - appear global but are actually in specific regions
 
+### Question
+
+- What are the AWS (5) global services?
+- What AWS service has a global view but is actually regional?
+
 ---
 
 ## On Premise AWS Services
 
 > The AWS services that can be used inside your own data centers or corporate office.
 
-- Snowball - A massive disk that you load your data onto and send back to Amazon, **typically 80TB of size,** and then AWS loads the data onto S3.
+- **Snowball** - A massive disk that you load your data onto and send back to Amazon, **typically 80TB of size,** and then AWS loads the data onto S3.
 - Snowball Edge - similar to snowball but also has CPU with storage that allows you to write Lamba functions on premise. **Snowball Edge is useful for where you cannot get AWS connectivity but still need AWS resources**.
-- Storage Gateway - Similar to snowball, but it **stays on premise at all times**. Can be a physical or virtual device in your data center or HQ. Replicates files directly to S3 and in the event you lose internet connection you still have the device and it's files on premise to provide the data.
-- CodeDeploy - Deploy your code to EC2 instances or on premise web-servers as well. Deploys code.
-- Opsworks - Similar to Elastic Beanstalk, allows for automated deployments to EC2 instances and on premise web-servers.
-- IoT Greengrass - Connects devices to the AWS cloud.
+- **Storage Gateway** - Similar to snowball, but it **stays on premise at all times**. Can be a physical or virtual device in your data center or HQ. Replicates files directly to S3 and in the event you lose internet connection you still have the device and it's files on premise to provide the data.
+- **CodeDeploy** - Deploy your code to EC2 instances or on premise web-servers as well. Deploys code.
+- **Opsworks** - Similar to Elastic Beanstalk, allows for automated deployments to EC2 instances and on premise web-servers.
+- **IoT Greengrass** - Connects devices to the AWS cloud.
 
 #### Which AWS services can be used to deploy applications on premise
 
 - CodeDeploy
 - Opsworks
+
+### Question
+
+- What are six on premise AWS services?
+- Describe a situation suitable for AWS Snowball.
+- Describe a situation suitable for AWS Snowball edge.
+- What does Storage Gateway provide, how is it similar to snowball?
+- Which two on premise services deploy code?
+- What is IoT Greengrass?
 
 ---
 
@@ -609,6 +623,14 @@ _Security_
 - AWS created Systems Manager, when you deploy an EC2 instance you install a piece of software on that VM which connects that EC2 instance to System Manager. Then, System Manager can be used to run commands across the EC2 fleet.
 - Run Command is used to install, patch, and uninstall software.
 - Integrates with CloudWatch to give a dashboard of the entire EC2 fleet estate.
+
+### Questions
+
+- What type of service does AWS Systems Manager provide?
+- Does anything need to be added to instantiated EC2 instances to connect them to AWS Systems Manager?
+- Can AWS Systems Manager be integrated with any other AWS services?
+
+---
 
 ## Cloud Concepts and Technology Summary
 

@@ -1056,6 +1056,12 @@ _Security_
 - AWS Cost Explorer allows you to visualize, understand, and manage your AWS costs and usage over time.
 - Used to explore costs **after** they have been incurred.
 
+### Questions
+
+- What does AWS Budgets handle?
+- What does AWS Cost Explorer handle?
+- What is the difference between Budgets and Cost Explorer?
+
 ---
 
 ## AWS Support Plans
@@ -1078,6 +1084,10 @@ _Security_
   - Production system impaired: under 4 hours
   - Production system down: under 1 hours
   - Business-critical system down: under 15 minutes
+
+### Questions
+
+- What are the differences between each AWS support plan?
 
 ---
 
@@ -1103,6 +1113,11 @@ _Security_
   - Name
   - Employee ID
   - Department
+
+### Questions
+
+- What are tags?
+- What are resource groups?
 
 ---
 
@@ -1158,7 +1173,7 @@ _Security_
 ### AWS Organizations Best Practices
 
 - Always MFA root account.
-- Always string and complex password on root account.
+- Always use a long and complex password on root account.
 - **Paying account should be used for billing purposes only.** Do not deploy resources on paying account.
 
 ### CloudTrail
@@ -1171,3 +1186,11 @@ _Security_
   - Turn CloudTrail in paying account
   - Create bucket policy that allows cross-account access
   - Turn on CloudTrail in the other accounts and use the bucket in the paying account
+
+### Questions
+
+- What is the objective of AWS organizations?
+- What is a paying account, what **should not** be on a paying account?
+- What is the current limit of linked accounts for consolidated billing?
+- What are the 3 advantages of consolidated billing?
+- What is a strategy that can be leveraged between CloudTrail and the organization's paying account?

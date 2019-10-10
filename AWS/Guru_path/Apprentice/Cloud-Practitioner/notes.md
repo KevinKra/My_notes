@@ -218,14 +218,21 @@
 
 ---
 
-## Load Balancers
+## Elastic Load Balancing
 
-- EC2 load balancers
+- Elastic Load Balancing distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, in multiple AZs.
+- Elastic Load Balancing scales your load balancer as traffic to your application over time, it can automatically scale to the vast majority ov workloads.
+
+#### Load Balancer components
+
+- **Load balancer** - serves as the single point of contact for clients and it distributes incoming traffic across multiple targets.
+- **Listener** - checks for connection requests from clients, using the protocol and port that you configure. The rules that you define for a listener determine how the load balancer routes requests to its registered targets.
+- **Target Group** - routes requests to one or more registered targets, such as EC2 instances, using the protocol and port number you specify.
 
 ### Types of LoadBalancers
 
 - Application Load Balancers
-  > Application aware and can make intelligent routing decisions. Layer-7 aware (Make Intelligent Decisions).
+  > Application aware and can make intelligent routing decisions. Layer-7 aware (makes intelligent decisions).
 - Network Load Balancers
   > Ultra-high performance and static ip addresses.
 - Classic load Balancers
@@ -245,6 +252,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ### Questions:
 
+- What is Elastic Load Balancing?
 - What does a load balancer do?
 - What are the three types of load balancers?
 - Why should you always aim to have EC2 servers in multiple AZs?
@@ -345,12 +353,12 @@ echo "<html><h1>Hello</h1></html>" > index.html
 #### Scalability
 
 - **Scale up**
-  > Upgrading the infrastructure currently being utilized by an account, example: Upgrading the EC2 instance from t family to m.
+  > Upgrading the infrastructure currently being utilized by an account. Example: Upgrading the EC2 instance from t family to m family.
 - **Scale out**
-  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up)
+  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up.)
   - **Stateless Applications** - an application that doesn't hold state (lamba) and forgets after interaction.
-  - **Distribute Load to Multiple Nodes** - RDS read-replicas are an example.
-  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data instead on the user's browser as a cookie.
+  - **Distribute Load to Multiple Nodes** - Example: RDS read-replicas.
+  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data on the user's browser as a cookie.
   - **Stateful Components** - Storing information in a database.
   - **Implement Session Affinity** - _Sticky session_, putting a cookie in a user's browser. An ALB will detect the cookie and send the user to a specific EC2 instance.
   - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data.
@@ -790,7 +798,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Free Services
 
-- Amazon VPC (a virtual datacenter in the cloud)
+- Amazon VPC (a virtual data center in the cloud)
 - Elastic Beanstalk
 - CloudFormation
 - IAM
@@ -809,12 +817,12 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Load Balancing
 - Detailed Monitoring
 - Auto Scaling (more EC2 instances the more you pay)
-- Elastic IP Addresses (Everytime we created an EC2 instance we were given an IP address)
+- Elastic IP Addresses (Every time we created an EC2 instance we were given an IP address)
 - Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)
 
 ---
 
-### Lambda
+### Lambda Pricing
 
 - Lambda serverless
 - Request Pricing
@@ -828,7 +836,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### EBS
+### EBS Pricing
 
 - Volumes (per GB)
 - Snapshots (per GB)
@@ -836,7 +844,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### S3
+### S3 Pricing
 
 - Storage Class
 - Storage amount
@@ -849,7 +857,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### Snowball
+### Snowball Pricing
 
 - PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
 
@@ -859,11 +867,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Daily Charge
   - first 10 days are free, \$15 per day after that.
 - Data Transfers
-  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.**
+  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.** (keeps people on the platform)
 
 ---
 
-### RDS
+### RDS Pricing
 
 - Clock hours of server time
 - Database characteristics (type of database)
@@ -877,7 +885,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### DynamoDB
+### DynamoDB Pricing
 
 - Provisioned Throughput (write)
 - Provisioned Throughput (read)
@@ -885,7 +893,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### CloudFront
+### CloudFront Pricing
 
 - Traffic Distribution
 - Requests

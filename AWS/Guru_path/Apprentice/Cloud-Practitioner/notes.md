@@ -950,23 +950,22 @@ _Security_
 
 ---
 
+## AWS Billing Per Service
+
 ### EC2 Pricing
 
-- Clock hours of server time
-- Instance type
-- Pricing model
-- Number of instances
-- Load Balancing
 - Detailed Monitoring
-- Auto Scaling (more EC2 instances the more you pay)
-- Elastic IP Addresses (Every time we created an EC2 instance we were given an IP address)
 - Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)
-
----
+- Clock hours of server time
+- Pricing model
+- Instance type
+- Load Balancing
+- Elastic IP Addresses (Every time we created an EC2 instance we are given an IP address)
+- Auto Scaling (more EC2 instances the more you pay)
+- Number of instances
 
 ### Lambda Pricing
 
-- Lambda serverless
 - Request Pricing
   - Free Tier: 1 million requests per month
   - \$0.20 per 1 million requests thereafter
@@ -976,15 +975,11 @@ _Security_
   - If Lambda uses other AWS services or transfers data.
   - Example: if Lambda function reads and writes data to or from S3, you will be billed for the read/write requests and data stored in S3.
 
----
-
 ### EBS Pricing
 
-- Volumes (per GB)
 - Snapshots (per GB)
+- Volumes (per GB)
 - Data Transfers
-
----
 
 ### S3 Pricing
 
@@ -994,14 +989,11 @@ _Security_
 - Data Transfers
 
 - Glacier
-  - Storage
   - Data Retrieval times, the longer the retrieval time the more cost savings
-
----
 
 ### Snowball Pricing
 
-- PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
+- Petabyte-scale data transport solution that uses secure technology (snowball) to transfer large amounts of data into and out of the AWS cloud.
 
 - Service fee per job
   - Snowball 50TB: \$200
@@ -1010,8 +1002,6 @@ _Security_
   - first 10 days are free, \$15 per day after that.
 - Data Transfers
   - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.** (keeps people on the platform)
-
----
 
 ### RDS Pricing
 
@@ -1025,21 +1015,32 @@ _Security_
 - Deployment type
 - Data transfers
 
----
-
 ### DynamoDB Pricing
 
 - Provisioned Throughput (write)
 - Provisioned Throughput (read)
 - Indexed data storage (amount of storage saved inside of DB)
 
----
-
 ### CloudFront Pricing
 
-- Traffic Distribution
 - Requests
+- Traffic Distribution
 - Data transfers
+
+### Questions
+
+- What are the 9 EC2 pricing vectors? (DOCPILEAN)
+- What are the 3 Lamba pricing vectors? (RDX)
+- What are the 3 EBS pricing vectors? (SVD)
+- What are the 4 S3 pricing vectors? (CAND)
+- What is an additional pricing vector for S3 Glacier?
+- What are the 3 Snowball pricing vectors? (SDDo)
+- How much does a Snowball 50TB cost? 80TB?
+- How many days is Snowball free, how much does it cost per day after that?
+- Are data transfers in and out of S3, using SnowBall, free?
+- What are the 9 RDS pricing vectors?
+- What are the 2 noSQL pricing vectors? (PI)
+- What are the 3 CloudFront pricing vectors? (RTD)
 
 ---
 

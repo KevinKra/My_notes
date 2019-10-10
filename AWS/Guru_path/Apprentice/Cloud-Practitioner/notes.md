@@ -872,9 +872,11 @@ _Security_
 
 ---
 
-# AWS Billing and Pricing
+# Billing and Pricing
 
 > Pay as you go, pay for what you use, pay less for more, and pay even less when you reserve capacity
+
+## AWS Billing and Pricing
 
 ### Capex vs. Opex
 
@@ -914,7 +916,7 @@ _Security_
 - By paying for resources as needed, you can redirect your focus to innovation and invention allowing your business to be elastic.
 - One of the key advantages of cloud-based resources is that you don't pay for them when they're not running. By turning off instances you don't use, you can significantly reduce costs.
 
-### Price Models
+### EC2 Price Models
 
 - On Demand
 - Dedicated Instances
@@ -930,6 +932,21 @@ _Security_
 - Auto Scaling
 - Opsworks (similar to EB)
 - Consolidated billing
+
+### Questions
+
+- What is Capex?
+- What is Opex?
+- Describe an example of Capex vs Opex.
+- What is the AWS pricing mantra?
+- Describe the four key principles of pricing models.
+- What are the three fundamental drivers of cost in AWS?
+- Is it ever too early to start with cost optimization?
+- What does early optimization ensure over the lifetime of a platform?
+- What does it mean to maximize flexibility, how can this be accomplished?
+- Would turning off instances when you're not using them reduce costs?
+- What are the EC2 price models?
+- What are the seven free AWS services?
 
 ---
 

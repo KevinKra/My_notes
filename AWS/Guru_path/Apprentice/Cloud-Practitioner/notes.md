@@ -218,14 +218,21 @@
 
 ---
 
-## Load Balancers
+## Elastic Load Balancing
 
-- EC2 load balancers
+- Elastic Load Balancing distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, in multiple AZs.
+- Elastic Load Balancing scales your load balancer as traffic to your application over time, it can automatically scale to the vast majority ov workloads.
+
+#### Load Balancer components
+
+- **Load balancer** - serves as the single point of contact for clients and it distributes incoming traffic across multiple targets.
+- **Listener** - checks for connection requests from clients, using the protocol and port that you configure. The rules that you define for a listener determine how the load balancer routes requests to its registered targets.
+- **Target Group** - routes requests to one or more registered targets, such as EC2 instances, using the protocol and port number you specify.
 
 ### Types of LoadBalancers
 
 - Application Load Balancers
-  > Application aware and can make intelligent routing decisions. Layer-7 aware (Make Intelligent Decisions).
+  > Application aware and can make intelligent routing decisions. Layer-7 aware (makes intelligent decisions).
 - Network Load Balancers
   > Ultra-high performance and static ip addresses.
 - Classic load Balancers
@@ -245,7 +252,9 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ### Questions:
 
+- What is Elastic Load Balancing?
 - What does a load balancer do?
+- Describe the overview of networking traffic interacting with a load balancer.
 - What are the three types of load balancers?
 - Why should you always aim to have EC2 servers in multiple AZs?
 
@@ -316,7 +325,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### Route53 101
+## Route53 101
 
 - Route53 is an AWS DNS service.
 - DNS works on port 53 hence the name.
@@ -324,19 +333,30 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - You can use Route53 to direct traffic and it can be used to register a domain name.
 - DNS is a service computers use to resolve domain names to IP addresses.
 
+### Questions
+
+- what is Route53?
+- Is Route53 regional or global?
+
 ---
+
+## AWS Provisioning 101
 
 ### Elastic Beanstalk
 
 - Allows for the provisioning of AWS resources in just a few clicks and easily deploying applications to the cloud.
 - **Free Service**, though what they provision may not be.
 
----
-
 ### CloudFormation
 
 - consists of stacks
 - **Free Service**, though what they provision may not be.
+
+### Questions
+
+- What is Elastic Beanstalk?
+- What is CloudFormation?
+- What are the similarities and differences between Elastic Beanstalk and CloudFormation?
 
 ---
 
@@ -345,15 +365,15 @@ echo "<html><h1>Hello</h1></html>" > index.html
 #### Scalability
 
 - **Scale up**
-  > Upgrading the infrastructure currently being utilized by an account, example: Upgrading the EC2 instance from t family to m.
+  > Upgrading the infrastructure currently being utilized by an account. Example: Upgrading the EC2 instance from t family to m family.
 - **Scale out**
-  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up)
+  > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up.)
   - **Stateless Applications** - an application that doesn't hold state (lamba) and forgets after interaction.
-  - **Distribute Load to Multiple Nodes** - RDS read-replicas are an example.
-  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data instead on the user's browser as a cookie.
+  - **Distribute Load to Multiple Nodes** - Example: RDS read-replicas.
+  - **Stateless Components** - The more stateless components, the easier it is to scale a platform. Ex: Signing into a website, instead of storing user data on a webserver, store their data on the user's browser as a cookie.
   - **Stateful Components** - Storing information in a database.
   - **Implement Session Affinity** - _Sticky session_, putting a cookie in a user's browser. An ALB will detect the cookie and send the user to a specific EC2 instance.
-  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data.
+  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data. Big data handling.
 
 #### Disposable Resources
 
@@ -363,15 +383,12 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - **Containers** - null
   - **Hybrid** - Hybrids of containers and EC2 instances
 
-#### Infrastructure as Code
-
-- CloudFormation
-
 #### Automation
 
 - Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take of themselves (Amazon's job is to maintain that infrastructure.)
 - Infrastructure Management and Deployment
   - AWS Elastic Beanstalk
+  - AWS CloudFormation
   - Amazon EC2 auto recovery
   - AWS Systems Manager
   - Auto Scaling
@@ -385,6 +402,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Loose Coupling
 
+- Components should be loosely coupled in order to avoid failures from impacting other systems.
 - Well defined Interfaces
   - Amazon API Gateway
 - Service Discovery
@@ -401,14 +419,14 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Compatible with mySQL and PostgreSQL
 - High Availability - Multi-AZ
 - 6 copies of data across >= 3 AZs
-- **Anti-patterns**- _Where you wouldnt use a technology._ If no need for joins or complex transactions then use noSQL.
+- **Anti-patterns**- _Where you wouldnt use a technology..._ If no need for joins or complex transactions then use noSQL.
 
 #### DynamoDB
 
 - Scalable
 - Push button scalability, autoscaling built in
 - High Availability - Multi-AZ
-- **Anti-patterns** - Data the requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
+- **Anti-patterns** - Data that requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
 
 #### Redshift
 
@@ -424,7 +442,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Data Lake
 
-- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to covert it to a predfined schema, and you no longer need to know what questions to ask about your data beforehand.
+- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to convert it to a predefined schema, and you no longer need to know what questions to ask about your data beforehand.
 - S3 is a great place to create data lakes and using services like Athena would allow you to run SQL queries on that data.
 
 #### Removing Single Points of Failure
@@ -455,6 +473,99 @@ echo "<html><h1>Hello</h1></html>" > index.html
   **- Security as Code - Create Golden Images of hardened EC2 instances and instantiate these hardened EC2 instances around the world.**
 - Real-time Auditing (CloudTrail)
 
+### Questions
+
+_Scalability_
+
+- Describe Scaling Up and Scaling Out.
+- What is a stateless application, what is an example of one?
+- What is an example of distributing loads to multiple nodes?
+- Benefits of stateless components, example?
+- What is the difference between stateless components and stateful components?
+- What is session affinity / sticky session?
+- Describe distributed processing and EMR.
+
+_Disposable Resources_
+
+- Describe two ways to instantiate compute resources.
+- What is a golden image?
+- What is bootstrapping?
+
+_Automation_
+
+- Why should you aim for serverless infrastructure?
+- What are the inherent benefits of serverless architecture?
+- What are some AWS solutions to Infrastructure Management and Deployment?
+
+_Alarms and Events_
+
+- What AWS service handles alarms and events?
+- What is an example of an alarm?
+- What is an example of an event?
+- How could a severless function in lamba interact with a CloudWatch triggered event?
+
+_Loose Coupling_
+
+- What is the objective behind loose coupling?
+
+_Distributed Systems Best Practices_
+
+- Describe Graceful failure and provide an example.
+
+_Aurora Features_
+
+- What relational databases is Aurora compatible with?
+- Relational DB anti-patterns?
+- Does Aurora have multi-az support?
+
+_DynamoDB Features_
+
+- Does DynamoDB have autoscaling features?
+- What are non-relation DB anti-patterns?
+- What is a suitable service to store large binary files?
+- What should you use if you have data that requires joins or complex transactions?
+- Does DynamoDB have multi-az support?
+
+_Redshift_
+
+- What is OLTP?
+- What is OLAP?
+- Does Redshift have multi-az support?
+- What is RedShift's anti-pattern?
+
+_Neptune_
+
+- What is Neptune?
+
+_Data Lake_
+
+- What is a data lake?
+- Do you need to convert the data in a data lake ot a schema?
+- What is an AWS service that is suitable for creating data lakes?
+- What AWS service could you use to run SQL queries on data in a data lake?
+
+_Removing Points of Failure_
+
+- What is redundancy?
+- What is sharding?
+- How can fault isolation and traditional horizontal scaling provide resilience to a network?
+
+_Optimization Patterns_
+
+- How does sizing, elasticity, and purchase options, provide optimization to a network?
+
+_Caching_
+
+- What are the two types of caching provided by AWS?
+- What is an example of application caching?
+- What is an example of edge caching?
+
+_Security_
+
+- What service provides real-time auditing?
+- What does it mean to use hardened EC2 instances as golden images?
+- Describe the concept of designing with least privilege.
+
 ---
 
 ## Global AWS services
@@ -471,23 +582,37 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 - **S3 (has global view)** - appear global but are actually in specific regions
 
+### Question
+
+- What are the AWS (5) global services?
+- What AWS service has a global view but is actually regional?
+
 ---
 
 ## On Premise AWS Services
 
 > The AWS services that can be used inside your own data centers or corporate office.
 
-- Snowball - A massive disk that you load your data onto and send back to Amazon, **typically 80TB of size,** and then AWS loads the data onto S3.
+- **Snowball** - A massive disk that you load your data onto and send back to Amazon, **typically 80TB of size,** and then AWS loads the data onto S3.
 - Snowball Edge - similar to snowball but also has CPU with storage that allows you to write Lamba functions on premise. **Snowball Edge is useful for where you cannot get AWS connectivity but still need AWS resources**.
-- Storage Gateway - Similar to snowball, but it **stays on premise at all times**. Can be a physical or virtual device in your data center or HQ. Replicates files directly to S3 and in the event you lose internet connection you still have the device and it's files on premise to provide the data.
-- CodeDeploy - Deploy your code to EC2 instances or on premise web-servers as well. Deploys code.
-- Opsworks - Similar to Elastic Beanstalk, allows for automated deployments to EC2 instances and on premise web-servers.
-- IoT Greengrass - Connects devices to the AWS cloud.
+- **Storage Gateway** - Similar to snowball, but it **stays on premise at all times**. Can be a physical or virtual device in your data center or HQ. Replicates files directly to S3 and in the event you lose internet connection you still have the device and it's files on premise to provide the data.
+- **CodeDeploy** - Deploy your code to EC2 instances or on premise web-servers as well. Deploys code.
+- **Opsworks** - Similar to Elastic Beanstalk, allows for automated deployments to EC2 instances and on premise web-servers.
+- **IoT Greengrass** - Connects devices to the AWS cloud.
 
 #### Which AWS services can be used to deploy applications on premise
 
 - CodeDeploy
 - Opsworks
+
+### Question
+
+- What are six on premise AWS services?
+- Describe a situation suitable for AWS Snowball.
+- Describe a situation suitable for AWS Snowball edge.
+- What does Storage Gateway provide, how is it similar to snowball?
+- Which two on premise services deploy code?
+- What is IoT Greengrass?
 
 ---
 
@@ -498,6 +623,14 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - AWS created Systems Manager, when you deploy an EC2 instance you install a piece of software on that VM which connects that EC2 instance to System Manager. Then, System Manager can be used to run commands across the EC2 fleet.
 - Run Command is used to install, patch, and uninstall software.
 - Integrates with CloudWatch to give a dashboard of the entire EC2 fleet estate.
+
+### Questions
+
+- What type of service does AWS Systems Manager provide?
+- Does anything need to be added to instantiated EC2 instances to connect them to AWS Systems Manager?
+- Can AWS Systems Manager be integrated with any other AWS services?
+
+---
 
 ## Cloud Concepts and Technology Summary
 
@@ -739,9 +872,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-# AWS Billing and Pricing
+# Billing and Pricing
 
 > Pay as you go, pay for what you use, pay less for more, and pay even less when you reserve capacity
+
+## AWS Billing and Pricing
 
 ### Capex vs. Opex
 
@@ -781,7 +916,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - By paying for resources as needed, you can redirect your focus to innovation and invention allowing your business to be elastic.
 - One of the key advantages of cloud-based resources is that you don't pay for them when they're not running. By turning off instances you don't use, you can significantly reduce costs.
 
-### Price Models
+### EC2 Price Models
 
 - On Demand
 - Dedicated Instances
@@ -790,7 +925,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Free Services
 
-- Amazon VPC (a virtual datacenter in the cloud)
+- Amazon VPC (a virtual data center in the cloud)
 - Elastic Beanstalk
 - CloudFormation
 - IAM
@@ -798,25 +933,39 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Opsworks (similar to EB)
 - Consolidated billing
 
+### Questions
+
+- What is Capex?
+- What is Opex?
+- Describe an example of Capex vs Opex.
+- What is the AWS pricing mantra?
+- Describe the four key principles of pricing models.
+- What are the three fundamental drivers of cost in AWS?
+- Is it ever too early to start with cost optimization?
+- What does early optimization ensure over the lifetime of a platform?
+- What does it mean to maximize flexibility, how can this be accomplished?
+- Would turning off instances when you're not using them reduce costs?
+- What are the EC2 price models?
+- What are the seven free AWS services?
+
 ---
+
+## AWS Billing Per Service
 
 ### EC2 Pricing
 
-- Clock hours of server time
-- Instance type
-- Pricing model
-- Number of instances
-- Load Balancing
 - Detailed Monitoring
-- Auto Scaling (more EC2 instances the more you pay)
-- Elastic IP Addresses (Everytime we created an EC2 instance we were given an IP address)
 - Operating Systems and Software Packages (Windows cost more than an open-source OS like Linux)
+- Clock hours of server time
+- Pricing model
+- Instance type
+- Load Balancing
+- Elastic IP Addresses (Every time we created an EC2 instance we are given an IP address)
+- Auto Scaling (more EC2 instances the more you pay)
+- Number of instances
 
----
+### Lambda Pricing
 
-### Lambda
-
-- Lambda serverless
 - Request Pricing
   - Free Tier: 1 million requests per month
   - \$0.20 per 1 million requests thereafter
@@ -826,17 +975,13 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - If Lambda uses other AWS services or transfers data.
   - Example: if Lambda function reads and writes data to or from S3, you will be billed for the read/write requests and data stored in S3.
 
----
+### EBS Pricing
 
-### EBS
-
-- Volumes (per GB)
 - Snapshots (per GB)
+- Volumes (per GB)
 - Data Transfers
 
----
-
-### S3
+### S3 Pricing
 
 - Storage Class
 - Storage amount
@@ -844,14 +989,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Data Transfers
 
 - Glacier
-  - Storage
   - Data Retrieval times, the longer the retrieval time the more cost savings
 
----
+### Snowball Pricing
 
-### Snowball
-
-- PB-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud.
+- Petabyte-scale data transport solution that uses secure technology (snowball) to transfer large amounts of data into and out of the AWS cloud.
 
 - Service fee per job
   - Snowball 50TB: \$200
@@ -859,11 +1001,9 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Daily Charge
   - first 10 days are free, \$15 per day after that.
 - Data Transfers
-  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.**
+  - **Data transfer into S3 is free. Data transfer out from S3 into a snowball is not.** (keeps people on the platform)
 
----
-
-### RDS
+### RDS Pricing
 
 - Clock hours of server time
 - Database characteristics (type of database)
@@ -875,21 +1015,32 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Deployment type
 - Data transfers
 
----
-
-### DynamoDB
+### DynamoDB Pricing
 
 - Provisioned Throughput (write)
 - Provisioned Throughput (read)
 - Indexed data storage (amount of storage saved inside of DB)
 
----
+### CloudFront Pricing
 
-### CloudFront
-
-- Traffic Distribution
 - Requests
+- Traffic Distribution
 - Data transfers
+
+### Questions
+
+- What are the 9 EC2 pricing vectors? (DOCPILEAN)
+- What are the 3 Lamba pricing vectors? (RDX)
+- What are the 3 EBS pricing vectors? (SVD)
+- What are the 4 S3 pricing vectors? (CAND)
+- What is an additional pricing vector for S3 Glacier?
+- What are the 3 Snowball pricing vectors? (SDDo)
+- How much does a Snowball 50TB cost? 80TB?
+- How many days is Snowball free, how much does it cost per day after that?
+- Are data transfers in and out of S3, using SnowBall, free?
+- What are the 9 RDS pricing vectors?
+- What are the 2 noSQL pricing vectors? (PI)
+- What are the 3 CloudFront pricing vectors? (RTD)
 
 ---
 
@@ -904,6 +1055,12 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 - AWS Cost Explorer allows you to visualize, understand, and manage your AWS costs and usage over time.
 - Used to explore costs **after** they have been incurred.
+
+### Questions
+
+- What does AWS Budgets handle?
+- What does AWS Cost Explorer handle?
+- What is the difference between Budgets and Cost Explorer?
 
 ---
 
@@ -927,6 +1084,10 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - Production system impaired: under 4 hours
   - Production system down: under 1 hours
   - Business-critical system down: under 15 minutes
+
+### Questions
+
+- What are the differences between each AWS support plan?
 
 ---
 
@@ -952,6 +1113,11 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - Name
   - Employee ID
   - Department
+
+### Questions
+
+- What are tags?
+- What are resource groups?
 
 ---
 
@@ -997,3 +1163,34 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - 1TB x \$0.03 = #30
   - next 1TB x \$0.0295 = &29.50
   - Total Bill = \$59.50
+
+#### EC2 Practical Example
+
+- Test/Div uses 6 on-demand instances (can use the 2 additional RI)
+- Production has 5 reserve instances, uses 3
+- Back office
+
+### AWS Organizations Best Practices
+
+- Always MFA root account.
+- Always use a long and complex password on root account.
+- **Paying account should be used for billing purposes only.** Do not deploy resources on paying account.
+
+### CloudTrail
+
+> You push out your CloudTrail logs from all your other accounts into a S3 bucket that is accessible from the paying accounts. This bucket will serve as the source of truth.
+
+- Used to audit AWS services.
+- Per AWS account and is enabled per region.
+- Can consolidate logs using an S3 bucket:
+  - Turn CloudTrail in paying account
+  - Create bucket policy that allows cross-account access
+  - Turn on CloudTrail in the other accounts and use the bucket in the paying account
+
+### Questions
+
+- What is the objective of AWS organizations?
+- What is a paying account, what **should not** be on a paying account?
+- What is the current limit of linked accounts for consolidated billing?
+- What are the 3 advantages of consolidated billing?
+- What is a strategy that can be leveraged between CloudTrail and the organization's paying account?

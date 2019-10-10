@@ -325,7 +325,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 ---
 
-### Route53 101
+## Route53 101
 
 - Route53 is an AWS DNS service.
 - DNS works on port 53 hence the name.
@@ -333,9 +333,14 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - You can use Route53 to direct traffic and it can be used to register a domain name.
 - DNS is a service computers use to resolve domain names to IP addresses.
 
+### Questions
+
+- what is Route53?
+- Is Route53 regional or global?
+
 ---
 
-### AWS Provisioning 101
+## AWS Provisioning 101
 
 ### Elastic Beanstalk
 
@@ -365,10 +370,10 @@ echo "<html><h1>Hello</h1></html>" > index.html
   > Adding multiple virtual machines behind an elastic load balancer (more common to scale out than scale up.)
   - **Stateless Applications** - an application that doesn't hold state (lamba) and forgets after interaction.
   - **Distribute Load to Multiple Nodes** - Example: RDS read-replicas.
-  - **Stateless Components** - The more stateless components, the easier it is to scale. Ex: Signing into a website, instead of storing user data on a webserver, store their data on the user's browser as a cookie.
+  - **Stateless Components** - The more stateless components, the easier it is to scale a platform. Ex: Signing into a website, instead of storing user data on a webserver, store their data on the user's browser as a cookie.
   - **Stateful Components** - Storing information in a database.
   - **Implement Session Affinity** - _Sticky session_, putting a cookie in a user's browser. An ALB will detect the cookie and send the user to a specific EC2 instance.
-  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data.
+  - **Implement Distributed Processing** - _Elastic Map Reduce_ Using fleets of EC2 instances to process extreme amounts of data. Big data handling.
 
 #### Disposable Resources
 
@@ -378,15 +383,12 @@ echo "<html><h1>Hello</h1></html>" > index.html
   - **Containers** - null
   - **Hybrid** - Hybrids of containers and EC2 instances
 
-#### Infrastructure as Code
-
-- CloudFormation
-
 #### Automation
 
 - Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take of themselves (Amazon's job is to maintain that infrastructure.)
 - Infrastructure Management and Deployment
   - AWS Elastic Beanstalk
+  - AWS CloudFormation
   - Amazon EC2 auto recovery
   - AWS Systems Manager
   - Auto Scaling
@@ -400,6 +402,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Loose Coupling
 
+- Components should be loosely coupled in order to avoid failures from impacting other systems.
 - Well defined Interfaces
   - Amazon API Gateway
 - Service Discovery
@@ -469,6 +472,45 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Least privilege for users
   **- Security as Code - Create Golden Images of hardened EC2 instances and instantiate these hardened EC2 instances around the world.**
 - Real-time Auditing (CloudTrail)
+
+### Questions
+
+_Scalability_
+
+- Describe Scaling Up and Scaling Out.
+- What is a stateless application, what is an example of one?
+- What is an example of distributing loads to multiple nodes?
+- Benefits of stateless components, example?
+- What is the difference between stateless components and stateful components?
+- What is session affinity / sticky session?
+- Describe distributed processing and EMR.
+
+_Disposable Resources_
+
+- Describe two ways to instantiate compute resources.
+- What is a golden image?
+- What is bootstrapping?
+
+_Automation_
+
+- Why should you aim for serverless infrastructure?
+- What are the inherent benefits of serverless architecture?
+- What are some AWS solutions to Infrastructure Management and Deployment?
+
+_Alarms and Events_
+
+- What AWS service handles alarms and events?
+- What is an example of an alarm?
+- What is an example of an event?
+- How could a severless function in lamba interact with a CloudWatch triggered event?
+
+_Loose Coupling_
+
+- What is the objective behind loose coupling?
+
+_Distributed Systems Best Practices_
+
+- Describe Graceful failure and provide an example.
 
 ---
 

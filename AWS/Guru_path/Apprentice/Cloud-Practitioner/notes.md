@@ -419,14 +419,14 @@ echo "<html><h1>Hello</h1></html>" > index.html
 - Compatible with mySQL and PostgreSQL
 - High Availability - Multi-AZ
 - 6 copies of data across >= 3 AZs
-- **Anti-patterns**- _Where you wouldnt use a technology._ If no need for joins or complex transactions then use noSQL.
+- **Anti-patterns**- _Where you wouldnt use a technology..._ If no need for joins or complex transactions then use noSQL.
 
 #### DynamoDB
 
 - Scalable
 - Push button scalability, autoscaling built in
 - High Availability - Multi-AZ
-- **Anti-patterns** - Data the requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
+- **Anti-patterns** - Data that requires joins or complex transactions, use a relational DB. If you have large binary files (video, audio, images) consider using S3.
 
 #### Redshift
 
@@ -442,7 +442,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Data Lake
 
-- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to covert it to a predfined schema, and you no longer need to know what questions to ask about your data beforehand.
+- A data lake is an architectural approach that allows you to store massive amounts of data in a central location so that it's readily available to be categorized, processed, analyzed, and consumed by diverse groups within your organization. Since data can be stored as-is, you do not have to convert it to a predefined schema, and you no longer need to know what questions to ask about your data beforehand.
 - S3 is a great place to create data lakes and using services like Athena would allow you to run SQL queries on that data.
 
 #### Removing Single Points of Failure
@@ -511,6 +511,60 @@ _Loose Coupling_
 _Distributed Systems Best Practices_
 
 - Describe Graceful failure and provide an example.
+
+_Aurora Features_
+
+- What relational databases is Aurora compatible with?
+- Relational DB anti-patterns?
+- Does Aurora have multi-az support?
+
+_DynamoDB Features_
+
+- Does DynamoDB have autoscaling features?
+- What are non-relation DB anti-patterns?
+- What is a suitable service to store large binary files?
+- What should you use if you have data that requires joins or complex transactions?
+- Does DynamoDB have multi-az support?
+
+_Redshift_
+
+- What is OLTP?
+- What is OLAP?
+- Does Redshift have multi-az support?
+- What is RedShift's anti-pattern?
+
+_Neptune_
+
+- What is Neptune?
+
+_Data Lake_
+
+- What is a data lake?
+- Do you need to convert the data in a data lake ot a schema?
+- What is an AWS service that is suitable for creating data lakes?
+- What AWS service could you use to run SQL queries on data in a data lake?
+
+_Removing Points of Failure_
+
+- What is redundancy?
+- What is sharding?
+- How can fault isolation and traditional horizontal scaling provide resilience to a network?
+
+_Optimization Patterns_
+
+- How does sizing, elasticity, and purchase options, provide optimization to a network?
+
+_Caching_
+
+- What are the two types of caching provided by AWS?
+- What is an example of application caching?
+- What is an example of edge caching?
+
+_Security_
+
+- What service provides real-time auditing?
+- What does it mean to use hardened EC2 instances as golden images?
+- Describe the concept of designing with least privilege.
 
 ---
 

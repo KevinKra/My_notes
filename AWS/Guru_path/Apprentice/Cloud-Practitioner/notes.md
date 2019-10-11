@@ -925,7 +925,7 @@ _Security_
 
 #### Free Services
 
-- Amazon VPC (a virtual data center in the cloud)
+- VPC (a virtual data center in the cloud)
 - Elastic Beanstalk
 - CloudFormation
 - IAM
@@ -1108,27 +1108,41 @@ _Security_
 
 - Resource groups make it easy to group resources using the tags assigned to them.
 - Can group resources that share one or more tags
+- Resource groups allow you to apply automation to resources tagged with specific tags. For example, we can stop all EC2 instances in a certain region by using resource group tags.
+- Resource groups in combination with AWS Systems manager allow you to control and execute automation against entire fleets of EC2 instances, all at the push of a button.
 - Resource Groups Contain Information such as
   - Region
   - Name
   - Employee ID
   - Department
 
+### Tag Editor
+
+- A global service that allows us to discover resources and to add additional tags to them as well.
+
 ### Questions
 
 - What are tags?
 - What are resource groups?
+- Can you apply automation to resources tagged with specific tags? What is an example?
+- What is Tag Editor, is it global?
 
 ---
 
 ## Consolidated Billing
 
+- Allows you to get volume discounts on all of your accounts.
+- Unused EC2 instances are applied across the group.
+- CloudTrail is on a per account, per region basis. However, It can be aggregated to a single bucket belonging to the paying account.
+
 ### AWS Organizations
 
 - AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage.
+- AWS Organizations is global.
+- You create organizational units and attach accounts to these units.
 - Available in **two** feature sets:
   - Consolidated Billing
-  - All features
+  - All features (full access)
 
 ### Organizations with Consolidated Billing
 
@@ -1190,7 +1204,87 @@ _Security_
 ### Questions
 
 - What is the objective of AWS organizations?
+- What are the two types of AWS organizations?
+- Is AWS organizations global?
 - What is a paying account, what **should not** be on a paying account?
 - What is the current limit of linked accounts for consolidated billing?
 - What are the 3 advantages of consolidated billing?
 - What is a strategy that can be leveraged between CloudTrail and the organization's paying account?
+- What is the relationship between policies, root account. organizational units, and aws accounts, in an organization?
+
+---
+
+## AWS Quick Start & AWS Landing Zone
+
+- AWS Quick Start is a way of deploying environments quickly using CloudFormation templates built by AWS Solutions Architects who are experts in that particular technology.
+- AWS Landing Zone is a solution that helps customers quickly set up a secure, multi-account AWS environment based on AWS best practices.
+
+### Questions
+
+- What is AWS Quick Start?
+- What is AWS Landing Zone?
+
+---
+
+## AWS Calculators
+
+- **AWS Simple Monthly Calculator** - Hosted on S3, allows you to build out an AWS environment and estimate the costs of that environment on a monthly basis. Not a comparison tool.
+  - `https://calculator.s3.amazonaws.com/index.html`
+- **AWS Total Cost of Ownership Calculator** - Determines the cost to have servers on premise, or co-location, versus having them on the cloud. _In-house vs on-premise._
+  - `https://aws.amazon.com/tco-calculator/`
+  - Breaks down calculations into **four parts: server costs, storage costs, network costs, IT labor costs.**
+
+### Questions
+
+- What does the AWS Simple Monthly Calculator do?
+- What does the AWS Total Cost of Ownership Calculator do?
+- What are the AWS TCO calculations broken down into?
+
+---
+
+# Security in the Cloud
+
+### AWS Artifact
+
+- AWS Artifact features a comprehensive list of access-controlled documents relevant to compliance and security in the AWS cloud.
+
+### AWS Shared Responsibility Model
+
+- While AWS manages the security _of_ the cloud, security _in_ the cloud is the responsibility of the customer . Customers retain control of what security they choose to implement to protect their own content, platform, applications, systems and networks, no differently than they would in an on-site data center.
+
+#### Security Responsibilities:
+
+- **Customer**
+
+  - Customer Data
+  - Platform, Applications, IAM
+  - OS, Network, and Firewall Configuration
+  - Client-side Data encryption, and data integrity authentication
+  - Server-side encryption
+  - Network Traffic Protection
+
+- **AWS**
+
+  - **Software**
+    - Compute
+    - Storage
+    - Database (DBs like DynamoDB, used by Amazon, to hold _your_ information.)
+    - Networking
+  - **Hardware / AWS Global Infrastructure**
+    - Regions
+    - AZs
+    - Edge locations
+
+* For **EC2** it's the customers responsibility to keep the OS onwards secure. For RDS, S3, DynamoDB, ect. is always going to be Amazon's responsibility because we don't get access to the Operating System on those services.
+
+### Questions
+
+- What is AWS Artifact?
+- Explain the shared responsibility model.
+- What service OSs need to be handled by us, and which by AWS?
+
+---
+
+### AWS WAF
+
+- AWS WAF is a web application firewall that helps you protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.

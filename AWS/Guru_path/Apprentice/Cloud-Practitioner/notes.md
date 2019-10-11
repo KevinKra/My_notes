@@ -415,6 +415,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Aurora
 
+- AWS' managed database service that is up to 5X faster than a traditional MySQL database.
 - Scalable
 - Compatible with mySQL and PostgreSQL
 - High Availability - Multi-AZ
@@ -1248,6 +1249,10 @@ _Security_
 
 - AWS Artifact features a comprehensive list of access-controlled documents relevant to compliance and security in the AWS cloud.
 
+#### Compliance Certifications Overview
+
+- PCI DSS Level 1 - attests to the security of the AWS platform regarding credit card transactions.
+
 ### AWS Shared Responsibility Model
 
 - While AWS manages the security _of_ the cloud, security _in_ the cloud is the responsibility of the customer . Customers retain control of what security they choose to implement to protect their own content, platform, applications, systems and networks, no differently than they would in an on-site data center.
@@ -1311,7 +1316,7 @@ _Security_
 
 - **Two Tiers:**
   - Standard: Included.
-  - Advanced: \$3,000 /month. Don't have to pay for the damage that DDoS causes.
+  - Advanced: \$3,000 /month. Don't have to pay for the damage that DDoS causes. Only AWS Shield Advanced offers automated application layer monitoring.
 
 ### Questions
 
@@ -1364,8 +1369,8 @@ _Security_
 
 ### Athena
 
-- Athena is an interactive query service that allows you to analyse and query data located in S3 using standard SQL.
-- Serverless, nothing to provision, pay per query / per TB scanned.
+- Athena is an interactive query service that allows you to analyse and **query data located in S3** using standard SQL.
+- **Serverless**, nothing to provision, pay per query / per TB scanned.
 - No need to set up complex Extract/Transform/Load (ETL) processes.
 - Works directly with data stored in S3, like data lakes.
 
@@ -1378,9 +1383,51 @@ _Security_
 
 ### Macie
 
-- Macie is a security service which uses machine learning and natural language processing to discover, classify, and protect sensitive data stored in S3.
+- Macie is a security service which uses machine learning and natural language processing to discover, classify, and **protect sensitive data stored in S3**.
 - Uses AI to recognize if your S3 objects contain sensitive data such as PII.
 - Utilizes dashboards, reporting, and alerts.
 - Works directly with data stored in S3.
 - Can analyze CloudTrail logs.
 - Great for PCI-DSS and preventing ID theft.
+
+---
+
+#### needs review:
+
+- Spread Placement Groups
+- EMR
+- DMS
+- Storage Gateway
+- Elastic File System
+- Shared Responsibility Model
+- Hypervisors
+- AWS Organizations
+
+# Test
+
+## Questions
+
+1. Which of the following AWS services can assist you with cost optimization?
+   - **AWS Shield, AWS Trusted Advisor, AWS Inspector, AWS WAF**
+2. Which AWS service allows you to run code without having to worry about provisioning any underlying resources (such as virtual machines, databases etc.)
+   - **DynamoDB, EC2 Container Service, EC2, Lamba**
+3. You have been ask to deploy a clustered application on a small number of EC2 instances. The application must be placed across multiple Availability Zones, have high speed, low latency communication between each of the nodes, and should also minimize the chance of underlying hardware failure. Which of the following options would provide this solution?
+   - **Deploy the EC2 instance on Cluster Placement Group, Spread Placement Group, deployed as a service in ECS**
+4. You are considering moving an on-premise SQL Server cluster into AWS, using EC2 instances rather than RDS. You need to recommend the most suitable EBS volume type for the cluster to use, but also pair it with a suitable EC2 instance type. You know that the throughput must be good, but the most important thing is to maintain a consistent level of IOPS under normal load which can increase to a much higher level at busy times. Choose the best option from the following EC2 and EBS pairings.
+   - **Provisioned IOPS (io1) EBS volumes with r5 EC2 instances, Provisioned IOPS (io1) EBS volumes with X1e EC2 instances, Throughout Optimised (st1) EBS volumes with X1e EC2 instances**
+5. Which AWS service is specifically designed to assist you in processing large data sets?
+   - **AWS Big data processing, Elasticache, EC2, EMR**
+6. Which of the following AWS services should you use to migrate an existing database to AWS?
+   - **Route 53, DMS, Storage Gateway, SNS**
+7. Which native AWS service will act as a file system mounted on an S3 bucket?
+   - **Amazon Elastic File System, AWS Storage Gateway, Amazon S3, Amazon Elastic Block Store**
+
+## Answers
+
+1. AWS Trusted Advisor
+2. Lambda
+3. Deploy EC2 instance on Spread Placement Group
+4. Provisioned IOPS (io1) EBS volumes with X1e EC2 instances
+5. EMR
+6. DMS (Database Migration Service)
+7. AWS Storage Gateway

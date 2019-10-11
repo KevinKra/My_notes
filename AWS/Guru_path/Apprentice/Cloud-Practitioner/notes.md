@@ -1285,6 +1285,102 @@ _Security_
 
 ---
 
+## WAF & Shield
+
 ### AWS WAF
 
-- AWS WAF is a web application firewall that helps you protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.
+> Hackers
+
+- AWS WAF is a **web application firewall** that helps you protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. Prevents cross-site scripting, sql injections, etc.
+
+#### OSI Model Layers
+
+1. Physical
+2. Data Link
+3. Network
+4. Transport
+5. Session
+6. Presentation
+7. Application (WAF)
+
+### AWS Shield
+
+> DDoS attacks
+
+- AWS Shield is a managed Distributed Denial of Service (DDoS) protection service that safeguards web applications running on AWS. AWS Shield provides always-on detection and automatic inline mitigation that minimize application downtime and latency.
+
+- **Two Tiers:**
+  - Standard: Included.
+  - Advanced: \$3,000 /month. Don't have to pay for the damage that DDoS causes.
+
+### Questions
+
+- What does WAF stand for?
+- What does WAF protect against?
+- Describe AWS Shield.
+- What are the two tiers for AWS Shield, what are their features and prices?
+
+---
+
+## AWS Inspector, AWS Trusted Advisor
+
+### AWS Inspector
+
+> Installed on EC2 Instances and assesses the instance's security.
+
+- Inspector is an _automated_ security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for vulnerabilities or deviations from best practices. After performing an assessment, Inspector produces a detailed list of security findings prioritized by level of severity. These findings can be reviewed directly or as part of a detailed assessment report which is available via the Amazon Inspector console or API.
+
+### AWS Trusted Advisor
+
+> a TA looks at the entire AWS environment and gives a report.
+
+- An online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. TA provides real-time guidance to help you provision your resources following AWS best practices.
+
+- **Two Tiers:**
+  - Core Checks and Recommendations - Free
+  - Full Trusted Advisor - Business and Enterprise companies only
+
+---
+
+## CloudWatch vs AWS Config
+
+### CloudWatch
+
+- CloudWatch monitors performance.
+
+- Host level metrics
+  - CPU
+  - Network
+  - Disk
+  - Status Check
+
+### AWS Config
+
+- Provides a detailed view of the configuration of AWS resources on your AWS account. The includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships changed over time. Example: Security Group changes.
+
+---
+
+## Athena vs Macie
+
+### Athena
+
+- Athena is an interactive query service that allows you to analyse and query data located in S3 using standard SQL.
+- Serverless, nothing to provision, pay per query / per TB scanned.
+- No need to set up complex Extract/Transform/Load (ETL) processes.
+- Works directly with data stored in S3, like data lakes.
+
+#### What can it be used for?
+
+- Can be used to query log files stored in S3.
+- Generate business reports on data stored in S3.
+- Analyse AWS cost and usage reports.
+- Run queries on click-stream data.
+
+### Macie
+
+- Macie is a security service which uses machine learning and natural language processing to discover, classify, and protect sensitive data stored in S3.
+- Uses AI to recognize if your S3 objects contain sensitive data such as PII.
+- Utilizes dashboards, reporting, and alerts.
+- Works directly with data stored in S3.
+- Can analyze CloudTrail logs.
+- Great for PCI-DSS and preventing ID theft.

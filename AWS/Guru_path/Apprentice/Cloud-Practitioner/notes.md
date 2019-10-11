@@ -1345,6 +1345,12 @@ _Security_
   - Core Checks and Recommendations - Free
   - Full Trusted Advisor - Business and Enterprise companies only
 
+### Questions
+
+- Explain AWS Inspector.
+- Explain AWS Trusted Advisor.
+- What are the two tiers for AWS Trusted Advisor?
+
 ---
 
 ## CloudWatch vs AWS Config
@@ -1362,6 +1368,11 @@ _Security_
 ### AWS Config
 
 - Provides a detailed view of the configuration of AWS resources on your AWS account. The includes how the resources are related to one another and how they were configured in the past so that you can see how the configurations and relationships changed over time. Example: Security Group changes.
+
+### Questions
+
+- What is AWS CloudWatch?
+- What is AWS Config?
 
 ---
 
@@ -1389,6 +1400,12 @@ _Security_
 - Works directly with data stored in S3.
 - Can analyze CloudTrail logs.
 - Great for PCI-DSS and preventing ID theft.
+
+### Questions
+
+- What is Athena?
+- What is Macie?
+- What service do Athena and Macie work upon?
 
 ---
 

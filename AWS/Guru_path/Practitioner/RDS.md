@@ -1,6 +1,6 @@
 # AWS RDS
 
-## RDS
+## RDS overview and Intro
 
 - **R**elational **D**atabase **S**ervice
 
@@ -80,3 +80,11 @@
 - **Primary Host** - The host / node within a database instance that handles the traffic from the client.
 - **Secondary Host** - The host / node within a database instance which is not actively handling write traffic for your application. Instead, secondary host serves as a redundancy layer that handles read traffic.
 - **Aurora** - MySQL and PostgreSQL compatible relational database natively built for AWS.
+
+### Environment Setup
+
+1. pgAdmin
+   > Allows us to connect to the postgreSQL server once we set it up.
+2. Setup AWS environment
+   - Create a new VPC with Public and Private subnets.
+   - Create RDS Subnet Groups, one for public and one for private.

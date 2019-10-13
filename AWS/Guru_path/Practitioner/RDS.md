@@ -251,3 +251,24 @@
 #### Enhanced Monitoring
 
 - EM metrics allow you to see how different processes or threads use the CPU
+
+#### Backups
+
+- **Backup Retention Period** - 0-35 Days
+- **Backup Window** - Daily time range when backups occur
+- **Copy tags to Snapshots**
+
+#### Maintenance
+
+- Auto minor versions upgrade
+
+- Maintenance Window
+  - Aimed at patching and upgrades
+  - Once a week time range when maintenance occurs
+
+#### Database Engine Upgrades
+
+- **Require Downtime**
+- Minor version upgrades - automatic or manual (you decide)
+- Major version upgrades - manually applied (can cause app compatibility issues)
+- Version deprecation - three-to-six month through a notification in RDS

@@ -107,7 +107,7 @@
 
 - There are three ways to grant users access to AWS.
 
-  1. Programmatic Access - Enables an **access key ID** and **secret access key** for the AWS API, CLI, SDK, and other de tools.
+  1. Programmatic Access - Enables an **access key ID** and **secret access key** for the AWS API, CLI, SDK, and other developer tools.
   2. Console Password - Enables a **password** that allows users to sign-in to the AWS management console.
   3. Using the Software Development Kit, SDK.
 
@@ -385,7 +385,7 @@ echo "<html><h1>Hello</h1></html>" > index.html
 
 #### Automation
 
-- Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take of themselves (Amazon's job is to maintain that infrastructure.)
+- Aim for things to be serverless, when everything is serverless you don't need to worry about infrastructure or your tools because they will take care of themselves (Amazon's job is to maintain that infrastructure.)
 - Infrastructure Management and Deployment
   - AWS Elastic Beanstalk
   - AWS CloudFormation

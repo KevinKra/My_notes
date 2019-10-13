@@ -268,7 +268,39 @@
 
 #### Database Engine Upgrades
 
-- **Require Downtime**
+- **Requires Downtime**
 - Minor version upgrades - automatic or manual (you decide)
 - Major version upgrades - manually applied (can cause app compatibility issues)
 - Version deprecation - three-to-six month through a notification in RDS
+
+---
+
+## RDS Costs
+
+#### Cost Drivers
+
+- _Instance Hours_
+  - Region
+  - Instance Type
+  - Database Engine
+  - License
+- _Database Storage_
+  - EPS vs Aurora
+  - Storage Type
+  - Storage Allocation
+- _Backup Storage_
+  - Size of backups stored in AWS
+  - No charge for backup storage up to 100% of total db storage
+- _Data Transfer_
+  - **Outgoing traffic only**
+  - Regional Data Transfer Pricing
+  - Including copy region-to-region
+
+### Pricing Tips
+
+- AWS Cost Explorer
+  - Great way to visualize billing
+- Tags help in breakdowns
+  - Tags help breakdown costs when working in companies with multiple teams and systems
+- Reserved Instances (if you can)
+  - Plan longer term, save \$\$

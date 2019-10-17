@@ -1,5 +1,11 @@
 # Ruby on Rails
 
+## Useful Commands
+
+- `rails new MySite`
+- `bundle install`
+- `rails server` / `rails s`
+
 ## What is Rails
 
 - Rails is a web application development framework written in the Ruby programming language.
@@ -141,4 +147,26 @@ class ArticlesController < ApplicationController
   def new
   end
 end
+```
+
+---
+
+## Forms
+
+```
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 ```

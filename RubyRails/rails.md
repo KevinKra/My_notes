@@ -20,7 +20,7 @@
 
 #### Setup
 
-- `rails new <name>`
+- `rails new <name>` - creates directory `<name>` and installs gemfile.
 - `rails new -h` - shows all the command line options for rails.
 
 #### Composition
@@ -67,3 +67,41 @@
 * `tmp/`
 * `vendor/`
 * `.ruby-version`
+
+---
+
+## MVC
+
+#### Controller
+
+- A controller's purpose is to receive specific requests for the application. **Routing** decides which controller receives the requests. Often, there is more than one route to each controller, and different routes can be served by different **actions**. Each action's purpose is to collect information to provide it to a view.
+
+#### View
+
+- A view's purpose is to display this information. An important distinction to make is that is the _controller_, not the view, where information is collected. By default, view templates are written in a language called **eRuby (Embedded Ruby)** which is processed by the request cycle in Rails before being sent to the user.
+
+#### Controller creation
+
+- `rails generate controller Welcome index`
+
+> Running this command will create several files and a route for you.
+
+- the most important files the above commands create are:
+  - `app/controllers/welcome_controller.rb`
+  - `app/views/welcome/index.html.erb`
+
+#### View Root
+
+- Determines the view at the root URL.
+
+```
+// config/routes.rb
+Rails.application.routes.draw do
+  get 'welcome/index'
+
+  // set root
+  root 'welcome#index'
+end
+```
+
+- `root 'welcome#index'` tells Rails to map requests to the root of the application to the welcome controller's index action

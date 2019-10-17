@@ -72,15 +72,24 @@
 
 ## MVC
 
-#### Controller
+### Controller
 
 - A controller's purpose is to receive specific requests for the application. **Routing** decides which controller receives the requests. Often, there is more than one route to each controller, and different routes can be served by different **actions**. Each action's purpose is to collect information to provide it to a view.
 
-#### View
+### View
 
 - A view's purpose is to display this information. An important distinction to make is that is the _controller_, not the view, where information is collected. By default, view templates are written in a language called **eRuby (Embedded Ruby)** which is processed by the request cycle in Rails before being sent to the user.
 
-#### Controller creation
+- `articles/new.html.erb`
+- `controller/action.format.handler`
+
+#### Handlers
+
+- erb (default for HTML)
+- builder (XML)
+- coffee (JavaScript templates)
+
+### Controller creation
 
 - `rails generate controller Welcome index`
 
@@ -90,7 +99,7 @@
   - `app/controllers/welcome_controller.rb`
   - `app/views/welcome/index.html.erb`
 
-#### View Root
+### View Root
 
 - Determines the view at the root URL.
 
@@ -105,3 +114,31 @@ end
 ```
 
 - `root 'welcome#index'` tells Rails to map requests to the root of the application to the welcome controller's index action
+
+### Resource
+
+- A **resource** is the term used for a collection of similar objects, such as articles, people, or animals.
+- You can create, read, update, and destroy (CRUD) items for a resource.
+
+- `resources` - Rails provided method that can be used to automatically declare standard REST interactions. This needs to be defined in `config/routes.rb`.
+
+- command: `rails routes` - will show all the defined routes for all the RESTful interactions.
+
+```
+Rails.application.routes.draw do
+  get 'welcome/index'
+
+  resources :articles
+
+  root 'welcome#index'
+end
+```
+
+> There are public, private and protected methods in Ruby, but only public methods can be actions for controllers.
+
+```
+class ArticlesController < ApplicationController
+  def new
+  end
+end
+```

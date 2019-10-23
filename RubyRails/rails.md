@@ -5,6 +5,7 @@
 - `rails new MySite`
 - `bundle install`
 - `rails server` / `rails s`
+- `rails generate controller Pages`
 
 ## What is Rails
 
@@ -81,6 +82,7 @@
 ### Controller
 
 - A controller's purpose is to receive specific requests for the application. **Routing** decides which controller receives the requests. Often, there is more than one route to each controller, and different routes can be served by different **actions**. Each action's purpose is to collect information to provide it to a view.
+- Methods in Rails controllers are referred to as controller actions.
 
 ### View
 
@@ -89,7 +91,47 @@
 - `articles/new.html.erb`
 - `controller/action.format.handler`
 
-#### Handlers
+### Request / Response Cycle
+
+1. The browser makes a _request_ for localhost:3000
+2. The request hits the Rails **router** in config/routes.rb. The Route recognizes the URL and sends the request to the controller.
+3. The controller receives the request and processes it.
+4. The controller passes the request to the _view_.
+5. The **view** renders the HTML.
+6. The controller sends the HTML back to the browser for you to see.
+
+#### Router
+
+```
+Rails.application.routes.draw do
+  // root 'pages#home'
+  get 'welcome' => 'pages#home'
+end
+```
+
+#### Controller w/ home action
+
+```
+class PagesController < ApplicationController
+  def home
+  end
+end
+```
+
+#### View
+
+```
+<div class="main">
+  <div class="container">
+    <h1>Hello my name is __</h1>
+    <p>I make Rails apps.</p>
+  </div>
+</div>
+```
+
+---
+
+### Handlers
 
 - erb (default for HTML)
 - builder (XML)

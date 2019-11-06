@@ -29,8 +29,8 @@
 
 #### Features
 
-- Stored on SSD Storage
-- Spread across 3 geographically distinct data centers
+- Stored on SSD Storage.
+- Spread across 3 geographically distinct data centers.
 - Two Consistency Models:
   - Eventual Consistent Reads (default)
   - Strong Consistent Reads
@@ -92,5 +92,17 @@
 - Access is controlled using IAM policies.
 - Fine grained access control using IAM Condition parameter:
   `dynamodb:LeadingKeys` to allow users to access only the items where the partition key value matches their user ID.
+
+### Questions:
+
+- What data models does DynamoDB support?
+- Do you need to define the schema upfront in DynamoDB.
+- What type of storage is DynamoDB stored on?
+- How many geographical locations is DynamoDB stored in?
+- What are the two consistency models, which is the default?
+- Describe eventual consistent reads, strong consistent reads.
+- What is the database format of DynamoDB.
+- What formats can documents be written in?
+- What is a primary key?
 
 ---

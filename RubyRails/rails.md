@@ -104,7 +104,7 @@
 
 ```
 Rails.application.routes.draw do
-  // root 'pages#home'
+  # root 'pages#home' -- sets root to pages/home
   get 'welcome' => 'pages#home'
 end
 ```
@@ -118,7 +118,7 @@ class PagesController < ApplicationController
 end
 ```
 
-#### View
+#### Views
 
 ```
 <div class="main">

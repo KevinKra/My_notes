@@ -2,6 +2,8 @@
 
 - [Resources](#resources)
 - [Foundations](#foundations)
+- [BigO]
+- [OOP]
 
 # Foundations
 
@@ -66,6 +68,70 @@
 
 ---
 
+## OOP
+
+> Object-oriented programming (OOP) is a programming paradigm that uses objects and their interactions to design applications and computer programs.
+
+#### Concepts:
+
+- Abstraction
+- Inheritance
+- Polymorphism
+- Encapsulation
+- Coupling
+- Cohesion
+- Modules / Mixins
+- Getters / Setters
+- Class Methods
+- Instance Methods
+- Class Variables
+- Instance Variables
+- Constructor Overloading
+- Operator Overloading
+- Super / Sub
+- Ruby Exceptions
+- Access Modifiers
+
+### Constructor
+
+- In Ruby, a class _can_ be called without invoking the constructor. The `.allocate` method would be used on the class invocation => `myInstance = Dog.allocate`. The allocate method _allocates_ space for a new object of a class and **does not** initialize on the new instance.
+
+#### Constructor Overloading
+
+- Constructor overloading is the ability to have multiple types of constructors in a class. This allows use to create objects with multiple different types of parameters and subsequent attributes. Unfortunately, Ruby **does not** support constructor overloading. However, default parameters mirror the effect to some extent.
+
+### Methods
+
+- There are two ways to call a method, the first (and much more common) is to use `myObject.my_method`. The alternative is `myObject send :my_method`, note: this only seems to _get_ methods.
+
+### Access Modifiers
+
+- Access Modifiers set the visibility of methods and member fields. Ruby has three access modifiers: Public, Protected, Private. **In Ruby, all data members are private.** Access modifiers can be used only on methods. Ruby methods are public unless otherwise changed.
+- Inheritance **does not** play a role in Ruby access modifiers. Only two things matter, First, if we call the method inside or outside the class definition. Second, if we use (or do not use) the `self` keyword which points to the current receiver.
+
+#### Public Access Modifiers
+
+- Public methods can be accessed from inside the definition of the class as well as from the outside of the class.
+
+#### Private Access Modifiers
+
+- Private methods (and protected methods) **cannot** be accessed outside of the definition of the class. They can _only_ be accessed inside the class itself and through inheritance.
+
+### Abstraction
+
+### Inheritance
+
+### Questions
+
+- Explain the features of a constructor.
+- What is an instance variable / member field?
+- Can we create an object (in Ruby) without calling the constructor?
+- What is constructor overloading, is it supported in Ruby?
+- What are the two formats to invoke a method in Ruby?
+- What purpose do Access Modifiers serve?
+- What are the three Access Modifiers in Ruby?
+- What access type are data members and methods?
+
 ### Resources:
 
 [](#resources)
@@ -73,3 +139,4 @@
 - [CodeChef](https://www.codechef.com/certification/data-structures-and-algorithms/prepare#foundation) - the foundation of this readme.
 - [KhanAcademy](https://www.khanacademy.org/computing/computer-science/algorithms#intro-to-algorithms) - Algorithm overview.
 - [rob-bell](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/) - Big-O
+- [zetCode](http://zetcode.com/lang/rubytutorial/oop/) - OOP I

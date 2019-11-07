@@ -106,20 +106,30 @@
 
 ### Access Modifiers
 
-- Access Modifiers set the visibility of methods and member fields. Ruby has three access modifiers: Public, Protected, Private. **In Ruby, all data members are private.** Access modifiers can be used only on methods. Ruby methods are public unless otherwise changed.
+- Access modifiers protect data against accidental modifications and they make programs more robust.
+- Access Modifiers set the visibility of methods and member fields. Ruby has three access modifiers: public, protected, private. **In Ruby, all data members are private.** Access modifiers can be used only on methods. Ruby methods are public unless otherwise changed.
 - Inheritance **does not** play a role in Ruby access modifiers. Only two things matter, First, if we call the method inside or outside the class definition. Second, if we use (or do not use) the `self` keyword which points to the current receiver.
 
-#### Public Access Modifiers
+#### Public Methods
 
 - Public methods can be accessed from inside the definition of the class as well as from the outside of the class.
 
-#### Private Access Modifiers
+#### Private Methods
 
 - Private methods (and protected methods) **cannot** be accessed outside of the definition of the class. They can _only_ be accessed inside the class itself and through inheritance.
+- Private methods follow the `private` keyword.
+
+#### Protected Methods
+
+- Very similar to private methods, though unlike private methods they _can_ called with the `self` keyword.
 
 ### Abstraction
 
 ### Inheritance
+
+- Inheritance is a way to form new classes using classes already defined. Newly formed classes, or _derived_ classes, are derived from _base_ classes.
+- Class variables are written with `@@`, `@@total = 0`
+- Class methods are written as `def self.some_method`
 
 ### Questions
 
@@ -131,6 +141,14 @@
 - What purpose do Access Modifiers serve?
 - What are the three Access Modifiers in Ruby?
 - What access type are data members and methods?
+- What is the difference between public and private methods?
+- What is the (subtle) difference between a private and a protected method?
+- Does inheritance play a role in access modifiers in Ruby?
+- How do you create private methods?
+- How do you create protected methods?
+- What is a derived class, what is a base class?
+- What are descendants and ancestors.
+- If you created a class variable on a base class that tracked the total instances, how could it be accessed via the base class `Animal.total_count` / derived class `Dog.total_count`?
 
 ### Resources:
 

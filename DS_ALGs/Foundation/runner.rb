@@ -109,11 +109,90 @@ class BeardedDragon < Reptile
     end
 end
 
-a = Dog.new("Dog")
-b = Cat.new("Wilson")
-c = BeardedDragon.new("Drogon")
-a.eat
-b.expire
-a.show_type
-c.show_type
-Organism.show_count
+# a = Dog.new("Dog")
+# b = Cat.new("Wilson")
+# c = BeardedDragon.new("Drogon")
+# a.eat
+# b.expire
+# a.show_type
+# c.show_type
+# Organism.show_count
+
+#======================#
+# Inheritance + Access Modifiers
+#======================#
+class User
+    @@total_users = 0
+    def initialize(name, age, city, state)
+        @name = name
+        @age = age
+        @city = city
+        @state = state
+        @@total_users += 1
+        @logged_in = false
+        @forum_posts = []
+    end
+
+    def self.total_users
+        puts "There are #{@@total_users} total users."
+    end
+
+    def all_posts
+        p @forum_posts
+    end
+
+    def login
+        if !@logged_in 
+            @logged_in = true
+            puts "Logged in!"
+        else 
+            puts "You're already logged in."
+        end
+    end
+
+    def logout
+        if @logged_in
+            @logged_in = false
+            puts "Logged out!"
+        else
+            puts "You're not logged in."
+        end
+    end
+
+    def post(thought)
+        @forum_posts << thought
+    end
+end
+
+class PaidUser
+    attr_reader :balance
+    def initialize
+        super
+        @balance = 0
+    end
+
+    def increase_balance(amount)
+        handle_balance(amount)
+    end
+
+    def decrease_balance(amount)
+        handle_balance(amount, false)
+    end
+
+    def handle_balance(amount, increment = true)
+        if increment
+            @balance += amount.to_i
+        elsif !increment
+            @balance -= amount.to_i
+        else
+            puts "You must enter a valid number."
+        end
+    end
+
+end
+
+a = User.new "Steven", 23, "Madison", "MI"
+a.post("I love hiking!")
+a.post("Scratch that, I love swiming more!")
+User.total_users
+a.all_posts

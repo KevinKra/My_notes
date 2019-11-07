@@ -150,6 +150,10 @@
 - What are descendants and ancestors.
 - If you created a class variable on a base class that tracked the total instances, how could it be accessed via the base class `Animal.total_count` / derived class `Dog.total_count`?
 
+### Challenges
+
+- Create a series of classes that use inheritance, access modifiers, class variables, and polymorphism.
+
 ### Resources:
 
 [](#resources)

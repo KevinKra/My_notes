@@ -118,11 +118,14 @@ end
 # c.show_type
 # Organism.show_count
 
+
+
 #======================#
 # Inheritance + Access Modifiers
 #======================#
 class User
     @@total_users = 0
+    attr_reader :name, :age, :city, :city
     def initialize(name, age, city, state)
         @name = name
         @age = age
@@ -164,9 +167,9 @@ class User
     end
 end
 
-class PaidUser
+class PaidUser < User
     attr_reader :balance
-    def initialize
+    def initialize(name, age, city, state)
         super
         @balance = 0
     end
@@ -188,11 +191,33 @@ class PaidUser
             puts "You must enter a valid number."
         end
     end
+end
 
+class AdminUser < PaidUser
+    def initialize(name, age, city, state)
+        super
+    end
+
+    def remove_user(user)
+        puts "user removed"
+    end
 end
 
 a = User.new "Steven", 23, "Madison", "MI"
-a.post("I love hiking!")
+b = PaidUser.new "Scott", 33, "Austin", "TX"
+c = User.new "Charlie", 21, "Pheonix", "AZ"
+d = AdminUser.new "Admin", 99, "Virginia", "SC"
+b.increase_balance(100)
+b.balance
+b.post("Skiing is ok.")
+a.post("I love hiking?")
 a.post("Scratch that, I love swiming more!")
+d.post("Looking for people to ban.")
 User.total_users
 a.all_posts
+b.all_posts
+d.all_posts
+a.name
+d.name
+
+require "pry"; binding.pry

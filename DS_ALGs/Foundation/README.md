@@ -100,6 +100,14 @@
 
 - Constructor overloading is the ability to have multiple types of constructors in a class. This allows use to create objects with multiple different types of parameters and subsequent attributes. Unfortunately, Ruby **does not** support constructor overloading. However, default parameters mirror the effect to some extent.
 
+#### Operator Overloading
+
+- Operating overloading is situation where different operators have different implementations depending on their arguments. In Ruby, there is a slight difference between an operator and a method.
+
+#### Super
+
+- The super method calls a method of the same name in parent's class. If the method has no arguments it _automatically_ passes all its arguments. If we write `super()`, no arguments will be passed to the parent's method.
+
 ### Methods
 
 - There are two ways to call a method, the first (and much more common) is to use `myObject.my_method`. The alternative is `myObject send :my_method`, note: this only seems to _get_ methods.
@@ -108,7 +116,8 @@
 
 - Access modifiers protect data against accidental modifications and they make programs more robust.
 - Access Modifiers set the visibility of methods and member fields. Ruby has three access modifiers: public, protected, private. **In Ruby, all data members are private.** Access modifiers can be used only on methods. Ruby methods are public unless otherwise changed.
-- Inheritance **does not** play a role in Ruby access modifiers. Only two things matter, First, if we call the method inside or outside the class definition. Second, if we use (or do not use) the `self` keyword which points to the current receiver.
+- Inheritance **does not** play a role in Ruby access modifiers. Only two things matter, first, if we call the method inside or outside the class definition. Second, if we use (or do not use) the `self` keyword which points to the current receiver.
+- In C# or Java, only protected and public data members and methods are inherited, in Ruby public, protected, and private data members and methods are inherited.
 
 #### Public Methods
 
@@ -131,6 +140,22 @@
 - Class variables are written with `@@`, `@@total = 0`
 - Class methods are written as `def self.some_method`
 
+### Polymorphism
+
+Polymorphism is the process of using an operator or function in different ways for different data input. In practical terms, polymorphism means that if class B inherits from class A, it doesn't have to inherit everything about class A; it can do some of the things that class A does differently.
+
+In general, polymorphism is the ability to appear in different forms. Technically, it is the ability to redefine methods for derived classes. Polymorphism is concerned with the application of specific implementations to an interface or a more generic base class.
+
+### Modules
+
+A Ruby Module is a collection of methods, classes, and constants. Modules are similar to classes with a few differences. Modules cannot have instances and cannot subclasses.
+
+Modules are used to group related classes, methods and constants can be put into separate modules. This also prevents name clashes, because modules encapsulate the objects they contain. In this regard, Ruby modules are similar to C# namespaces and Java packages.
+
+### Mixins
+
+Modules also support the use of mixins in Ruby. A mixin is a Ruby facility to create multiple inheritance. If a class inherits functionality from more than one class, we speak of multiple inheritance.
+
 ### Questions
 
 - Explain the features of a constructor.
@@ -149,10 +174,15 @@
 - What is a derived class, what is a base class?
 - What are descendants and ancestors.
 - If you created a class variable on a base class that tracked the total instances, how could it be accessed via the base class `Animal.total_count` / derived class `Dog.total_count`?
+- Which types of methods and data members can be inherited in Ruby, how is it different than other languages?
+- Explain how super works, explain how super's argument model works.
+- Explain polymorphism.
+- What is a module?
+- What is a mixin?
 
 ### Challenges
 
-- Create a series of classes that use inheritance, access modifiers, class variables, and polymorphism.
+- Create a series of classes that use: inheritance, access modifiers, class variables, class methods, polymorphism, super w/ args, class constants.
 
 ### Resources:
 

@@ -124,9 +124,10 @@ end
 # Inheritance + Access Modifiers
 #======================#
 class User
+    FORMAT = "I am a standard user."
     @@total_users = 0
-    attr_reader :name, :age, :city, :city
-    def initialize(name, age, city, state)
+    attr_reader :name, :age, :city, :state
+    def initialize(name, age = "Not provided", city = "N/A", state = "N/A")
         @name = name
         @age = age
         @city = city
@@ -140,8 +141,23 @@ class User
         puts "There are #{@@total_users} total users."
     end
 
+    private
+    def flag_post
+        puts "This post is bad!"
+    end
+
+    protected
+    def yes_post
+        puts "YES!"
+    end
+
+    public
     def all_posts
         p @forum_posts
+    end
+
+    def send_alert
+        p "#{name} has come online."
     end
 
     def login
@@ -163,15 +179,22 @@ class User
     end
 
     def post(thought)
+        flag_post
+        self.yes_post
         @forum_posts << thought
     end
 end
 
 class PaidUser < User
+    FORMAT = "I am a paid user."
     attr_reader :balance
-    def initialize(name, age, city, state)
+    def initialize(name, age = "Not provided", city = "N/A", state = "N/A")
         super
         @balance = 0
+    end
+
+    def send_alert
+        p "#{name} has come online. #{name} is a paid member."
     end
 
     def increase_balance(amount)
@@ -182,6 +205,12 @@ class PaidUser < User
         handle_balance(amount, false)
     end
 
+    def add_numbers(x = 0, y = 0)
+        p "x: #{x}, y: #{y}"
+        p x + y
+    end
+
+    private
     def handle_balance(amount, increment = true)
         if increment
             @balance += amount.to_i
@@ -194,30 +223,37 @@ class PaidUser < User
 end
 
 class AdminUser < PaidUser
-    def initialize(name, age, city, state)
+    FORMAT = "I am an Admin."
+    WARNING = "You are breaking the rules."
+    def initialize(name, age = "Not provided", city = "N/A", state = "N/A")
         super
+    end
+
+    def send_alert
+        p "#{name} has come online and available for contacting."
     end
 
     def remove_user(user)
         puts "user removed"
+    end
+    # use case for super parameters
+    def add_numbers(x, y)
+        super
+        super x, y
+        super x
+        super()
     end
 end
 
 a = User.new "Steven", 23, "Madison", "MI"
 b = PaidUser.new "Scott", 33, "Austin", "TX"
 c = User.new "Charlie", 21, "Pheonix", "AZ"
-d = AdminUser.new "Admin", 99, "Virginia", "SC"
+d = AdminUser.new "Admin"
 b.increase_balance(100)
-b.balance
 b.post("Skiing is ok.")
 a.post("I love hiking?")
 a.post("Scratch that, I love swiming more!")
 d.post("Looking for people to ban.")
 User.total_users
-a.all_posts
-b.all_posts
-d.all_posts
-a.name
-d.name
 
 require "pry"; binding.pry

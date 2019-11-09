@@ -156,6 +156,10 @@ Modules are used to group related classes, methods and constants can be put into
 
 Modules also support the use of mixins in Ruby. A mixin is a Ruby facility to create multiple inheritance. If a class inherits functionality from more than one class, we speak of multiple inheritance.
 
+### Duck Typing
+
+- With normal typing, _suitability is determined by an objects type._ IN duck typing, an objects suitability is determined by the presence of certain methods and properties, rather than the type of the object itself.
+
 ### Questions
 
 - Explain the features of a constructor.
@@ -179,6 +183,7 @@ Modules also support the use of mixins in Ruby. A mixin is a Ruby facility to cr
 - Explain polymorphism.
 - What is a module?
 - What is a mixin?
+- What is duck typing, how does it contrast from standard typing?
 
 ### Challenges
 

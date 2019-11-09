@@ -1,21 +1,18 @@
 ### Sections
 
 - [Resources](#resources)
-- [Foundations](#foundations)
-- [BigO]
-- [OOP]
+- Big-O
+- OOP
 
-# Foundations
-
-[](#foundations)
-
-## Asymptotic Analysis (Big-O)
+# Asymptotic Analysis (Big-O)
 
 - Big-O is used in computer science to describe the performance or complexity of an algorithm and the asymptotic behavior of a function, or how quickly it grows. Big-O specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used (in memory) by an algorithm.
 
 - `T(n) = 4n^2 - 2n + 2`, ignoring constants and slower growing terms results in the asymptotic analysis of the function results in T(n) grows at the _order of n^2_.
 
-### Type Overview
+## Time Complexities
+
+> Time complexity is what the concept of asymptotic runtime, or Big-O time, means.
 
 #### O(1) Constant
 
@@ -49,14 +46,14 @@
 
 - A function that grows faster than any power of n is called **superpolynomial.** A function that grows slower than an exponential function of the form `c^n` is called **subexponential.** An Algorithm can require time that is both superpolynomial and subexponential. Examples of this include algorithms known for integer factorization.
 
-### 4 Important Rules of Big-O
+## 4 Important Rules of Big-O
 
 1. **Different steps get added.** If an algorithm has two steps, `O(a)` and `O(b)`, add the run times together and get `O(a+b)`.
 2. **Always drop constants.** If an algorithm has two sibling iterators, one finding the min and the other finding the max of an array, it would not be an `O(2n)` solution. Rather, dropping the constant 2, makes it an `O(n)` operation. It would be fundamentally doing the same thing as a single iterator doing both operations inside of its block.
 3. **Different inputs => different variables.** If there are different inputs, two arrays for instance, walking through them would be considered `O(a * b)` **not** `O(n^2)`.
 4. **Drop non-dominant terms.** More dominant terms matter, for instance `O(n^2)` is more dominant than `O(n)`.
 
-### Questions
+## Questions
 
 1. Describe Constant algorithms.
 2. Describe Linear algorithms.
@@ -68,11 +65,11 @@
 
 ---
 
-## OOP
+# OOP
 
 > Object-oriented programming (OOP) is a programming paradigm that uses objects and their interactions to design applications and computer programs.
 
-#### Concepts:
+### Concepts:
 
 - Abstraction
 - Inheritance
@@ -91,10 +88,12 @@
 - Super / Sub
 - Ruby Exceptions
 - Access Modifiers
+- Duck Typing
+- Normal Typing
 
-### Constructor
+## Constructor
 
-- In Ruby, a class _can_ be called without invoking the constructor. The `.allocate` method would be used on the class invocation => `myInstance = Dog.allocate`. The allocate method _allocates_ space for a new object of a class and **does not** initialize on the new instance.
+> In Ruby, a class _can_ be called without invoking the constructor. The `.allocate` method would be used on the class invocation => `myInstance = Dog.allocate`. The allocate method _allocates_ space for a new object of a class and **does not** initialize on the new instance.
 
 #### Constructor Overloading
 
@@ -108,11 +107,11 @@
 
 - The super method calls a method of the same name in parent's class. If the method has no arguments it _automatically_ passes all its arguments. If we write `super()`, no arguments will be passed to the parent's method.
 
-### Methods
+## Methods
 
 - There are two ways to call a method, the first (and much more common) is to use `myObject.my_method`. The alternative is `myObject send :my_method`, note: this only seems to _get_ methods.
 
-### Access Modifiers
+## Access Modifiers
 
 - Access modifiers protect data against accidental modifications and they make programs more robust.
 - Access Modifiers set the visibility of methods and member fields. Ruby has three access modifiers: public, protected, private. **In Ruby, all data members are private.** Access modifiers can be used only on methods. Ruby methods are public unless otherwise changed.
@@ -132,35 +131,33 @@
 
 - Very similar to private methods, though unlike private methods they _can_ called with the `self` keyword.
 
-### Abstraction
-
-### Inheritance
+## Inheritance
 
 - Inheritance is a way to form new classes using classes already defined. Newly formed classes, or _derived_ classes, are derived from _base_ classes.
 - Class variables are written with `@@`, `@@total = 0`
 - Class methods are written as `def self.some_method`
 
-### Polymorphism
+## Polymorphism
 
 Polymorphism is the process of using an operator or function in different ways for different data input. In practical terms, polymorphism means that if class B inherits from class A, it doesn't have to inherit everything about class A; it can do some of the things that class A does differently.
 
 In general, polymorphism is the ability to appear in different forms. Technically, it is the ability to redefine methods for derived classes. Polymorphism is concerned with the application of specific implementations to an interface or a more generic base class.
 
-### Modules
+## Modules
 
 A Ruby Module is a collection of methods, classes, and constants. Modules are similar to classes with a few differences. Modules cannot have instances and cannot subclasses.
 
 Modules are used to group related classes, methods and constants can be put into separate modules. This also prevents name clashes, because modules encapsulate the objects they contain. In this regard, Ruby modules are similar to C# namespaces and Java packages.
 
-### Mixins
+## Mixins
 
 Modules also support the use of mixins in Ruby. A mixin is a Ruby facility to create multiple inheritance. If a class inherits functionality from more than one class, we speak of multiple inheritance.
 
-### Duck Typing
+## Duck Typing
 
 - With normal typing, _suitability is determined by an objects type._ IN duck typing, an objects suitability is determined by the presence of certain methods and properties, rather than the type of the object itself.
 
-### Questions
+## Questions
 
 - Explain the features of a constructor.
 - What is an instance variable / member field?
@@ -188,6 +185,8 @@ Modules also support the use of mixins in Ruby. A mixin is a Ruby facility to cr
 ### Challenges
 
 - Create a series of classes that use: inheritance, access modifiers, class variables, class methods, polymorphism, super w/ args, class constants.
+
+---
 
 ### Resources:
 

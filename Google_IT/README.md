@@ -186,11 +186,15 @@ _What is a good succinct summary of a Program?_
 
 > A deeper dive into each machine component
 
-**CPU** - The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
+#### CPU
+
+The **instruction set** is hard-coded into the CPU and represents a list of instructions that the CPU is able to carry out. Every program on a computer is inevitably broken down into small and simple instructions defined in the instruction set. Different CPUs have different instruction sets because they're are hard-coded, manufacturers may use different instruction sets on their chips each with their own respective strengths and weaknesses.
 
 Not all components can necessarily fit together, for instance a CPU may not be compatible with a motherboard. There are currently two types of CPU sockets that need to be able to connect to the motherboard: **LGA** or **Land Grid Arrays** and the **PGA** or **Pin Grid Array**. Make sure your motherboard and CPU sockets both match. CPUs have either a 32-bit or 64-bit architecture, these architecture specifications specify how much data it can efficiently handle.
 
-**RAM** - RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
+#### RAM
+
+RAM is constantly being updated and changed, it is also **volatile data** meaning once the computer is shut down, all the memory stored in RAM is lost, or cleared. Our computer is a comprised of programs, our programs need to be copied into RAM so our CPU can process them. When a computer says it has 16GB of RAM, that means it can run 16GBs worth of programs at any given time. There are lots of types of RAM, the most commonly found variant found in computers is **DRAM** or **Dynamic Random Access Memory**. The faster the RAM, the quicker programs can be run and subsequently more programs can be run during any given period of time. Like the CPU, RAM needs to have a compatible motherboard with the appropriate alignment of pin slots.
 
 **DRAM**
 
@@ -204,6 +208,89 @@ Not all components can necessarily fit together, for instance a CPU may not be c
 **DDR SDRAM**
 
 - Double Data Rate SDRAM, or _DDR_. DDR is faster, more efficient, and has a larger capacity than earlier versions of RAM like SDRAM or DRAM. The current iteration: DDR4, is currently the fastest form of short-term memory that is available for computers.
+
+#### Motherboard
+
+The motherboard is the central hub of the computer. It connects different parts of the computer together and allows the expansion of our computer's functionality by adding **expansion cards**. All motherboards have a few key characteristics:
+
+- **The Chipset**: determines how components, like the CPU, RAM, and peripherals, communicate amongst one another on the machine. Motherboards are composed of two chip sets: the **Northbridge** that interconnects components like the RAM and video cards. The other, the **Southbridge**, handles the **I/O or input/output** components of the machine like hard rives and USBs that output data. Some CPUs completely integrate the Northbridge, so there is no separate Northbridge on the motherboard.
+
+- **Expansion Slots**: allow us to expand on the functionality of our computer. For instance, if you wanted to install a GPU you would install it onto the expansion slot. The standard for expansion slots today is called the **PCIe**, or **Peripheral Component Interconnect Express**. The PCIe looks like an expansion slot on the motherboard.
+
+- **Form Factor**: The size of a motherboard. ATX, Advanced Technology Extended, is the most common Form Factor. ITX, Information Technology Extended is a smaller form factor than the ATX. The form factor of a motherboard is important in determining the amount of functionality and computational power you eventually want in your machine.
+
+_What is the purpose of the Chipset?_
+
+- The chipset helps determine how components like the CPU, RAM, and peripherals work together.
+
+_What do the Southbridge and Northbridge handle?_
+
+- The Southbridge handles the I/O behaviors of the machine, whereas the Northbridge handles components like the RAM, GPU, etc. Some CPUs integrate the Northbridge functionality internally.
+
+#### Storage
+
+**Data Sizes**
+
+- 1 bit
+- 1 byte (8 bits)
+- 1 kilobyte (1024 bytes)
+- 1 megabyte (1024 kilobytes)
+- 1 gigabyte (1024 megabytes)
+- 1 terabyte (1024 gigabytes)
+
+**Hard Drive**
+
+- HHD, **Hard Disk Drives**, use a mechanical arm and spinning platform to read and write information. The speed of the platform/platter determines how quickly data can be written and read, commonly referred to as **RPM**. Because of the moving parts, HDDs are more prone to damage than SSDs.
+
+**Solid State Drive**
+
+- SSDs have no moving parts. Information is stored on microchips so data is able to travel much quicker when compared to an HDD. Additionally, their form factor is much more compact than that of an HDD.
+
+**ATA**
+
+- The most common interface for connecting a hard drive. The most common of the ATA interfaces is SATA, which uses one cable for data transfers. SATA drives are **hot swappable** and don't require the computer to be shut down to plug one in. They are move data faster and are more efficient than their precursors. Despite the speed of the **SATA cable** it was not fast enough to keep up with the demands of SSDs. So another interface standard was created called **NVM express** or **NVMe**, instead of using another cable an NVMe was added as an expansion slot allow for greater throughput and efficiency.
+
+_What are the key differences between an HDD and SDD?_
+
+- HDD have more moving parts, including a mechanical arm and platter, and therefor are more prone to failure, however when compared to an SSD they are cheaper. SSDs have no moving parts, instead relying on internal microchips to read and write data. In addition to being much faster in transferring in data than their HDD cousins, they also have a more compact and efficient form factor.
+
+_What is an ATA / SATA drive?_
+
+- They are interfaces for connecting to the hard drive. SATA drives are hot swappable, use one cable for data transfers, and are more efficient than ATA drives.
+
+_Are SATA cables suitable for SSDs?_
+
+- No, they are unable to keep up with transfer speed of an SSD and therefor not suitable when compared to an NVMe (NVM express) which provides a faster throughput and greater efficiency.
+
+#### Power Supply
+
+- Two types of electricity: **DC, direct current / AC, alternating current**.
+
+_Computers use DC voltage_ so we need to convert it from _AC_ that flows in. The power supply does exactly that, it converts AC power to low voltage DC power.
+
+- The _flow_ or _pressure_ of power is regarded as to as **voltage**. **AMPS, or Amperage** is the pulling of electricity, as opposed to the "pushing" analogy for voltage. Voltage gives you every, per the flow, AMPs is the pulling of just enough that is needed. The more amperage a charger pulls, the faster it will charge a device. **Wattage** is the amount of voltage and amperage a system needs. It's better to have more **power supply** than less, since having too little will fail to start the machine.
+
+_Explain the differences between AC / DC and what the computer uses_
+
+- AC (alternating current) is the power the is sent out on the grid, the computer needs to use DC (direct current) which flows unidirectionly.
+
+_Explain voltage, amperage, and wattage_
+
+- Voltage is the pressure of the electrical current, amperage is the power of the current coming into a machine, wattage is the amount of power needed by a machine.
+
+#### Peripherals
+
+- Anything that can be added to a computer, externally, is considered a **peripheral**. **USBs or Universal Serial Bus**'s are one of the most popular peripherals. There are 3 modern versions of the USB: _USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s)_. There is an important distinction to make between _MB_ and _Mb/s_. MB or megabyte is a unit of storage, while **Mb/s or megabit per second, is a unit of data transfer rate.** Port sizes matter, if you plug a USB 2.0 into a 3.1 port, you will not get the 3.1's transfer speed, but it still is backward compatible. Generally, USB 2.0 ports are black, USB 3.0 ports are blue, and USB 3.1 ports are teal.
+
+There are many types of USB connectors, the most popular and recent one is the **type-C** connector, used for many types of connections including display and data transfer. **DVI cables** are a bit older than type-c connectors, generally just output video. Two standards that output both audio and display are the **HDMI** cable and the **Display Port**. Type-C connectors do more than just video and audio output, they can also transfer data and power.
+
+_What is the transfer speed of a USB 2.0, 3.0, and 3.1_
+
+- USB 2.0 (transfer speed of 480 Mb/s), USB 3.0 (5 Gb/s), and USB 3.1 (10 Gb/s)
+
+_What is the difference between MB and Mb/s?_
+
+- MB is an expression of actual size, Megabit per second is the representation of data transferring per second.
 
 #### Key Technologies:
 
@@ -229,3 +316,52 @@ Not all components can necessarily fit together, for instance a CPU may not be c
 - Volatile data
 - Instruction set
 - DIMM sticks
+- Form Factor
+- Northbridge
+- Southbridge
+- PCIe
+- ATA / SATA / NVMe
+- hot swappable
+- voltage, amperage, wattage
+- USB
+- type-c, hdmi, div-cables, display port
+
+### Start up
+
+#### BIOS
+
+How do mouse clicks and keyboard presses reach the CPU? Clicking a key on a keyboard would only send a single byte to the cpu, and well, the cpu wouldnt know how to handle that information. Devices themselves have programs that tell the CPU how to process their inputs, these programs are called **services** or **drivers**. Drivers contain instructions that our CPU needs in order to understand external devices like keyboards, webcams, printers, etc.
+
+**BIOS**, or **Basic Input Output Services**, is what the CPU uses to communicate with device drivers. The BIOS is software that initializes the computer's hardware and gets our operating system up and running. The BIOS isnt stored on a hard drive, rather its stored on the motherboard itself in a chip called the **Read-Only Memory chip** or **ROM chip**. Unlike RAM, ROM is _non-volatile_, meaning it wont erase data on shutdown. Once the OS loads, we are able to run non-essential device drivers.
+
+**UEFI**, or **Unified Extensible Firmware Interface**, is a new technology that serves the same purpose as the BIOS, but it's newer and has better support for newer hardware. Most hardware now has UEFI integration. Eventually, UEFI will become the dominant variant of BIOS.
+
+One occasion, when turning on a computer you may here beeping. The beeping is the result of a **Power On Self Test** or **POST**. During this process the computer's BIOS tests that hardware is working correctly. BIOS will run the essential drivers first, if there is an issue (and your video driver has not yet been loaded), it will play a series of specific sounds to indicate what exactly is not working. For instance, two beeps could be a POST error.
+
+the **CMOS chip** on the motherboard stores basic data like the the date, time, and how you want to start up. It can be changed in the BIOS settings menu. The process of using the BIOS to **reimage** a computer is a common IT task, the term refers to a disk image, which is a copy of an operating system. So, in short reimaging is the process of wiping and reinstalling an operating system. The procedure is normally handled using a program stored on a USB, CD ROM, or even a network accessible server.
+
+## Networks
+
+A network is a connection between n computers. A network can be as simple two computers connected to one another or well into the millions and billions, eventually evolving into what is called the **internet**. The internet is the physical connection of computers and wires around the world, the **web** on the other hand is the information that is getting passed around the internet network. **Networking** is the process of managing, building, and designing networks.
+
+The internet is a massive network of cables, satellites, cellular networks, etc. We as users don't actually directly connect to the internet, rather we go through servers that connect to the internet. **Servers** store the websites that we use, they serve content. The machines we use, **clients**, request the content from servers. Clients don't directly connect to the internet, instead they connect to a network run by an **ISP**, or **Internet Service Provider**. ISPs set up the infrastructure used to connect to the internet, they connect to other networks and ISPs, and together they form a giant network called the internet.
+
+Computers are able to connect to servers through addresses called **IP addresses**. Computers on a network have identifiers called IP Addresses that directly connect clients to the resources they requested like a website. Websites IP addresses are composed of digits like `172.217.6.46` and when a client makes a request to a server, with the desired address, the network connected server responds with the appropriate resources per client request. Devices that can connect to a network have a unique (generally) permanent hard-coded identifier called a **MAC addresses**. When you send or receive data through a network you need to have both an IP and a MAC address. a MAC address is the address of the "recipient". Data is sent through a network using **packets**, while data is sent out over a network, it is broken down into smaller pieces of data (1s and 0s) and once the packet gets to its destination it gets rearranged back in order.
+
+### Networking Hardware
+
+Ethernet cables, WIFI, and fiber-optic cables allow us to connect to the internet. Fiber optic cables are the fastest means of connecting to the internet, the cables themselves are made of glass and send light signals, rather than an electrical current through a copper wire, to send data (1s and 0s) through the cables.
+
+**Router**
+
+Routers connects lots of different devices together and helps manage network traffic. If a user wanted to send data from one computer to another computer in the same network, a router would use **network protocol** rules to determine where to send the packet. If we wanted to send data to someone outside of the network, the router would direct the traffic to our ISP's network that would have it's own network protocols to leverage. During the process our packet would travel through many different routers, switches, and hubs.
+
+A **Network Stack** is what we would troubleshoot in the event of a networking issue. In short, a network stack is a set of hardware or software that provides infrastructure for a computer network.
+
+### The Language of the Internet
+
+There are many different variants of networking protocols we use help get our packets from one place to the next, but they all have the same objectives: route efficiently, aren't corrupted, secure, go to the right machine, and are named appropriately. The **IP** in **TCP/IP** or **Transmission Control Protocol / Internet Protocol**, makes sure we deliver the right packets of data to the correct computers, essentially it helps us route our traffic correctly. The TCP, is a protocol that handles the reliable delivery of information from one network to another. This protocol is important because it handles how we share information across networks.
+
+### The Web
+
+All websites can be accessed through the web. The **URL, or Uniform Resource Locator** consists of a `www` `domain-name` `com` . `DNS or Domain Name System` allows us to write human readable addresses like `www.google.com` to map to the relevant IP address. When you got on your browser and search for a website, you program does a DNS lookup to find the correct IP address for the name you entered.

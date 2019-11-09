@@ -10,6 +10,29 @@
 
 - `T(n) = 4n^2 - 2n + 2`, ignoring constants and slower growing terms results in the asymptotic analysis of the function results in T(n) grows at the _order of n^2_.
 
+### Concepts:
+
+- Big-O
+- Big Omega
+- Big Theta
+- Time Complexities
+
+## Big-Variants
+
+> Academia uses Big-O, Big Theta, and Big Omega, to describe run times. The industry's interpretation is of Big-O is closer to the concept of Big Theta, or determining the "tightest description of the runtime."
+
+#### Big-O
+
+- Big-O is used to determine the upper bounds time complexity, or _less than or equal to_. A given algorithm is _at least_ as fast as a given Big-O solution, or in other words, it cannot be any slower than what its Big-O resolves to.
+
+#### Big Omega
+
+- Big Omega is used to determine the lower bounds time complexity, or _It cannot be any faster than this_.
+
+#### Big Theta
+
+- Big Theta means both Big-O and Big Omega. In practice that means a solution is Big Theta if it's within the bounds of both Omega and Big-O.
+
 ## Time Complexities
 
 > Time complexity is what the concept of asymptotic runtime, or Big-O time, means.

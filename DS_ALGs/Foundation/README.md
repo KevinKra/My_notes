@@ -15,7 +15,9 @@
 - Big-O
 - Big Omega
 - Big Theta
-- Time Complexities
+- Time Complexity
+- Space Complexity
+- Best, worse, expected case
 
 ## Big-Variants
 
@@ -32,6 +34,20 @@
 #### Big Theta
 
 - Big Theta means both Big-O and Big Omega. In practice that means a solution is Big Theta if it's within the bounds of both Omega and Big-O.
+
+## Cases
+
+#### Best Case, Worst Case, Expected Case
+
+- Cases are used to determine the potential issues that a given algorithmic solution may encounter. For instance, a quick-sort solution has the potential to randomly start at the largest element in an array (not optimal) leading to a less than ideal time complexity. However, it may always randomly start sorting from an ideal position within the array. Those concepts reflect the best and worst cases respectively, the expected case is the acknowledgement that the execution can go either way and those deviations are taken into account.
+
+#### Which case should you consider?
+
+- The best case solution is rarely ever considered, rather the worst case and expected case are typically the same for the vast majority of solutions. Therefor, when considering an algorithm take into account the worst case (expected case.)
+
+#### What is the relationship between Big-variants and the cases?
+
+- There is not particular relationship. The cases describe the big-O (big theta) time for particular inputs or scenarios. Big-variants describe the upper, lower, and tight bounds for the runtime. **Cases = inputs and scenarios, Variants = the bounds**.
 
 ## Time Complexities
 

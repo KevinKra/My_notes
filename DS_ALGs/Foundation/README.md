@@ -8,7 +8,7 @@
 
 - Big-O is used in computer science to describe the performance or complexity of an algorithm and the asymptotic behavior of a function, or how quickly it grows. Big-O specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used (in memory) by an algorithm.
 
-- `T(n) = 4n^2 - 2n + 2`, ignoring constants and slower growing terms results in the asymptotic analysis of the function results in T(n) grows at the _order of n^2_.
+- `T(n) = 4n^2 - 2n + 2`, ignoring constants and slower growing terms results in the asymptotic analysis of the function results in T(n) grows at the _order of `n^2`_.
 
 ### Concepts:
 
@@ -85,6 +85,52 @@
 
 - A function that grows faster than any power of n is called **superpolynomial.** A function that grows slower than an exponential function of the form `c^n` is called **subexponential.** An Algorithm can require time that is both superpolynomial and subexponential. Examples of this include algorithms known for integer factorization.
 
+## Space Complexity
+
+> The amount of memory a given solution takes up.
+
+- Space complexity is a parallel concept to time complexity. If we create an array of size n, it will require `O(n)` memory. If we create a two dimensional array (n\*n), it will require `O(n^2)` memory.
+
+### Examples:
+
+1. The recursive solution below would recursively add `n` stacks in memory during the run time. Time complexity: `O(n)`, space complexity: `O(n)`.
+
+```
+def sum(n)
+  if (n <= 0)
+    return 0
+  end
+
+  return n + sum(n - 1)
+end
+
+// Each execution adds a level to the stack:
+
+sum(3)
+  -> sum(2)
+    -> sum(1)
+      -> sum(0)
+
+// The time complexity is linear and the memory complexity is linear.
+// Each one of these calls added to the stack increases the memory footprint.
+```
+
+2. An alternative solution provides `O(n)` time complexity but only `O(1)` space complexity because we are not adding calls to a stack.
+
+```
+def pair_sequence(n)
+  sum = 0
+  for i in 0..n do
+     sum += pair_sum(i, i + 1)
+  end
+  return sum
+end
+
+def pair_sum(a, b)
+  return a + b
+end
+```
+
 ## 4 Important Rules of Big-O
 
 1. **Different steps get added.** If an algorithm has two steps, `O(a)` and `O(b)`, add the run times together and get `O(a+b)`.
@@ -101,6 +147,10 @@
 5. Describe Logarithmic algorithms.
 6. Describe Polylogarithmic algorithms.
 7. What the the four important rules of Big-0, explain each.
+8. What are cases?
+9. What are the three types of asymptotic analysis?
+10. What is the relationship between the cases and big-o variants?
+11. Explain is time complexity and space complexity.
 
 ---
 

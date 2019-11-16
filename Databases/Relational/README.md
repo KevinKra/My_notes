@@ -26,6 +26,14 @@
 - `.mode column`
 - `.header on`
 
+#### Keywords
+
+- CREATE
+- ALTER
+- SELECT
+- DELETE
+- UPDATE
+
 #### Scoping Data
 
 - `SELECT * FROM fruits WHERE name='apples';`
@@ -50,7 +58,38 @@
 #### Adding Columns to a table
 
 - `ALTER TABLE fruits ADD COLUMN country_of_origin VARCHAR(127);`
+- `UPDATE fruits SET country_of_origin='Mexico';`
 
 #### Ordering
 
 - `SELECT * FROM fruits ORDER BY name;`
+
+## Relationships
+
+- `CREATE TABLE sales(id INTEGER PRIMARY KEY AUTOINCREMENT, fruit_id INTEGER, created_at DATETIME);`
+
+- This table should not hold the name of the fruit, its quantity, etc. Instead, it holds a **reference** to the fruit in the `fruits` table. This reference is held in the column `fruit_id` and is the numeric id from the fruits table for the associated row. This reference is called a `foreign key`.
+
+#### Joining tables
+
+- `SELECT fruits.name, sales.created_at FROM fruits INNER JOIN sales ON fruits.id=sales.fruit_id;`
+
+### Questions
+
+- What is a database?
+- What is SQL?
+- What is SQLite?
+- What is a table?
+- What is a primary key?
+- What is a foreign key?
+- Explain the following commands:
+  - where
+  - alter
+  - update
+  - select
+  - like
+  - in
+  - order by
+  - inner join
+
+### Challenges

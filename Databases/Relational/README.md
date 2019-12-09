@@ -26,13 +26,16 @@
 - `.mode column`
 - `.header on`
 
-#### Keywords
+#### Operators
 
 - CREATE
 - ALTER
 - SELECT
 - DELETE
 - UPDATE
+- LIKE
+- IN
+- UNION
 
 #### Scoping Data
 

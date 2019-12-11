@@ -88,3 +88,65 @@
 - Explain third normal form.
 - What are the benefits of normalization?
 
+## NoSQL Fundamentals
+
+- There isn't _one_ single NoSQL architecture.
+- Two forms of NoSQL: Those that are aggregate orientated, those that aren't.
+- Aggregate oriented database products deal with blocks of data in groups, that is their aggregate. This aggregate can be simple, a key value pair, or a large-complex JSON document. The premise, is that the database treats that aggregate (or object) as its base level data structure. If you and your database don't match aggregates you have a problem called **impedance mismatch**. If the data structures you work with in memory aren't the same ones you store, process, and retrieve, from the database platform, it makes for inefficient code and a worse product.
+
+
+### Key differences between SQL & noSQL
+
+#### Relational Databases (SQL)
+- Requires a carefully predefined Schema prepared in advance.
+- Schema defines the columns and fields in a table, as well as the data types and any restrictions.
+- Must have uniform columns/fields.
+- Requires normalization.
+
+#### Non-relational Database (noSQL)
+- No enforced schema, provides great flexibility but the application needs to be aware of it.
+- Does not need to have uniform columns/fields.
+- Support 24/7 highly available applications, SQL databases sometimes need lengthy schema update operations, not so for noSQL.
+- No need for normalization, or at least less so. 
+- Data is represented in a much more atomic form, or something with close alignment with the object-nature or aggregate of the application.
+- No Structured Query Language.
+
+## Consistency Models
+
+### ACID (SQL)
+
+> A set of properties that govern how a relational database engine processes transactions.
+
+- **Atomicity** - A process that describes how a relational database considers each transaction atomic. If a transaction, a sequel query, has a number have separate components (3 attributes are all updated,) then the transaction will either _succeed_ or _fail_ for all 3 interactions. You will **not** have a partial success completion of a transaction. A transaction is atomic, all or nothing.
+
+- **Consistency** - On the completion of a transaction, the database is in a structurally sound state. Within relational databases, you can have restrictions on what data an attribute can contain. Consistency means that at the end of a transaction, all restrictions are met or the transaction does not run as a whole unit.
+
+- **Isolation** - Transactions do not contend with one another. One sequel query runs, make changes to a database, and then completes. Your sequel query must behave in an expected manner regardless of the volume of parallel transactions happening currently in the engine.
+
+- **Durability** - A successful transaction must permanently change the state of system _and_ before ending the state changes are recorded in a consistent transaction log. That means, memory caching or other techniques are valid, but you must complete a consistent log. If there is a power outage, there is a method to replay that transaction onto persistent storage **before it is marked as completed.** Before something can be reported as completed, it must be recorded.
+
+#### ACID pros/cons
+- Ensures consistent expected behavior of data transactions between applications.
+- Massive costs: Limits performance (especially distributed performance,) and limits horizontal scaling.
+- Fairly universal in the relational world.
+- Focuses on data safety over performance.
+
+### BASE (NoSQL)
+
+> Basically Available. Database design philosophy that prizes availability over consistency of operations.
+
+- Database should work most of the time.
+- **Soft State** - stores don't have to be write consistent, nor do write-replicas have to be correct 100% of the time. 
+- **Eventual Consistency** - states that elements of the database will demonstrate consistency at some point.
+- Used by aggregate focused platforms: key-value, document, or column/family databases.
+- Scalability is much more attainable. SQL databases sacrifice a huge amount of scalability in favor of consistency and the ability to handle relations across tables.
+
+### Questions:
+- What model (BASE / ACID) is favored for Relational and Non-relation databases?
+- What does ACID break out to? What does each step mean?
+- What are the design pros and cons of ACID?
+- What does BASE mean?
+- What are the design aspects of BASE?
+- What is soft state?
+- What is eventual consistency?
+- What sacrifices does ACID make and how does it limit scalability in relation to BASE design?

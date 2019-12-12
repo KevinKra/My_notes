@@ -224,6 +224,40 @@
 - Describe a Graph Style DB.
 - What are the core components of a Graph Style DB?
 
+
+## SECTION NOTES
+- What is a candidate key?
+- What is the difference between a candidate key and a primary key?
+- What is a composite primary key?
+- What are the general steps for SQL table generation?
+- What is sharding? What are two different approaches to sharding?
+- What is a slave instance, what is its relation to scaling?
+- What is data normalization?
+- What are the four objectives of data normalization?
+- Explain first normal form.
+- Explain second normal form.
+- Explain third normal form.
+- What are the benefits of normalization?
+- What model (BASE / ACID) is favored for Relational and Non-relation databases?
+- What does ACID break out to? What does each step mean?
+- What are the design pros and cons of ACID?
+- What does BASE mean?
+- What are the design aspects of BASE?
+- What is soft state?
+- What is eventual consistency?
+- What sacrifices does ACID make and how does it limit scalability in relation to BASE design?
+- Describe a Key-Value NoSQL DB.
+- Describe the features of a _pure_ Key-Value DB.
+- What is an opaque blob.
+- What is a perceived tabled.
+- Describe a Document based DB.
+- What languages can a document be stored in?
+- What is rich data and how does this make document DBs different than Key-Value DBs?
+- What are document stores suitable/not suitable for?
+- What are column DBs suitable for in comparison to row based DBs?
+- Describe a Graph Style DB.
+- What are the core components of a Graph Style DB?
+
 ---
 
 # DynamoDB Basics

@@ -151,19 +151,19 @@
 - What is eventual consistency?
 - What sacrifices does ACID make and how does it limit scalability in relation to BASE design?
 
+# 4 Types of NoSQL Databases
 
-## NoSQL Key-Value stores
+## NoSQL Key-Value DB
 
 - Data is stored in Key-Value pairs (duh.)
-- The Key _must be unique_. Generally the key is only value in which data retrieval operations can function on. Except those that due full-data scans, though those are very inefficient.
-- The Value contains the data.
-- The Value is generally schema-less during the whole life-cycle of the data.
-- **The value block can, in some cases, can contain attributes.** This practice is not standard across all NoSQL designs.
-- In a _pure_ key-value store, their value is an atomic **opaque blob** of data and the database engine cannot perform any meaningful operations on it.
-- Attributes can be simple types, or even complex types like lists/arrays, and some can even hold nested value types.
-- Some key/value databases only have keys and values, others can group keys and value into **perceived tables.** These tables do not have the inbuilt explicit/implicit/assumed relationships. You cannot run SQL queries against them. Though, they are very lightweight, super fast, and scale very well horizontally as the key space can be split over several servers.
+- The Key _must be unique_. Generally, the key is the only value in which data retrieval operations can function on.
+- The value is generally schema-less during the whole life-cycle of the data.
+- **The value block can, in some cases, contain attributes.** This practice is not standard across all NoSQL designs.
+- In a _pure_ key-value store, the value is an atomic **opaque blob** of data and the database engine cannot perform any meaningful operations on.
+- Attributes can be simple types, or even complex types like lists or arrays, and some can even hold nested value types.
+- Some key/value databases only have keys and values, others can group keys and values into **perceived tables.** These tables do not have the built in explicit/implicit/assumed relationships. You cannot run SQL queries against them. Though, they are very lightweight, super fast, and scale very well horizontally as the key space can be split over several servers.
 
-## Document DBs
+## Document DB
 
 > Their design is converging with Key-Value stores
 
@@ -172,12 +172,12 @@
 - Some high level differences, **the Document is the aggregate.** You work with document objects, your data model is documents, and you interact with documents. When it comes to scaling, the database spreads documents across its partitions, servers, or nodes.
 - You should use document stores if you're working with data that can be grouped in a document.
 - Document stores are not suitable for large-scale social networks or location aware applications with massive social components.
-- Unlike pure key-value stores you _can_ interact with the document structure. You search all documents for certain values for instance. Documents can be interacted with based on certain attributes and some documents can even be built based on certain attribute values.
+- Unlike pure key-value stores you _can_ interact with the document structure. For instance, you can search all documents for certain values. Documents can be interacted with based on certain attributes and some documents can even be built based on certain attribute values.
 - Able to reference other documents. Allows for basic system of relationship or attachment reuse.
 - All documents need a unique key.
 - MongoDB is a popular Document DB.
 
-## Column Family DBs
+## Column Family DB
 
 - Data is grouped and stored around columns and not rows.
 
@@ -192,3 +192,34 @@
 - Improved compression, values stored in columns are of the same type and often have very few distinct values relative to the amount of relative data rows being considered.
 - Better Parallel Processing - Columns can be partitioned can individually or in groups and can be run on several discrete nodes. DB platform can partition queries so that dedicated resources handle processing of operations on specific columns.
 - Generally used when huge quantities of data need to be stored for later aggregate based analysis.
+
+## Graph Style DB
+
+- Equally considered with Data and Relationships, making them different than other noSQL database platforms.
+- Strong emphasis on relationships.
+- Relationships are fluid and persistent. 
+- In relational databases, relationships are derived from primary and foreign keys. These are calculated at query time, via the SQL processing engine, which is cpu and memory intensive. This poses a problem for people using relations as a core feature of the database.
+- Many-to-Many relationships are easy to implement, and encouraged, with Graph DBs.
+- Models the real-life social/relational type links without modelling changes.
+- Extremely useful when context or relations between things, nodes, and objects, is the core of the product.
+- Don't have the concept of SQL, instead many have a comparable language that serves that function.
+- Rapidly gaining in popularity especially web-apps with a social or relationship component.
+
+#### Core concepts
+- **Nodes** - _Things or nouns._
+- **Properties** - Key value pairs.
+- **Relationships** - Relationships between nodes, _verbs_. PersonA(node) works-at(relationship) PlaceB(node). Relationships always have a start and end node.
+- **Labels** - Allows for rudimentary typing, or labeling, of objects.
+
+### Questions:
+- Describe a Key-Value NoSQL DB.
+- Describe the features of a _pure_ Key-Value DB.
+- What is an opaque blob.
+- What is a perceived tabled.
+- Describe a Document based DB.
+- What languages can a document be stored in?
+- What is rich data and how does this make document DBs different than Key-Value DBs?
+- What are document stores suitable/not suitable for?
+- What are column DBs suitable for in comparison to row based DBs?
+- Describe a Graph Style DB.
+- What are the core components of a Graph Style DB?

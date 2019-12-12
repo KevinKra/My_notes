@@ -7,16 +7,16 @@
 - **Rows** - collection on _records_.
 - **Columns** - Are fields, which store data for each record.
 
-### keys
+### Key Types
 - **Candidate keys** - Any columns which can uniquely identify a row. `Employee ID` or `National ID` columns (provided each record is unique in its row) could serve as candidate keys.
 - **Primary key** - _One_ candidate key, selected to provide unique identification of every row.
-- **Foreign key** - Uniquely identifies a row in another table.
+- **Foreign key** - Uniquely identifies a primary key in another table.
 - **Composite primary key** - A key determined by combining two candidate keys.
 
 ### SQL Technical
 - Query Parser
 > Query Tree is built by breaking data into logical parts.
-- Query Optimiser
+- Query Optimizer
 > Determines the optimal solution for storing data. Selects the fastest and most efficient queries, resulting in an updated query tree, and a final Execution Plan.
 - Relational Engine
 > Executes the plan, and passes requests for specific rows and tables to the storage engine.
@@ -36,7 +36,7 @@
 
 > Customer table is on one database, Staff table is held on another database.
 
-- Row-level Partitioning - true db support. Define logic which hones row sets to specific servers (ie. even rows to one server, odd rows to another.) Benefit of this sharing approach is a near linear approach over additional servers. As the data set increases, we split the rows over more and more database servers. Though, like the previous solution there are performance hits for cross-table queries.
+- **Row-level Partitioning** - true db support. Defined logic which hones row sets to specific servers (ie. even rows to one server, odd rows to another.) Benefit of this sharing approach is a near linear approach over additional servers. As the data set increases, we split the rows over more and more database servers. Though, like the previous solution there are performance hits for cross-table queries.
 
 > Customers and Staff tables are row-level partitioned by even / odd rows across different databases. More scalable, but same performance costs for cross-table queries.
 
@@ -53,9 +53,9 @@
 - Normalization is a process which prepares data to be stored in a database. It helps establish tables and relationships between tables. It eliminates redundancy and inconsistent dependency.
 
 1. Prepares the data to be stored in a database.
-2. Helps establish tables and relationships between tables
-3. Eliminates Redundancy
-4. Eliminates Inconsistent Dependency
+2. Helps establish tables and relationships between tables.
+3. Eliminates Redundancy.
+4. Eliminates Inconsistent Dependency.
 
 > Takes chaotic data through states (or forms) and prepares them to be stored in a relational database.
 
@@ -223,3 +223,9 @@
 - What are column DBs suitable for in comparison to row based DBs?
 - Describe a Graph Style DB.
 - What are the core components of a Graph Style DB?
+
+---
+
+# DynamoDB Basics
+
+

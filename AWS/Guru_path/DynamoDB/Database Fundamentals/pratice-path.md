@@ -9,11 +9,13 @@
 ### Weeks 1-4
 Practice building databases using the active record ORM. Focus primarily on leveraging SQL commands for cross-compatibility.
 
-#### Daily
+#### Daily (Dec 12 2019 - Jan 9 2020)
 
 > Wake up at 4AM
-- Review Notes
-- Work through pgexercises
+- Review NoSQL Notes
+- Review SQL Notes
+- Complete PGExercises Basic exercises
+- Complete PGExercises Joins and Subquery exercises
 - Build a relational database
   - Create tables
   - Create 

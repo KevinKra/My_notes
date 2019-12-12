@@ -150,3 +150,45 @@
 - What is soft state?
 - What is eventual consistency?
 - What sacrifices does ACID make and how does it limit scalability in relation to BASE design?
+
+
+## NoSQL Key-Value stores
+
+- Data is stored in Key-Value pairs (duh.)
+- The Key _must be unique_. Generally the key is only value in which data retrieval operations can function on. Except those that due full-data scans, though those are very inefficient.
+- The Value contains the data.
+- The Value is generally schema-less during the whole life-cycle of the data.
+- **The value block can, in some cases, can contain attributes.** This practice is not standard across all NoSQL designs.
+- In a _pure_ key-value store, their value is an atomic **opaque blob** of data and the database engine cannot perform any meaningful operations on it.
+- Attributes can be simple types, or even complex types like lists/arrays, and some can even hold nested value types.
+- Some key/value databases only have keys and values, others can group keys and value into **perceived tables.** These tables do not have the inbuilt explicit/implicit/assumed relationships. You cannot run SQL queries against them. Though, they are very lightweight, super fast, and scale very well horizontally as the key space can be split over several servers.
+
+## Document DBs
+
+> Their design is converging with Key-Value stores
+
+- At a very high level, Document DB stores are very similar to NoSQL Key-Value stores. But the values, or **documents**, are stored in a structured document encoding such as XML, JSON, or BSON (a binary version of JSON.) In a Document stored DB, the key value would be encoded as a document with its value comprised of **rich data**. The rich structure, essentially an object of key-values itself, is what makes document stores different than NoSQL Key-Value stores.
+- The rich data allows for data structures to be _nested_ within document stores.
+- Some high level differences, **the Document is the aggregate.** You work with document objects, your data model is documents, and you interact with documents. When it comes to scaling, the database spreads documents across its partitions, servers, or nodes.
+- You should use document stores if you're working with data that can be grouped in a document.
+- Document stores are not suitable for large-scale social networks or location aware applications with massive social components.
+- Unlike pure key-value stores you _can_ interact with the document structure. You search all documents for certain values for instance. Documents can be interacted with based on certain attributes and some documents can even be built based on certain attribute values.
+- Able to reference other documents. Allows for basic system of relationship or attachment reuse.
+- All documents need a unique key.
+- MongoDB is a popular Document DB.
+
+## Column Family DBs
+
+- Data is grouped and stored around columns and not rows.
+
+### Row vs Column
+
+#### Rows
+- Row base databases are much better at single record processing. Better for smaller databases. 
+- Not suitable for large scale or high frequency row-subset queries, ex: a few fields are required over every row or SQL aggregate functions are used requiring them to traverse over every row and waste data retrieval allocation.
+
+#### Columns
+- Faster and more efficient data access if you don't operate at an object level, If you need to update values across objects and aggregates a column based data-store is more efficient.
+- Improved compression, values stored in columns are of the same type and often have very few distinct values relative to the amount of relative data rows being considered.
+- Better Parallel Processing - Columns can be partitioned can individually or in groups and can be run on several discrete nodes. DB platform can partition queries so that dedicated resources handle processing of operations on specific columns.
+- Generally used when huge quantities of data need to be stored for later aggregate based analysis.

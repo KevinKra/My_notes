@@ -53,7 +53,7 @@
 - Normalization is a process which prepares data to be stored in a database. It helps establish tables and relationships between tables. It eliminates redundancy and inconsistent dependency.
 
 1. Prepares the data to be stored in a database.
-2. Helps establish tables and relationships between tables.
+2. Establish tables and their relationships.
 3. Eliminates Redundancy.
 4. Eliminates Inconsistent Dependency.
 
@@ -229,7 +229,6 @@
 - What is a candidate key?
 - What is the difference between a candidate key and a primary key?
 - What is a composite primary key?
-- What are the general steps for SQL table generation?
 - What is sharding? What are two different approaches to sharding?
 - What is a slave instance, what is its relation to scaling?
 - What is data normalization?

@@ -52,10 +52,10 @@
 ## Data Normalization
 - Normalization is a process which prepares data to be stored in a database. It helps establish tables and relationships between tables. It eliminates redundancy and inconsistent dependency.
 
-1. Prepares the data to be stored in a database.
+1. Prepare the data to be stored in a relational database.
 2. Establish tables and their relationships.
-3. Eliminates Redundancy.
-4. Eliminates Inconsistent Dependency.
+3. Eliminate Redundancy.
+4. Eliminate Inconsistent Dependency.
 
 > Takes chaotic data through states (or forms) and prepares them to be stored in a relational database.
 
@@ -232,13 +232,14 @@
 - What is sharding? What are two different approaches to sharding?
 - What is a slave instance, what is its relation to scaling?
 - What is data normalization?
-- What are the four objectives of data normalization?
-- Explain first normal form.
-- Explain second normal form.
-- Explain third normal form.
-- What are the benefits of normalization?
-- What model (BASE / ACID) is favored for Relational and Non-relation databases?
-- What does ACID break out to? What does each step mean?
+- _What are the four objectives of data normalization?_
+- **What is inconsistent dependency?**
+- _Explain first normal form._
+- _Explain second normal form._
+- _Explain third normal form._
+- _What are the benefits of normalization?_
+- What model (BASE / ACID) is favored for Relational and Non-Relational databases?
+- _What does ACID break out to? What does each step mean?_
 - What are the design pros and cons of ACID?
 - What does BASE mean?
 - What are the design aspects of BASE?

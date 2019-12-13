@@ -9,6 +9,9 @@
 ### Weeks 1-4
 Practice building databases using the active record ORM. Focus primarily on leveraging SQL commands for cross-compatibility.
 
+### Weeks 4-8
+??? Build out systems using AWS
+
 #### Daily (Dec 12 2019 - Jan 9 2020)
 
 > Wake up at 4AM
@@ -16,6 +19,4 @@ Practice building databases using the active record ORM. Focus primarily on leve
 - Review SQL Notes
 - Complete PGExercises Basic exercises
 - Complete PGExercises Joins and Subquery exercises
-- Build a relational database
-  - Create tables
-  - Create 
+- Build a Rails API

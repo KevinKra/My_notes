@@ -49,3 +49,12 @@ Shoulda::Matchers.configure do |config|
   end
 end
 ```
+
+## Exercises
+#### GOALS
+- master active record
+- master raw sql commands
+- master SQL databases
+
+#### Steps
+- Create Rails API for Palette Picker

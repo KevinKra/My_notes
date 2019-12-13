@@ -19,6 +19,4 @@ Practice building databases using the active record ORM. Focus primarily on leve
 - Review SQL Notes
 - Complete PGExercises Basic exercises
 - Complete PGExercises Joins and Subquery exercises
-- Build a relational database
-  - Create tables
-  - Create 
+- Build a Rails API

@@ -38,7 +38,7 @@
 1. No. New users need to be assigned permissions.
 1. The access keys granted to a new user are _only_ for accessing AWS through APIs and the command line. Separate permissions are required to use the AWS console directly.
 1. Only once, when you first create the new user. New credentials will need to be generated if you wish to regain access.
-1. IAM Role.
+1. IAM Roles.
 1. No, this creates a security vulnerability since sensitive information is stored on an EC2 machine instead of being managed in the secure cloud.
 1. Create an IAM role with read-access to S3 and assign the role to the EC2 instance. IAM roles allow applications to securely make API requests from instances, without requiring you to manage the security credentials that the applications use.
 
@@ -76,6 +76,8 @@
 1. What are some additional differences between each deployment solution? Consider: capacity impacts, price, lambda.
 1. Can you do a blue/green deployment on your first setup?
 1. Which deployment option is safe: in-place or blue/green?
+1. Explain: `ssh -i privatekey.pem ec2-user@18.117.83.46`
+1. What is a `Deployment Group`?
 
 #### Answers:
 
@@ -87,12 +89,14 @@
 1. Since your rolling through and updating instances in "in-place", you lose some capacity (throughput) during this window. This issue does not apply to "blue/green". You would be paying for both the blue and green instances until one or the other is terminated. Lambda is not supported in "in-place".
 1. No, since you don't have different version to switch between. First deployment is always going to be "in-place".
 1. Blue/Green is safer. There is no capacity loss and roll-backs are much easier (provided the old versions aren't terminated).
+1. We ssh into our ec2 instance through the public ipv4 address using our `-i` (case insensitive lookup) of the `.pem` private-key on our local machine.
+1. The host, or group of hosts, that we are going to deploy our application to.
 
 ### EC2 AppSpec File Structure
 
 #### Questions:
 
-1. What are the four parts of the file structure?
+1. What are the four parts of the appspec file structure?
 1. What purpose do each of the parts serve?
 1. Where would an `appspec.yml` file typically live?
 1. What is the `appspec.yml` file?
@@ -143,7 +147,9 @@
 1. What is the linux command: `sudo`?
 1. What is the linux command: `yum`?
 1. What is the linux command: `chmod`?
+1. When you use `chmod {target}`, does it require a relative path to the file?
 1. What is the command `curl`?
+1. What is `ssh`?
 
 #### Answers:
 
@@ -157,7 +163,11 @@
 
 1. The **chmod** command changes the file's permissions. [source](https://linuxize.com/post/chmod-command-in-linux/)
 
+1. Yes. A quick way to provide a relative path is to drag and drop the file from the finder and it will populate the terminal with `the/relative/path/to/yourfile.txt`.
+
 1. cURL, which stands for client URL, is a command line tool that developers use to transfer data to and from a server. [source](https://developer.ibm.com/devpractices/api/articles/what-is-curl-command/)
+
+1. SSH, also known as Secure Shell or Secure Socket Shell, is a network protocol that gives users, particularly system administrators, a secure way to access a computer over an unsecured network. [source](https://searchsecurity.techtarget.com/definition/Secure-Shell)
 
 ---
 

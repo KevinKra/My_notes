@@ -143,6 +143,7 @@
 1. What is the linux command: `sudo`?
 1. What is the linux command: `yum`?
 1. What is the linux command: `chmod`?
+1. What is the command `curl`?
 
 #### Answers:
 
@@ -155,6 +156,8 @@
 1. **YUM** is the primary package management tool for installing, updating, removing, and managing software packages in Red Hat Enterprise Linux. [source](https://www.redhat.com/sysadmin/how-manage-packages)
 
 1. The **chmod** command changes the file's permissions. [source](https://linuxize.com/post/chmod-command-in-linux/)
+
+1. cURL, which stands for client URL, is a command line tool that developers use to transfer data to and from a server. [source](https://developer.ibm.com/devpractices/api/articles/what-is-curl-command/)
 
 ---
 

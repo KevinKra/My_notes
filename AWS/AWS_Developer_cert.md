@@ -27,6 +27,7 @@
 1. Which IAM entity can you use to delegate access to your AWS resources to users, groups or services?
 1. Does AWS recommend that EC2 instances have credentials stored on them so that the instances can access other resources (such as S3 buckets).
 1. What is a suitable way to enable your EC2 instance to read files in an S3 bucket?
+1. What is the difference between a group and a role?
 
 #### Answers:
 
@@ -41,6 +42,7 @@
 1. IAM Roles.
 1. No, this creates a security vulnerability since sensitive information is stored on an EC2 machine instead of being managed in the secure cloud.
 1. Create an IAM role with read-access to S3 and assign the role to the EC2 instance. IAM roles allow applications to securely make API requests from instances, without requiring you to manage the security credentials that the applications use.
+1. Like most security models you can think of a group as a group of users or Security Principles or entities. A Role however is a set of permissions or rights that can be attached to a User / Group / or other entity such as an EC2 instance.
 
 # Developer Theory
 
@@ -78,6 +80,7 @@
 1. Which deployment option is safe: in-place or blue/green?
 1. Explain: `ssh -i privatekey.pem ec2-user@18.117.83.46`
 1. What is a `Deployment Group`?
+1. Explain the difference between `CodeDeploy` and `CodePipeline`
 
 #### Answers:
 
@@ -91,6 +94,7 @@
 1. Blue/Green is safer. There is no capacity loss and roll-backs are much easier (provided the old versions aren't terminated).
 1. We ssh into our ec2 instance through the public ipv4 address using our `-i` (case insensitive lookup) of the `.pem` private-key on our local machine.
 1. The host, or group of hosts, that we are going to deploy our application to.
+1. `CodeDeploy` is a fully managed deployment service that automates software deployments to compute services such as EC2, Lambda, and on-premise servers. `CodePipeline` is a CI/CD pipeline that provides fast and reliable infrastructure updates. CodePipeline builds, tests, and deploys (using CodeDeploy) every time there is a code change, based on the release models you define. **In short, CodePipeline automates the entirety of the CI/CD process and CodeDeploy can be integrated into that automated process to _automatically_ deploy to your compute resources.**
 
 ### EC2 AppSpec File Structure
 
@@ -135,6 +139,40 @@
 1. `ValidateService`: run tests to validate the service.
 1. These lifecycle hooks mirror the block traffic hooks.
 1. Useful for the exam.
+
+## CodePipeline
+
+#### Questions:
+
+1. What is CodePipeline?
+1. What can CodePipeline integrate with?
+1. Describe an example of CodePipeline workflow.
+
+#### Answers:
+
+1. A fully managed CI/CD service. It orchestrates the Build, Test, and Deployment of your application. The Automated Release Process allows for fast and consistent deployments.
+
+1. CodeCommit, CodeBuild., ElasticBeanstalk, CloudFormation, Lambda, Elastic Container Service, as well as third-party services like Github and Jenkins.
+
+1. `CodePipeline` workflow is defined, new code appears in your repo, `CodeBuild` builds and tests the code, `CodeDeploy` deploys the application in staging or production.
+
+---
+
+## General AWS Commands
+
+#### Questions:
+
+1. How can you set/configure the current local aws user in the CLI?
+1. What CLI command can be used to get the current IAM user information?
+1. What CLI command can be used to list the current user details (including default region)
+
+#### Answers:
+
+1. `aws configure`
+1. `aws iam get-user`
+1. `aws configure list`
+
+---
 
 # General Questions
 

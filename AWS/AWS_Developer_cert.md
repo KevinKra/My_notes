@@ -147,6 +147,7 @@
 1. What is CodePipeline?
 1. What can CodePipeline integrate with?
 1. Describe an example of CodePipeline workflow.
+1. Describe the process used to in the lab to setup the CloudFormation, S3, CodeDeploy, and CodePipeline tasks that resulted in a deploying + automated CI/CD pipeline?
 
 #### Answers:
 
@@ -155,6 +156,8 @@
 1. CodeCommit, CodeBuild., ElasticBeanstalk, CloudFormation, Lambda, Elastic Container Service, as well as third-party services like Github and Jenkins.
 
 1. `CodePipeline` workflow is defined, new code appears in your repo, `CodeBuild` builds and tests the code, `CodeDeploy` deploys the application in staging or production.
+
+1. First, CloudFormation requires it's templates to exist as a file within S3, this file is referenced in the script entered in the AWS CLI. Run the script in the CLI. Once the stack is created, we want to log into the instance and verify that our CodeDeploy agent was installed correctly. To do that, we ssh into our new EC2 instance via its public IPv4 address: `ssh -i my_private_key.pem ec2-user@34.238.240.42` **(Note: the pem-key you provided in the CloudFormation script template is the same one you use in the previous CLI ssh command).** We check our CodeDeploy status with: `sudo service codedeploy-agent status`. We then create a new bucket in S3 and upload the v1 `mywebapp.zip` file to the bucket. Then we go onto to `CodeDeploy` and "create application", then "create deployment group" (note: we may need to create a service role for the deployment group which allows CodeDeploy to call AWS services such as Auto Scaling on your behalf.) Among other steps, you'll need to target the _tagged_ EC2 instance we made with CloudFormation in the `Environment Configuration` panel. Add the s3 revision location. **If successful, test the EC2 address.** Now, go onto `CodePipline` can build a pipeline, if your s3 bucket is set to detect updates, your revisions will trigger a `CloudWatchEvent` which will rerun the pipeline.
 
 ---
 

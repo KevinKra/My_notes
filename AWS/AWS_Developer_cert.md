@@ -159,6 +159,61 @@
 
 1. First, CloudFormation requires it's templates to exist as a file within S3, this file is referenced in the script entered in the AWS CLI. Run the script in the CLI. Once the stack is created, we want to log into the instance and verify that our CodeDeploy agent was installed correctly. To do that, we ssh into our new EC2 instance via its public IPv4 address: `ssh -i my_private_key.pem ec2-user@34.238.240.42` **(Note: the pem-key you provided in the CloudFormation script template is the same one you use in the previous CLI ssh command).** We check our CodeDeploy status with: `sudo service codedeploy-agent status`. We then create a new bucket in S3 and upload the v1 `mywebapp.zip` file to the bucket. Then we go onto to `CodeDeploy` and "create application", then "create deployment group" (note: we may need to create a service role for the deployment group which allows CodeDeploy to call AWS services such as Auto Scaling on your behalf.) Among other steps, you'll need to target the _tagged_ EC2 instance we made with CloudFormation in the `Environment Configuration` panel. Add the s3 revision location. **If successful, test the EC2 address.** Now, go onto `CodePipline` can build a pipeline, if your s3 bucket is set to detect updates, your revisions will trigger a `CloudWatchEvent` which will rerun the pipeline.
 
+## MicroServices
+
+#### Questions:
+
+1. What is a microservice?
+1. What are three important advantages of microservice architecture?
+1. Explain `Serviceability`
+1. Explain `Flexibility`
+1. Explain `Scalability`
+1. Where do microservices run?
+1. How many things does a microservice do?
+
+#### Answers:
+
+1. A microservice is an architectural and organizational approach to software development, where software is composed of small, independent services that communicate over well defined APIs.
+
+1. **Serviceability**, it's easier to fix problems. **Flexibility**, it's easier to make changes. **Scalability**, it simplifies the scaling process; you scale the elements you need to scale, instead of the entire application.
+
+1. Microservice serviceability allows you to mitigate the impact of a failing microservice within an application. For instance, since microservices are independent, if one service goes down, the whole application doesn't go down with it. It's quick to fix, if a container goes wrong, simply deploy a new instance of the microservice to fix the broken one.
+
+1. Microservice patterns provide much greater flexibility. Upgrading a microservices within an application simply involves deploying a new version of that microservice. Likewise, it's easy to add new features -- simply add them as new microservice.
+
+1. A microservice architecture makes scaling a lot simpler and easier. If one specific feature (a microservice) is really in-demand, simply scale up that service.
+
+1. Microservices run in containers.
+
+1. They are intended to do _one thing_ and it really well.
+
+## Elastic Container Service (ECS)
+
+#### Questions:
+
+1. What is Elastic Container Service?
+1. What is a container?
+1. What two types of containers are there? Does ECS support both?
+1. Describe the architecture of a Docker Container.
+1. What are some really important advantages to using Containers/Microservices?
+1. Advantage of ECS over Kubernetes?
+1. Do containers need to be on EC2 instances?
+1. What is an advantage of EC2 over Fargate for container management?
+1. What is `ECR` (Elastic Container Registry)
+1. Describe `ECS`, `Fargate`, and `ECR`
+
+#### Answers:
+
+1. Amazon Elastic Container Service (Amazon ECS) is a container orchestration service that runs and manages Docker containers. It runs clusters of virtual machines on the Amazon cloud, while managing, scaling, and scheduling groups of containers on those machines across multiple Availability Zones (AZs).
+1. It's a standardized virtual operating environment with everything software needs to run (libraries, system tools, code, and run time.) The use of containers goes hand-in-hand with the microservice approach to building software. Applications are created using independent stateless components or microservices running in containers.
+1. Linux containers (Docker) and Windows containers (Windows). ECS supports both container services.
+1. A (Docker) container consists of: code, libraries, and the virtual kernel. The container runs on Docker which is installed on our OS.
+1. It's highly scalable, if the application gets overloaded you only need to scale required services. It's fault tolerant, a single error in one container wont bring down the whole app. It's much easier to maintain and update than large monolithic applications.
+1. It's integrated with other AWS services.
+1. No. You have the option of having ECS run your microservices on clusters of virtual machines (EC2 instances) **OR** you can use `AWS Fargate` to manage it in a serverless manner.
+1. Using clusters of virtual machines allows you to control the installation, configuration, and management of your compute environment.
+1. ECR, or Elastic Container Registry, is where you can store your Docker images. It's a registry for your container images.
+
 ---
 
 ## General AWS Commands

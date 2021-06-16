@@ -1,5 +1,20 @@
 # Learn Linux
 
+**What is Linux?**
+
+Just like Windows, iOS, and Mac OS, Linux is an operating system. In fact, one of the most popular platforms on the planet, Android, is powered by the Linux operating system. An operating system is software that manages all of the hardware resources associated with your desktop or laptop. To put it simply, the operating system manages the communication between your software and your hardware. Without the operating system (OS), the software wouldn't function. [source](https://www.linux.com/what-is-linux/)
+
+
+
+**NOTE:** The content below is derived from this [acloudguru course](https://learn.acloud.guru/course/f9945b67-499d-4e79-80bd-580074fbecdd/dashboard) that preps for the Linux Foundation Certified System Administrator (LFCS). If you would like to access the source videos and content that these notes are based on you will need an acloudguru account.
+
+## Directory
+
+1. [Searching for files](#searching-for-files)
+
+
+---
+
 ## Searching for files
 
 commands covered in this section: `find`, `locate`, `where`, `whereis`, `type`

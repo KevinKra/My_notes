@@ -76,7 +76,9 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 1. what does the `type ls` command do?
 
 #### Answers:
-
+<details>
+  <summary>show answers</summary>
+  
 1. `find` and `locate`.
 1. `find` is very versatile tool for performing lookups, it's able to use many different searching parameters. `locate` can provide faster results, however it requires it's database to be up-to-date and has limited search options.
 1. `find -name "some_file.txt"`
@@ -95,3 +97,5 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 1. the `whereis` utility checks the standard binary directories for the specified programs, printing out the paths of any it finds.
 1. `t " " '/n'`
 1. it shows us information about a command, `ls` in this case, and where it exists.
+  
+  </details>

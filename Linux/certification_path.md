@@ -10,7 +10,7 @@ Just like Windows, iOS, and Mac OS, Linux is an operating system. In fact, one o
 
 ## Directory
 
-1. [Searching for files](#searching-for-files)
+- [Searching for files](#searching-for-files)
 
 
 ---

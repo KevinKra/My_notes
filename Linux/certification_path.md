@@ -149,21 +149,21 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 - Reiser4 was delivered in 2004 and was once thought to be the replacement of EXT4.
 - Development stalled when the main developer was sent to prison in 2008 for murder.
 
-### ZFS
+### ZFS (formerly Zettabyte Filesystem)
 
 - Created by Sun Microsystems for Solaris, now owned by Oracle.
 - Supports drive pooling, FS snapshots, filesystem striping.
 - Each file has a checksum, making it easy to tell if a file has been corrupted.
 - Made available under the CDDL (which means it can't be included in the Linux kernel, but can be easily added).
 
-### XFS
+### XFS (Extents Filesystem)
 
 - Developed by Silicon Graphics for Irix in 1994, ported to Linux in 2001.
 - Similar to EXT4 in many ways, with dynamic allocation and other features.
 - Can be expanded on the fly, but can't be reduced.
 - Handles large files well, but does suffer performance issues with many small files.
 
-### JFS
+### JFS (Journaled Filesystem)
 
 - Developed by IBM in 1990 for AIX, ported to Linux in 1999.
 - Offers good performance across small and large files, along with a small CPU footprint.
@@ -181,3 +181,46 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 - Does not offer journaling, but is supported by most OSes making it very compatible.
 - Cross-OS compatibility and lack of journaling make it a good use for USB drives, or other media shared between systems.
 - ExFAT most recent variant and is the best choice as it supports larger file and partition sizes.
+
+### QUIZ
+
+#### Questions:
+
+1. what is the most popular Linux filesystem?
+1. what is a `Block device`?
+1. what is a `filesystem`?
+1. what is `journaling`, what service does it provide, and is it required and present on all Linux filesystems?
+1. what does `EXT` stand for, what years did each iteration come out, and what features does EXT4 bring.
+1. what is `BTRFS`'s official name and unofficial names?
+1. when was `BTRFS` created and who created it?
+1. what is `ReiserFS`, when was it released, and what happened to the main developer causing it to stall?
+1. what company build `ZFS` and who are they owned by now?
+1. when was `XFS` created?
+1. describe some characteristics about `XFS`.
+1. when was `JFS` created?
+1. is `SWAP` a filesystem?
+1. what does `FAT` stand for, what's the latest version, and who developed it?
+1. what is `FAT` ideal for and why?
+
+#### Answers:
+
+<details>
+  <summary>show answers</summary>
+
+1. EXT4 is the most popular Linux system.
+1. a `Block device` is a storage medium like SSD, HHD, floppy disks, etc.
+1. a `filesystem` is a solution that allows the Linux OS (in this case) to interface with the contents of the Block device(s).
+1. `journaling` is a process in which a filesystem records, or _journals_, its latest operations. The intention behind this is to protect data integrity and prevent loss in the event of a power outage or otherwise. Without journaling an OS has no way of knowing what processes were running prior to the crash. It is not required, or even present, on all Linux filesystem flavors. In some specific cases, it may not be ideal to have journaling as a feature since it can reduce OS speed.
+1. `EXT` stands for "Extended File System". It was originally created for Linux in 1992. Release: EXT-1991, EXT2-1993, EXT3-2001, EXT4-2008. EXT4: is backwards compatible, increased filesystem size (1EB), increased max file size (16TB), journal checksums, and delayed allocation.
+1. `BTRFS` or "B-Tree Filesystem" officially. It's called "Better-FS" or "Butter-FS" unofficially.
+1. `BTRFS` was created by Oracle in 2007 and is considered by many to be the eventual replacement of EXT4.
+1. `ReiserFS` is a Linux filesystem, created in 2001 it stalled when its founder was sent to prison in 2008 for murdering his wife.
+1. Sun Microsystems created `ZFS` for Solaris, they are now owned by Oracle.
+1. `XFS` was developed by Silicon Graphics for Irix in 1994, ported to Linux in 2001.
+1. it can be expanded on, but not reduced. It's also good at handling large files but struggles with many smaller files.
+1. `JFS` was developed by IBM in 1990 for AIX, ported to Linux in 1999.
+1. `SWAP` is used to format a drive, but not technically a filesystem.
+1. `FAT` stands for "File Allocation Table", it's developed by Microsoft with its latest version being `exFAT`.
+1. Cross-OS compatibility and lack of journaling make it a good use for USB drives, or other media shared between systems.
+
+  </details>

@@ -4,16 +4,19 @@
 
 Just like Windows, iOS, and Mac OS, Linux is an operating system. In fact, one of the most popular platforms on the planet, Android, is powered by the Linux operating system. An operating system is software that manages all of the hardware resources associated with your desktop or laptop. To put it simply, the operating system manages the communication between your software and your hardware. Without the operating system (OS), the software wouldn't function. [source](https://www.linux.com/what-is-linux/)
 
-
-
 **NOTE:** The content below is derived from this [acloudguru course](https://learn.acloud.guru/course/f9945b67-499d-4e79-80bd-580074fbecdd/dashboard) that preps for the Linux Foundation Certified System Administrator (LFCS). If you would like to access the source videos and content that these notes are based on you will need an acloudguru account.
 
 ## Directory
 
+## Directory
+
+### [Essential Commands](#essential-commands)
+
 - [Searching for files](#searching-for-files)
 
-
 ---
+
+# Essential Commands
 
 ## Searching for files
 
@@ -91,6 +94,7 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 1. what does the `type ls` command do?
 
 #### Answers:
+
 <details>
   <summary>show answers</summary>
   
@@ -114,3 +118,66 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 1. it shows us information about a command, `ls` in this case, and where it exists.
   
   </details>
+
+---
+
+## Evaluating File Systems, Features, and Options
+
+- EXT4 is the most popular filesystem used in Linux. It has been around the longest, has extensive production testing, and a wide support base.
+- `Block device`: is the medium that is used to store data (SSD, HDD, CD, flashdrive, floppy desk, etc.)
+- `Filesystem`: sits on top of the block device and allows the OS interact with data on the the block device.
+- `Journaling`: can be found most modern operating system and plays an important role in preventing data loss caused by power loss and other incidents. With journaling when you start to write a file, the OS will know that a file is being written to disk. Once the file is written, the OS will remove the entry from the journal. With Linux, when the power comes back on, the OS would check the journal and complete any partially completed jobs. Note: journaling is not required on the operating system, not having it allows for certain optimizations and speed benefits.
+
+### EXT (Extended File System)
+
+- `EXT`: originally created in 1992 specifically for Linux.
+- `EXT2`: created in 1993, no journaling, but supported extended attributes and 2TB storage.
+- `EXT3`: created in 2001, included journaling and was an in-place upgrade from EXT2.
+- `EXT4`: created in 2008, backwards compatible, increased filesystem size (1EB), increased max file size (16TB), journal checksums, and delayed allocation.
+
+### BTRFS (B-Tree Filesystem)
+
+- Often called "BetterFS" or "ButterFS".
+- Created by Oracle in 2007, stable released in 2013.
+- Includes online FS expansion and reduction, read-only snapshots for faster backups, more efficient handling of small files and directory indexes, online defragmentation, and in place conversion of EXT FS.
+- Considered by many to be the future replacement for EXT4.
+
+### ReiserFS
+
+- Introduced in 2001.
+- Offered several improvements over EXT4(?, perhaps EXT3 or EXT2).
+- Reiser4 was delivered in 2004 and was once thought to be the replacement of EXT4.
+- Development stalled when the main developer was sent to prison in 2008 for murder.
+
+### ZFS
+
+- Created by Sun Microsystems for Solaris, now owned by Oracle.
+- Supports drive pooling, FS snapshots, filesystem striping.
+- Each file has a checksum, making it easy to tell if a file has been corrupted.
+- Made available under the CDDL (which means it can't be included in the Linux kernel, but can be easily added).
+
+### XFS
+
+- Developed by Silicon Graphics for Irix in 1994, ported to Linux in 2001.
+- Similar to EXT4 in many ways, with dynamic allocation and other features.
+- Can be expanded on the fly, but can't be reduced.
+- Handles large files well, but does suffer performance issues with many small files.
+
+### JFS
+
+- Developed by IBM in 1990 for AIX, ported to Linux in 1999.
+- Offers good performance across small and large files, along with a small CPU footprint.
+- Many helpful features, but lacks the extensive Linux production testing that other filesystems have which causes concern amongst some SysAdmins when put on production systems.
+
+### SWAP
+
+- **Used to format a drive, but not technically a filesystem.**
+- Used for virtual memory (memory swapping) and doesn't have a viewable structure.
+- Temporary place for items in memory to be stored in low RAM situations.
+
+### FAT/FAT32/exFAT (File Allocation Table)
+
+- Filesystem developed by Microsoft.
+- Does not offer journaling, but is supported by most OSes making it very compatible.
+- Cross-OS compatibility and lack of journaling make it a good use for USB drives, or other media shared between systems.
+- ExFAT most recent variant and is the best choice as it supports larger file and partition sizes.

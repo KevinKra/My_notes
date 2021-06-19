@@ -224,3 +224,5 @@ options/commands used in this section: `-i`, `-iname`, `sudo`, `-type c d l f`, 
 1. Cross-OS compatibility and lack of journaling make it a good use for USB drives, or other media shared between systems.
 
   </details>
+
+> at this point, with the level of detail above, it will take me ages to complete this content so I'm going to put it on hold and explore other ways of building on this learning.

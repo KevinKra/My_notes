@@ -149,3 +149,45 @@ Docker is an open platform for developing, shipping, and running applications. D
 - when we delete a container, what's actually being done is that top r:w `Container layer` is being deleted. The underlying images will still exist unchanged.
 
 ---
+
+## Docker Networking
+
+### Three Major Components
+
+- `Container Network Model (CNM)`: a design specification that outlines fundamental building blocks of a docker network.
+- `libnetwork`: is the real world implementation of the CNM. **libnetwork** uses a series of drivers.
+- `Drivers`: extend the model by network topologies.
+
+### Network Drivers
+
+- `bridge`: **the default network**, it's a link-layer device that forwards traffic between network segments. The bridge driver uses a _software bridge_ that allows containers connected to the same bridge network to communicate. It also provides a layer of isolation from other containers not connected to that network. -- only works on linux, cannot use it on docker desktop for mac or windows.
+- `host`:
+- `overlay`: any time we want to use a distributed network over multiple docker hosts we will be using the overlay network driver. ie: docker swarm.
+- `MACVLAN`: this driver assigns a MAC address to a container, giving it the appearance of a physical device on a network. Helpful in situations with legacy applications or application that monitors network traffic and those applications are expected to be connected to a _physical_ network.
+- `none`: disables networking. Usually used in conjunction with a custom network driver. Note: you cannot use none with a swarm service.
+- `network plugins`: third-party plugins are available on DockerHub.
+
+### Three Building Blocks
+
+- `Sandbox`: isolates the network stack. Includes: networking interfaces, ports, route tables, and DNS.
+- `Endpoints`: virtual network interfaces. Responsibility of the endpoint to connect the sandbox to a network.
+- `Networks`: software implementations. ~~
+
+---
+
+- `endpoints` can only connect to one network, you want a container to connect to additional networks, the networking sandbox within **that container will need an additional endpoint for each network connection.**
+- even if two containers are running on the same host and connected to the same network, their `networking stacks` are completely isolated from one another.
+
+---
+
+### Hands on
+
+- `ifconfig` - a linux/unix command that shows what networks are on our machine. When we install docker, `docker0` appears on this list. It also shows a pool of IPs that the docker will pooling from when you create a container.
+- `docker network ls`: lists networks. By default, docker has three networks: `bridge`, `host`, `none`. Don't delete these.
+
+- `docker run -d --name network-test -p 8081:80 nginx`
+- `docker network create br01`
+- `docker network connect <network> <container>`
+- `docker container network-test inspect`
+  - since we didn't specify otherwise, the `network test` container is connected to the `br01` and `bridge` networks.
+- `docker network disconnect <network> <container>`

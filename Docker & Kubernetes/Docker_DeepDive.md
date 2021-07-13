@@ -188,6 +188,6 @@ Docker is an open platform for developing, shipping, and running applications. D
 - `docker run -d --name network-test -p 8081:80 nginx`
 - `docker network create br01`
 - `docker network connect <network> <container>`
-- `docker container network-test inspect`
+- `docker container inspect network-test`
   - since we didn't specify otherwise, the `network test` container is connected to the `br01` and `bridge` networks.
 - `docker network disconnect <network> <container>`

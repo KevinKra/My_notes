@@ -148,6 +148,43 @@ Docker is an open platform for developing, shipping, and running applications. D
 - all changes made to a running container are made to the `Container layer`
 - when we delete a container, what's actually being done is that top r:w `Container layer` is being deleted. The underlying images will still exist unchanged.
 
+## Docker Basics
+
+- `docker -h | more`q
+- docker commands have been rolled into docker "Management Commands". These commands encapsulate specific parts of docker and are the reason why `docker images` and `docker image ls` both exist and do the same thing.
+- `docker container inspect <container_id>`
+- `docker container run busybox`: running this command creates a container with the `COMMAND` "sh". In other words, this container starts up, executes a command, and then stops. This is unlike other containers that have "long-running processes" like standing up an `nginx` environment and using flags like `--rm` allow us to remove the containers after they run.
+- `-i`: keeps STDIN open even if not attached
+- `-t` or `--tty` allocate a pseudo-TTY (?)
+
+#### Ports
+
+- `-p` stands for `--publish` (NOT `-port`): used to list a published container's port(s) to the host.
+- `-P`, `--publish-all`: used to publish all exposed ports to random ports.
+
+- `--expose <PORT>` exposes a port, or range of ports. This command **does not publish the port.**
+- `docker container port 7fb8ba939490`: shows which ports a container is using.
+
+#### Commands
+
+- commands can be: "one and done commands" or "long running commands"
+- three ways of executing commands are: through the `dockerfile`, within a `docker run` command, or through using the `exec` command.
+
+## Questions
+
+- what does it mean to expose a port?
+- what does it mean to publish a port?
+- how do we set a container to publish all exposed ports to random ports?
+- when publishing a port what do the before:after ports represent?
+- can a container have multiple ports exposed?
+- what is a TTY?
+- how can I find the IP address of a nginx container?
+- if there is no published port, how can you `curl` into a container?
+
+---
+
+---
+
 ---
 
 ## Docker by Doing

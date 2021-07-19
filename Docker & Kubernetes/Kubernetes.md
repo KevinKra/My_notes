@@ -119,7 +119,7 @@ What happens if the database pod dies? We **can't replicate a database pod using
 1. How is high availability maintained within K8? What should everything be replicated across and what component can be used to serve as a load balancer?
 1. In order to create a separate replica, would you create a a separate Pod? If not, what would you use instead and why?
 
---
+---
 
 ## K8 Architecture
 

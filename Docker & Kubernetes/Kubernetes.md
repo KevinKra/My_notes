@@ -118,3 +118,57 @@ What happens if the database pod dies? We **can't replicate a database pod using
 1. Why is the `StatefulSet` component not commonly used? What alternative solution is commonly practiced?
 1. How is high availability maintained within K8? What should everything be replicated across and what component can be used to serve as a load balancer?
 1. In order to create a separate replica, would you create a a separate Pod? If not, what would you use instead and why?
+
+--
+
+## K8 Architecture
+
+> How does K8 work
+
+### Nodes Processes
+
+#### Worker Servers/Nodes Components
+
+Each Node has one or more application Pods with containers running on it. **Kubernetes does this by using 3 processes that must be installed in every Worker Node that is used to schedule and manage those Pods.** Worker Nodes do the actual work.
+
+1. `Container runtime`. A container runtime (Docker for example) must be installed on every Node. Application Pods have containers running inside of them, as such a runtime needs to be provided. The process that actually schedules the Pods, and their containers, is called **Kubelet**. 
+1. `Kubelet` is a process of Kubernetes itself (unlike the container runtime) that interfaces with _both_ the Container and Node.** Kubelet takes the provided configuration and actually runs/starts a Pod with a Container inside and assigns resources from that Node to that container like CPU, RAM, and storage. Often K8 clusters are made up of multiple Nodes that each must have a Container runtime and Kubelet installed.
+1. `Kube Proxy`. Kube Proxy is used to forward requests from Services to Pods. Kube Proxy has intelligent forwarding logic that ensures that communication works in an intelligent way with low overhead. For example, if a request is made from a Pod, the Service component (through Kube Proxy) will intelligently direct that request to a Pod on the same Node as opposed to a Pod on a random Node (this approaches the network overhead).
+
+### Master Nodes
+
+> How do you schedule Pods, monitor Pods, re-schedule/restart Pods, and join Pods to new Nodes?
+
+Master Nodes have completely different processes than Worker Nodes. **Four processes  run on every master node (shown below).** A Kubernetes cluster is often made up of multiple Master Nodes where the `API Server` is load-balanced and the `etcd` component is a distributed storage element shared across all master nodes.
+
+Typically, Master Nodes (while important) require less resources than Worker Nodes. As an application grows and its complexity increases, you may (definitely will) add more master and worker node servers to your cluster. The process of setting up these new nodes/servers boil down to: get a new server, installed all the master/worker node processes, and then add it to the K8 cluster.
+
+#### Master Node Components
+
+1.`API Server`. Used to deploy a new application in a K8 cluster, you would use some sort of client (K8 Dashboard, Kubelet CLI, K8 API, etc.) to interface with the `API Server`. In short, `API Server` is a "cluster gateway". It receives the initial request of any updates to the cluster or queries from the cluster. **Also serves as a gatekeeper for authentication.** Example: some request hits the `Api Server`, it validates the request, passes it to other processes, and then it's completed. It's good for security because it results in _one entrypoint_ into the cluster.
+1. `Scheduler`. After a request is validated by the `API Server` it is handed off to the `Scheduler` to actually start the process (like starting an application Pod) on a Worker Node. `Scheduler` is an intelligent service that knows which Worker Node(s) the next Pod/component should be scheduled to. In practice, `Scheduler` will look at the Worker Nodes and select whichever Node has the most resources available. `Scheduler` selects the suitable Node but the Node's **`Kubelet` handles the actual process of executing the request on the Node.** 
+1. `Controller Manager`. Detects state changes on a Cluster (like a Pod crashing). When a Pod dies, `Controller Manager` detects the change and tries to resolve it as fast as possible. In order to do that, `Controller Manager` makes a request to the `Scheduler` to reschedule those dead pods. At this point, `Scheduler` determines the best Nodes to restart the Pods and sends the requests to the appropriate Node's `Kubelet` component for execution.
+1. `etcd`. A key-value store of a cluster state (the clusters brain). Every change in the cluster (a new pod is schedules, a pod dies, etc.) gets recorded in the `etcd` component's key-value store. All of the other components in this list work off of the data contained within the `etcd` component. All cluster state information is stored within `etcd` and is used for master processes to communicate with work processes and vice-versa.
+
+## Review
+
+### Questions:
+1. What is a Worker Node?
+1. What is a Master Node?
+1. What 3 processes must be installed on every worker node?
+1. What is the container runtime?
+1. What is the `Kubelet`?
+1. What does `Kubelet` interface with?
+1. What is the `Kube Proxy`?
+1. What are the 4 processes run on every master node?
+1. What is the `API Server`?
+1. What is the `Scheduler`?
+1. What is the `Controller Manager`?
+1. What is the `etcd` component?
+1. Clusters usually have multiple Master and Worker nodes. Which component serves as the Master Nodes' Load Balancer and how is `etcd` setup to share key-value state across all the Master Nodes?
+1. Which Node type requires more resources?
+1. Which MN component serves as the "Cluster Gateway" and authenticator?
+1. What are some clients that can interact with the `API Server`?
+1. Which MN component starts the process send from the client? Which component actually executes the request on the Worker Node?
+1. Which MN component detects state changes? If it detects a state change, which process does it send the request to fix it to?
+1. What type of storage is `etcd` and what does it record? Is all cluster data stored on `etcd`?

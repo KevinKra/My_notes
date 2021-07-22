@@ -210,9 +210,9 @@
 1. A (Docker) container consists of: code, libraries, and the virtual kernel. The container runs on Docker which is installed on our OS.
 1. It's highly scalable, if the application gets overloaded you only need to scale required services. It's fault tolerant, a single error in one container wont bring down the whole app. It's much easier to maintain and update than large monolithic applications.
 1. It's integrated with other AWS services.
-1. No. You have the option of having ECS run your microservices on clusters of virtual machines (EC2 instances) **OR** you can use `AWS Fargate` to manage it in a serverless manner.
-1. Using clusters of virtual machines allows you to control the installation, configuration, and management of your compute environment.
-1. ECR, or Elastic Container Registry, is where you can store your Docker images. It's a registry for your container images.
+1. No. You have the option of having ECS run your microservices on clusters of virtual machines (EC2 instances) **OR** you can use `AWS Fargate` to manage it in a serverless manner, though it will still be provisioned on EC2 resources, they'll simply be managed by AWS.
+1. Using ECS with direct EC2 integration allows for greater configuration and management of your compute environment. However, since you're essentially choosing to manage the compute resources yourself, the greater flexibility means you will also need to secure and manage your resources.
+1. ECS (Elastic Container Service) is an orchestration platform build by and integrated into AWS. ECR, or Elastic Container Registry, is where you can store your Docker images. It's a registry for your container images. Fargate is a managed service that abstracts away the complexities of EC2 compute resource management.
 
 ---
 
@@ -234,7 +234,7 @@
 
 # General Questions
 
-> Questions or interesting things I learned as a byproduct of the above explorations.
+> Questions or interesting things I learned alongside of the above lessons.
 
 #### Questions:
 

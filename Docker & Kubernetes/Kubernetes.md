@@ -32,7 +32,7 @@ Kubernetes guarantees several features:
 
  ### Service
 
- A `Service` a static IP address that can be attached to each pod. **The lifecycle of a Pod and Service are not connected,** in the event that a pod dies, the service and its permanent IP address will remain. It's worth noting that `Services` are used across nodes as well. **Beyond their functionality as permanent IP addresses, `Services` also serve as Load Balancers** and can be used to redistribute traffic across Nodes. 
+ A `Service` provides a static IP address that can be attached to each pod. **The lifecycle of a Pod and Service are not connected,** in the event that a pod dies, the service and its permanent IP address will remain. It's worth noting that `Services` are used across nodes as well. **Beyond their functionality as permanent IP addresses, `Services` also serve as Load Balancers** and can be used to redistribute traffic across Nodes. 
 
  It's likely that parts of our application should be accessible publicly, in that event an **external service** would be used. An external service opens a pod to communication from external sources. However, not all pods (like a database for instance) should be exposed to the public, in this event we use an **internal service.**
 
@@ -44,7 +44,7 @@ Kubernetes guarantees several features:
 
  ### ConfigMap
 
- The `ConfigMap` component is used to streamline application configuration adjustments. For example, let's say your database has a specific endpoint; this endpoint would likely exist in the underlying applications code or stored as some sort of external environment variable. In the event we wanted to change the endpoint of a service we're using (like MongoDB), we would need to update the code, push up changes, and then pull the image into the pod and restart. Pretty tedious. As a solution, `ConfigMap` serves as the external configuration to your application. You simply add your configurations to the `ConfigMap` and then you connect it to the pod that uses the (MongoDB in our example) service. For note, these configurations _could_ also include the db-username and db-password as well **BUT** storing these credentials in plaintext inside the `ConfigMap` creates a vulnerability that is solved with another K8 component called `Secret`.
+ The `ConfigMap` component is used to streamline application configuration adjustments. For example, let's say your database has a specific endpoint; this endpoint would likely exist in the underlying application's code or be stored as some sort of external environment variable. In the event we wanted to change the endpoint of a service we're using (like MongoDB), we would need to update the code, push up changes, and then pull the image into the pod and restart. Pretty tedious. As a solution, `ConfigMap` serves as the external configuration to your application. You simply add your configurations to the `ConfigMap` and then you connect it to the pod that uses the (MongoDB in our example) service. For note, these configurations _could_ also include the db-username and db-password as well **BUT** storing these credentials in plaintext inside the `ConfigMap` creates a vulnerability that is solved with another K8 component called `Secret`.
 
  ### Secret
 
@@ -88,7 +88,7 @@ What happens if the database pod dies? We **can't replicate a database pod using
 - What is a `Secret` component?
 - What is a `Volume` component?
 - What is a `Deployment` component?
-- What is a `Stateful` component?
+- What is a `StatefulSet` component?
 
 1. What is the use-case for Kubernetes and is it open source?
 1. What (3) features does Kubernetes guarantee?
@@ -123,32 +123,34 @@ What happens if the database pod dies? We **can't replicate a database pod using
 
 ## K8 Architecture
 
-> How does K8 work
+> How does K8 work itself work
 
-### Nodes Processes
+### Worker Nodes
 
-#### Worker Servers/Nodes Components
+#### Worker Node Components
 
 Each Node has one or more application Pods with containers running on it. **Kubernetes does this by using 3 processes that must be installed in every Worker Node that is used to schedule and manage those Pods.** Worker Nodes do the actual work.
 
 1. `Container runtime`. A container runtime (Docker for example) must be installed on every Node. Application Pods have containers running inside of them, as such a runtime needs to be provided. The process that actually schedules the Pods, and their containers, is called **Kubelet**. 
-1. `Kubelet` is a process of Kubernetes itself (unlike the container runtime) that interfaces with _both_ the Container and Node.** Kubelet takes the provided configuration and actually runs/starts a Pod with a Container inside and assigns resources from that Node to that container like CPU, RAM, and storage. Often K8 clusters are made up of multiple Nodes that each must have a Container runtime and Kubelet installed.
-1. `Kube Proxy`. Kube Proxy is used to forward requests from Services to Pods. Kube Proxy has intelligent forwarding logic that ensures that communication works in an intelligent way with low overhead. For example, if a request is made from a Pod, the Service component (through Kube Proxy) will intelligently direct that request to a Pod on the same Node as opposed to a Pod on a random Node (this approaches the network overhead).
+1. `Kubelet` is a process of Kubernetes itself (unlike the container runtime) **that interfaces with _both_ the container and Node.** Kubelet takes the provided configuration and actually runs/starts a Pod with a container inside and assigns resources from that Node to that container like CPU, RAM, and storage. Often K8 clusters are made up of multiple Nodes that each must have a container runtime and Kubelet installed.
+1. `Kube Proxy`. Kube Proxy is used to forward requests from `Services` to `Pods`. Kube Proxy has intelligent forwarding logic that ensures that communication works in an intelligent way with low overhead. For example, if a request is made from a Pod, the Service component (through Kube Proxy) will intelligently direct that request to a Pod on the same Node as opposed to a Pod on a random Node (this approach reduces the cross-node network overhead).
 
 ### Master Nodes
 
 > How do you schedule Pods, monitor Pods, re-schedule/restart Pods, and join Pods to new Nodes?
 
-Master Nodes have completely different processes than Worker Nodes. **Four processes  run on every master node (shown below).** A Kubernetes cluster is often made up of multiple Master Nodes where the `API Server` is load-balanced and the `etcd` component is a distributed storage element shared across all master nodes.
+Master Nodes have completely different processes than Worker Nodes. **Four processes  run on every Master Node (shown below).** A Kubernetes cluster is often made up of multiple Master Nodes where the `API Server` is load-balanced and the `etcd` component is a distributed storage element shared across all master nodes.
 
-Typically, Master Nodes (while important) require less resources than Worker Nodes. As an application grows and its complexity increases, you may (definitely will) add more master and worker node servers to your cluster. The process of setting up these new nodes/servers boil down to: get a new server, installed all the master/worker node processes, and then add it to the K8 cluster.
+Typically, Master Nodes (while important) require less resources than Worker Nodes. As an application grows and its complexity increases, you may (definitely will) add more master and worker node servers to your cluster. The process of setting up these new nodes/servers boil down to: get a new server, install all the master/worker node processes, and then add it to the K8 cluster.
 
 #### Master Node Components
 
-1.`API Server`. Used to deploy a new application in a K8 cluster, you would use some sort of client (K8 Dashboard, Kubelet CLI, K8 API, etc.) to interface with the `API Server`. In short, `API Server` is a "cluster gateway". It receives the initial request of any updates to the cluster or queries from the cluster. **Also serves as a gatekeeper for authentication.** Example: some request hits the `Api Server`, it validates the request, passes it to other processes, and then it's completed. It's good for security because it results in _one entrypoint_ into the cluster.
+> `etcd` = brain
+
+1. `API Server`. Used to deploy a new application in a K8 cluster, you would use some sort of client (K8 Dashboard, Kubelet CLI, K8 API, etc.) to interface with the `API Server`. In short, `API Server` is a "cluster gateway". It receives the initial request of any updates to the cluster or queries from the cluster. **Also serves as a gatekeeper for authentication.** Example: some request hits the `Api Server`, it validates the request, passes it to other processes, and then it's completed. It's good for security because it results in _one entrypoint_ into the cluster.
 1. `Scheduler`. After a request is validated by the `API Server` it is handed off to the `Scheduler` to actually start the process (like starting an application Pod) on a Worker Node. `Scheduler` is an intelligent service that knows which Worker Node(s) the next Pod/component should be scheduled to. In practice, `Scheduler` will look at the Worker Nodes and select whichever Node has the most resources available. `Scheduler` selects the suitable Node but the Node's **`Kubelet` handles the actual process of executing the request on the Node.** 
 1. `Controller Manager`. Detects state changes on a Cluster (like a Pod crashing). When a Pod dies, `Controller Manager` detects the change and tries to resolve it as fast as possible. In order to do that, `Controller Manager` makes a request to the `Scheduler` to reschedule those dead pods. At this point, `Scheduler` determines the best Nodes to restart the Pods and sends the requests to the appropriate Node's `Kubelet` component for execution.
-1. `etcd`. A key-value store of a cluster state (the clusters brain). Every change in the cluster (a new pod is schedules, a pod dies, etc.) gets recorded in the `etcd` component's key-value store. All of the other components in this list work off of the data contained within the `etcd` component. All cluster state information is stored within `etcd` and is used for master processes to communicate with work processes and vice-versa.
+1. `etcd`. A key-value store of a cluster's state (the clusters brain). Every change in the cluster (a new pod is scheduled, a pod dies, etc.) gets recorded in the `etcd` component's key-value store. All of the other components in this list work off of the data contained within the `etcd` component. All cluster state information is stored within `etcd` and is used for master processes to communicate with work processes and vice-versa.
 
 ## Review
 
